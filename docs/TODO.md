@@ -256,14 +256,19 @@
 
 ## Phase 14: Token-Efficiency Report
 
-- [ ] Implement `TokenEstimator`, `ContextBundleBuilder`
-- [ ] Measure B1/B2 vs G3 for tasks T1–T3
-- [ ] Record per-agent workflow token totals
-- [ ] Write `reports/token_efficiency/summary.md`
-- [ ] Explain if savings not achieved
-- [ ] Unit tests for estimator
+- [x] Implement `TokenEstimator` (ceil(chars/4), no external APIs)
+- [x] Implement `ContextBundleBuilder` and `TokenEfficiencyCollector`
+- [x] Build 8 context bundles (naive, graph-guided, agent-focused)
+- [x] Compare 3 task scenarios (detection, recommendation, comparison)
+- [x] CLI: `uv run ex04-agent token-report [--phase before|after]`
+- [x] SDK: `Ex04Sdk.run_token_report()`
+- [x] Write `reports/token_efficiency/token_efficiency.json` and `.md`
+- [x] Write `context_bundles.json`, `context_bundles.md`, `token_comparison.csv`
+- [x] Honest limitations documented (estimates, small repo, focus vs raw savings)
+- [x] Unit tests: estimator, bundles, comparator, report writer, CLI, missing files
+- [x] Phase 14 report: `reports/token_efficiency/phase14_token_efficiency_report.md`
 
-**Definition of done:** Token summary included in pipeline output.
+**Definition of done:** Token summary shows naive vs graph-guided comparison. Met.
 
 ---
 
@@ -319,8 +324,9 @@
 | 11 | Complete |
 | 12 | Complete |
 | 13 | Complete |
-| 14–15 | Not started |
+| 14 | Complete |
+| 15 | Not started |
 
-**Next action after approval:** Phase 14 — token-efficiency report.
+**Next action after approval:** Phase 15 — README and final submission packaging.
 
 

@@ -7,6 +7,7 @@ from typing import Any
 
 from ex04_agent.shared.config import AppConfig, load_config
 from ex04_agent.shared.version import VERSION
+from ex04_agent.token_efficiency.engine import TokenEfficiencyEngine
 from ex04_agent.workflow.graph import LangGraphWorkflow
 from ex04_agent.workflow.result import PipelineResult
 
@@ -63,3 +64,12 @@ class Ex04Sdk:
             msg = f"Invalid phase {phase!r}; expected 'before' or 'after'"
             raise ValueError(msg)
         return self._workflow.run(phase=phase, dry_run=dry_run)
+
+    def run_token_report(self, *, phase: str = "before"):
+        """Generate deterministic token-efficiency report."""
+        if phase not in {"before", "after"}:
+            msg = f"Invalid phase {phase!r}; expected 'before' or 'after'"
+            raise ValueError(msg)
+        engine = TokenEfficiencyEngine(self._config)
+        result = engine.run(phase=phase)
+        return engine.summary(result)

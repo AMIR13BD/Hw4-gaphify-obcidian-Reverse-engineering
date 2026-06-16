@@ -97,3 +97,13 @@ def run_pipeline(args: argparse.Namespace) -> int:
 
     result = run_guarded(_run)
     return result if isinstance(result, int) else 0
+
+
+def run_token_report(args: argparse.Namespace) -> int:
+    def _run() -> int:
+        summary = Ex04Sdk().run_token_report(phase=args.phase)
+        print(json.dumps(summary.to_dict(), indent=2))
+        return 0
+
+    result = run_guarded(_run)
+    return result if isinstance(result, int) else 0

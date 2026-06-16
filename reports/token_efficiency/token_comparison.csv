@@ -1,0 +1,4 @@
+scenario,baseline_tokens,graph_guided_tokens,tokens_saved,percent_saved
+architecture_detection,81546,8369,73177,89.74
+recommendation_generation,81546,9422,72124,88.45
+before_after_comparison,48440,24777,23663,48.85

@@ -16,6 +16,7 @@ from ex04_agent.cli.handlers_workflow import (
     run_pipeline,
     run_recommend,
     run_test,
+    run_token_report,
 )
 
 __all__ = (
@@ -30,4 +31,5 @@ __all__ = (
     "run_pipeline",
     "run_recommend",
     "run_test",
+    "run_token_report",
 )

@@ -1,0 +1,740 @@
+{
+  "estimation_method": "estimated_tokens = ceil(character_count / 4)",
+  "phase": "before",
+  "bundles": [
+    {
+      "name": "naive_full_context",
+      "description": "All target .py and .md files",
+      "file_count": 7,
+      "total_characters": 11594,
+      "total_tokens": 2900,
+      "files": [
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\README.md",
+          "characters": 119,
+          "estimated_tokens": 30
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\README.md",
+          "characters": 1300,
+          "estimated_tokens": 325
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step1.py",
+          "characters": 3005,
+          "estimated_tokens": 752
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step2.py",
+          "characters": 1782,
+          "estimated_tokens": 446
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step3.py",
+          "characters": 1908,
+          "estimated_tokens": 477
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz.py",
+          "characters": 1568,
+          "estimated_tokens": 392
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\polygons\\polygons.py",
+          "characters": 1912,
+          "estimated_tokens": 478
+        }
+      ]
+    },
+    {
+      "name": "naive_source_only",
+      "description": "All target .py files",
+      "file_count": 5,
+      "total_characters": 10175,
+      "total_tokens": 2545,
+      "files": [
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step1.py",
+          "characters": 3005,
+          "estimated_tokens": 752
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step2.py",
+          "characters": 1782,
+          "estimated_tokens": 446
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step3.py",
+          "characters": 1908,
+          "estimated_tokens": 477
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz.py",
+          "characters": 1568,
+          "estimated_tokens": 392
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\polygons\\polygons.py",
+          "characters": 1912,
+          "estimated_tokens": 478
+        }
+      ]
+    },
+    {
+      "name": "naive_evidence_dump",
+      "description": "Raw graphs + architecture/comparison/test reports",
+      "file_count": 41,
+      "total_characters": 314519,
+      "total_tokens": 78646,
+      "files": [
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\after\\graph.json",
+          "characters": 13134,
+          "estimated_tokens": 3284
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\before\\graph.json",
+          "characters": 13624,
+          "estimated_tokens": 3406
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings.json",
+          "characters": 11865,
+          "estimated_tokens": 2967
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.json",
+          "characters": 11864,
+          "estimated_tokens": 2966
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.md",
+          "characters": 7484,
+          "estimated_tokens": 1871
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_before.json",
+          "characters": 26205,
+          "estimated_tokens": 6552
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_before.md",
+          "characters": 15905,
+          "estimated_tokens": 3977
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_after.json",
+          "characters": 14760,
+          "estimated_tokens": 3690
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_before.json",
+          "characters": 15053,
+          "estimated_tokens": 3764
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan.json",
+          "characters": 22579,
+          "estimated_tokens": 5645
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_after.json",
+          "characters": 9219,
+          "estimated_tokens": 2305
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_after.md",
+          "characters": 1918,
+          "estimated_tokens": 480
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_before.json",
+          "characters": 22579,
+          "estimated_tokens": 5645
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_before.md",
+          "characters": 4559,
+          "estimated_tokens": 1140
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_result.json",
+          "characters": 669,
+          "estimated_tokens": 168
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_result_before.json",
+          "characters": 669,
+          "estimated_tokens": 168
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_result_before.md",
+          "characters": 170,
+          "estimated_tokens": 43
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase10_safe_patch_report.md",
+          "characters": 4827,
+          "estimated_tokens": 1207
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase1_environment_report.md",
+          "characters": 4880,
+          "estimated_tokens": 1220
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase4_graph_parser_report.md",
+          "characters": 4480,
+          "estimated_tokens": 1120
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase8_architecture_detection_report.md",
+          "characters": 5278,
+          "estimated_tokens": 1320
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase9_recommendation_report.md",
+          "characters": 3418,
+          "estimated_tokens": 855
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations.json",
+          "characters": 19258,
+          "estimated_tokens": 4815
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_after.json",
+          "characters": 8497,
+          "estimated_tokens": 2125
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_after.md",
+          "characters": 2866,
+          "estimated_tokens": 717
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_before.json",
+          "characters": 19258,
+          "estimated_tokens": 4815
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_before.md",
+          "characters": 6362,
+          "estimated_tokens": 1591
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\repo_metadata.json",
+          "characters": 2239,
+          "estimated_tokens": 560
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\story_after.md",
+          "characters": 1274,
+          "estimated_tokens": 319
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\story_before.md",
+          "characters": 1298,
+          "estimated_tokens": 325
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.json",
+          "characters": 6139,
+          "estimated_tokens": 1535
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.md",
+          "characters": 4153,
+          "estimated_tokens": 1039
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\comparison.json",
+          "characters": 6139,
+          "estimated_tokens": 1535
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\comparison.md",
+          "characters": 4153,
+          "estimated_tokens": 1039
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\phase13_comparison_report.md",
+          "characters": 3194,
+          "estimated_tokens": 799
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\phase11_regression_test_report.md",
+          "characters": 4858,
+          "estimated_tokens": 1215
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression.json",
+          "characters": 2788,
+          "estimated_tokens": 697
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_after.json",
+          "characters": 2822,
+          "estimated_tokens": 706
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_after.md",
+          "characters": 675,
+          "estimated_tokens": 169
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_before.json",
+          "characters": 2788,
+          "estimated_tokens": 697
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_before.md",
+          "characters": 619,
+          "estimated_tokens": 155
+        }
+      ]
+    },
+    {
+      "name": "graph_guided_minimal",
+      "description": "Obsidian index/hot + top node pages + metrics",
+      "file_count": 8,
+      "total_characters": 26556,
+      "total_tokens": 6643,
+      "files": [
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\hot.md",
+          "characters": 3962,
+          "estimated_tokens": 991
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\index.md",
+          "characters": 2833,
+          "estimated_tokens": 709
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\mathsquiz_mathsquiz_step2.md",
+          "characters": 898,
+          "estimated_tokens": 225
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\mathsquiz_mathsquiz_step3.md",
+          "characters": 898,
+          "estimated_tokens": 225
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\mathsquiz_readme_maths_quiz.md",
+          "characters": 882,
+          "estimated_tokens": 221
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\polygons_polygons.md",
+          "characters": 1206,
+          "estimated_tokens": 302
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\polygons_polygons_polygon.md",
+          "characters": 824,
+          "estimated_tokens": 206
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_before.json",
+          "characters": 15053,
+          "estimated_tokens": 3764
+        }
+      ]
+    },
+    {
+      "name": "graph_guided_after",
+      "description": "After metrics/findings/recommendations + comparison md",
+      "file_count": 4,
+      "total_characters": 39274,
+      "total_tokens": 9820,
+      "files": [
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.json",
+          "characters": 11864,
+          "estimated_tokens": 2966
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_after.json",
+          "characters": 14760,
+          "estimated_tokens": 3690
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_after.json",
+          "characters": 8497,
+          "estimated_tokens": 2125
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.md",
+          "characters": 4153,
+          "estimated_tokens": 1039
+        }
+      ]
+    },
+    {
+      "name": "agent_detection",
+      "description": "Metrics + hot.md + hub sources for detection",
+      "file_count": 12,
+      "total_characters": 33458,
+      "total_tokens": 8369,
+      "files": [
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\README.md",
+          "characters": 1300,
+          "estimated_tokens": 325
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step2.py",
+          "characters": 1782,
+          "estimated_tokens": 446
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step3.py",
+          "characters": 1908,
+          "estimated_tokens": 477
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\polygons\\polygons.py",
+          "characters": 1912,
+          "estimated_tokens": 478
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\hot.md",
+          "characters": 3962,
+          "estimated_tokens": 991
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\index.md",
+          "characters": 2833,
+          "estimated_tokens": 709
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\mathsquiz_mathsquiz_step2.md",
+          "characters": 898,
+          "estimated_tokens": 225
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\mathsquiz_mathsquiz_step3.md",
+          "characters": 898,
+          "estimated_tokens": 225
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\mathsquiz_readme_maths_quiz.md",
+          "characters": 882,
+          "estimated_tokens": 221
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\polygons_polygons.md",
+          "characters": 1206,
+          "estimated_tokens": 302
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\polygons_polygons_polygon.md",
+          "characters": 824,
+          "estimated_tokens": 206
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_before.json",
+          "characters": 15053,
+          "estimated_tokens": 3764
+        }
+      ]
+    },
+    {
+      "name": "agent_recommendation",
+      "description": "Findings JSON + affected source files",
+      "file_count": 7,
+      "total_characters": 37680,
+      "total_tokens": 9422,
+      "files": [
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\README.md",
+          "characters": 1300,
+          "estimated_tokens": 325
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step1.py",
+          "characters": 3005,
+          "estimated_tokens": 752
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step2.py",
+          "characters": 1782,
+          "estimated_tokens": 446
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step3.py",
+          "characters": 1908,
+          "estimated_tokens": 477
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz.py",
+          "characters": 1568,
+          "estimated_tokens": 392
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\polygons\\polygons.py",
+          "characters": 1912,
+          "estimated_tokens": 478
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_before.json",
+          "characters": 26205,
+          "estimated_tokens": 6552
+        }
+      ]
+    },
+    {
+      "name": "agent_comparison",
+      "description": "Phase-specific before/after metrics/findings/recs + patch/regression",
+      "file_count": 8,
+      "total_characters": 99094,
+      "total_tokens": 24777,
+      "files": [
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.json",
+          "characters": 11864,
+          "estimated_tokens": 2966
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_before.json",
+          "characters": 26205,
+          "estimated_tokens": 6552
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_after.json",
+          "characters": 14760,
+          "estimated_tokens": 3690
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_before.json",
+          "characters": 15053,
+          "estimated_tokens": 3764
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_result_before.json",
+          "characters": 669,
+          "estimated_tokens": 168
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_after.json",
+          "characters": 8497,
+          "estimated_tokens": 2125
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_before.json",
+          "characters": 19258,
+          "estimated_tokens": 4815
+        },
+        {
+          "path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_before.json",
+          "characters": 2788,
+          "estimated_tokens": 697
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "architecture_detection",
+      "task": "T1: Architecture detection",
+      "baseline_tokens": 81546,
+      "graph_guided_tokens": 8369,
+      "tokens_saved": 73177,
+      "percent_saved": 89.74,
+      "baseline_files": [
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\after\\graph.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\before\\graph.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\README.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\README.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step1.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step2.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step3.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\polygons\\polygons.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_result.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_result_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_result_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase10_safe_patch_report.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase1_environment_report.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase4_graph_parser_report.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase8_architecture_detection_report.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase9_recommendation_report.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\repo_metadata.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\story_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\story_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\comparison.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\comparison.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\phase13_comparison_report.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\phase11_regression_test_report.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_before.md"
+      ],
+      "graph_guided_files": [
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\README.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step2.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step3.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\polygons\\polygons.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\hot.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\index.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\mathsquiz_mathsquiz_step2.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\mathsquiz_mathsquiz_step3.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\mathsquiz_readme_maths_quiz.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\polygons_polygons.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\nodes\\polygons_polygons_polygon.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_before.json"
+      ],
+      "quality_note": "Preserves hub metrics, hot.md ranking, and top hub source files.",
+      "risk_note": "May miss findings in low-centrality files not linked in graph."
+    },
+    {
+      "name": "recommendation_generation",
+      "task": "T2: Recommendation generation",
+      "baseline_tokens": 81546,
+      "graph_guided_tokens": 9422,
+      "tokens_saved": 72124,
+      "percent_saved": 88.45,
+      "baseline_files": [
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\after\\graph.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\before\\graph.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\README.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\README.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step1.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step2.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step3.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\polygons\\polygons.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_result.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_result_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_result_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase10_safe_patch_report.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase1_environment_report.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase4_graph_parser_report.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase8_architecture_detection_report.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\phase9_recommendation_report.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\repo_metadata.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\story_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\story_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\comparison.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\comparison.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\phase13_comparison_report.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\phase11_regression_test_report.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_before.md"
+      ],
+      "graph_guided_files": [
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\README.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step1.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step2.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step3.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\polygons\\polygons.py",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_before.json"
+      ],
+      "quality_note": "Preserves structured findings and directly affected source paths.",
+      "risk_note": "Cross-file refactor context may be incomplete without full repo scan."
+    },
+    {
+      "name": "before_after_comparison",
+      "task": "T3: Before/after comparison",
+      "baseline_tokens": 48440,
+      "graph_guided_tokens": 24777,
+      "tokens_saved": 23663,
+      "percent_saved": 48.85,
+      "baseline_files": [
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_result_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_result_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\story_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\story_before.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\comparison.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\comparison.md",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\phase13_comparison_report.md"
+      ],
+      "graph_guided_files": [
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_result_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_after.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_before.json",
+        "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_before.json"
+      ],
+      "quality_note": "Preserves phase-specific metrics, findings, recommendations, patch and regression evidence.",
+      "risk_note": "Omits narrative story markdown and duplicate latest copies."
+    }
+  ],
+  "total_baseline_tokens": 211532,
+  "total_graph_guided_tokens": 42568,
+  "total_tokens_saved": 168964,
+  "percent_saved": 79.88,
+  "output_paths": {},
+  "limitations": [
+    "Estimates only \u2014 not provider billing or tokenizer-accurate counts.",
+    "Small teaching repo \u2014 raw graph/report dumps can exceed source-only context.",
+    "Token efficiency is more meaningful on larger repositories.",
+    "Primary benefit here may be focus and traceability, not only raw token reduction.",
+    "No real provider token logs were available for this phase."
+  ]
+}

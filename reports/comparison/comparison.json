@@ -1,0 +1,187 @@
+{
+  "before_phase": "before",
+  "after_phase": "after",
+  "metrics_delta": [
+    {
+      "name": "node_count",
+      "before": 26.0,
+      "after": 25.0,
+      "delta": -1.0,
+      "note": "The graph became slightly smaller after patching."
+    },
+    {
+      "name": "link_count",
+      "before": 20.0,
+      "after": 19.0,
+      "delta": -1.0,
+      "note": "This supports that one invalid/obsolete relation may have been removed."
+    },
+    {
+      "name": "connected_component_count",
+      "before": 7.0,
+      "after": 7.0,
+      "delta": 0.0,
+      "note": "Component count unchanged or shifted."
+    },
+    {
+      "name": "community_count",
+      "before": 8.0,
+      "after": 7.0,
+      "delta": -1.0,
+      "note": "Community structure may shift after code changes."
+    },
+    {
+      "name": "low_confidence_link_count",
+      "before": 0.0,
+      "after": 0.0,
+      "delta": 0.0,
+      "note": "Low-confidence links are graph evidence only."
+    }
+  ],
+  "findings_delta": {
+    "before_count": 19,
+    "after_count": 8,
+    "resolved_or_removed": [
+      "Syntax blocker in mathsquiz/mathsquiz.py",
+      "Syntax blocker in polygons/polygons.py",
+      "Possible hidden global `score` in print_final_scores()",
+      "Possible hidden global `score` in print_final_scores()",
+      "Top-level side effects in mathsquiz/mathsquiz-step2.py",
+      "Top-level side effects in polygons/polygons.py"
+    ],
+    "remaining": [
+      "Multiple disconnected graph components",
+      "Multiple mathsquiz evolution versions coexist",
+      "Possible code hub candidate: mathsquiz-step2.py",
+      "Possible code hub candidate: mathsquiz-step3.py",
+      "Documentation/knowledge hub candidate: Maths Quiz",
+      "Possible code hub candidate: polygons.py",
+      "Possible code hub candidate: Polygon",
+      "Candidate mixed responsibilities in polygons.py"
+    ],
+    "category_before": {
+      "code_health_blocker": 2,
+      "documentation_hub": 1,
+      "hidden_global_state": 7,
+      "import_script_mixing": 2,
+      "mixed_responsibility": 1,
+      "navigation_scope": 1,
+      "organization": 1,
+      "possible_hub": 4
+    },
+    "category_after": {
+      "documentation_hub": 1,
+      "mixed_responsibility": 1,
+      "navigation_scope": 1,
+      "organization": 1,
+      "possible_hub": 4
+    },
+    "severity_before": {
+      "high": 3,
+      "low": 2,
+      "medium": 14
+    },
+    "severity_after": {
+      "high": 1,
+      "low": 2,
+      "medium": 5
+    },
+    "code_health_before": 2,
+    "code_health_after": 0
+  },
+  "recommendations_delta": {
+    "before_count": 19,
+    "after_count": 8,
+    "action_before": {
+      "docs_only": 3,
+      "review_required": 16
+    },
+    "action_after": {
+      "docs_only": 3,
+      "review_required": 5
+    },
+    "priority_before": {
+      "critical": 2,
+      "high": 3,
+      "low": 3,
+      "medium": 11
+    },
+    "priority_after": {
+      "high": 1,
+      "low": 3,
+      "medium": 4
+    },
+    "patchable_before": 11,
+    "patchable_after": 0
+  },
+  "graph_delta": {
+    "top_hubs_before": [
+      "polygons.py",
+      "Maths Quiz",
+      "Polygon",
+      "mathsquiz-step2.py",
+      "mathsquiz-step3.py",
+      "calc_polygon_details()"
+    ],
+    "top_hubs_after": [
+      "polygons.py",
+      "Maths Quiz",
+      "mathsquiz-step2.py",
+      "mathsquiz-step3.py",
+      "Polygon",
+      "calc_polygon_details()"
+    ],
+    "god_nodes_before": [
+      "mathsquiz-step2.py",
+      "mathsquiz-step3.py",
+      "polygons.py",
+      "Polygon",
+      "Maths Quiz"
+    ],
+    "god_nodes_after": [
+      "mathsquiz-step2.py",
+      "mathsquiz-step3.py",
+      "polygons.py",
+      "Polygon",
+      "Maths Quiz"
+    ],
+    "removed_nodes": [
+      "object"
+    ],
+    "degree_changes": [
+      {
+        "id": "polygons_polygons_polygon",
+        "label": "Polygon",
+        "before_degree": 4,
+        "after_degree": 3
+      }
+    ],
+    "story_summary": "Before: graph story described pre-patch connectivity and hub candidates. After: graph story reflects patched code structure. Safe Phase 10 patches changed syntax/globals/main guards; graph metrics shifted accordingly. Architecture improvement must be interpreted together with findings and tests."
+  },
+  "improvement_summary": [
+    "Execution/syntax blockers reduced after Phase 10 safe patches.",
+    "Finding count decreased from 19 to 8; many pre-patch issues no longer detected on patched code.",
+    "The graph became slightly smaller after patching; this may reflect removal of invalid syntax-related structure."
+  ],
+  "remaining_risks": [
+    "1 mixed-responsibility finding(s) remain (deferred from Phase 10).",
+    "3 documentation/navigation finding(s) remain by design.",
+    "Target repository has no dedicated test suite.",
+    "Graph metrics are evidence; validate conclusions in source."
+  ],
+  "evidence_paths": {
+    "metrics_before": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_before.json",
+    "findings_before": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_before.json",
+    "recommendations_before": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_before.json",
+    "metrics_after": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_after.json",
+    "findings_after": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.json",
+    "recommendations_after": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_after.json",
+    "patch_result": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_result_before.json",
+    "patch_diffs": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\patches\\before\\diffs",
+    "regression": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_before.json"
+  },
+  "output_paths": {
+    "json": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.json",
+    "md": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.md"
+  }
+}

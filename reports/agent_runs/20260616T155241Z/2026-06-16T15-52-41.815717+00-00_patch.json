@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-06-16T15:52:41.815717+00:00",
+  "agent": "patch",
+  "status": "skipped",
+  "inputs": {
+    "dry_run": true,
+    "allow_patches": false
+  },
+  "outputs": {
+    "message": "Patching disabled in dry-run and planned for Phase 10."
+  },
+  "errors": []
+}

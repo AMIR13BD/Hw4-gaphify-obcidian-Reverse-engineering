@@ -1,6 +1,6 @@
 # Graph Summary Report
 
-**Phase:** `after` · **Repository:** `broken-python`
+**Phase:** `before` · **Repository:** `broken-python`
 
 ## Metrics Overview
 

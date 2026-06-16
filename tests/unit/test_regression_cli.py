@@ -21,7 +21,7 @@ def test_cli_test_rejects_invalid_phase() -> None:
 def test_cli_test_prints_summary(monkeypatch, capsys) -> None:
     mock_result = make_regression_result()
     monkeypatch.setattr(
-        "ex04_agent.agents.test_runner.TestRunnerAgent",
+        "ex04_agent.cli.handlers_workflow.TestRunnerAgent",
         lambda *a, **kw: MagicMock(run=MagicMock(return_value=mock_result)),
     )
     code = main(["test", "--phase", "before"])

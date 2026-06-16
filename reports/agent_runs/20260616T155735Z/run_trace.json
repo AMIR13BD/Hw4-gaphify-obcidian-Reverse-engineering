@@ -1,0 +1,171 @@
+{
+  "run_id": "20260616T155735Z",
+  "entries": [
+    {
+      "timestamp": "2026-06-16T15:57:35.196006+00:00",
+      "agent": "repository_setup",
+      "status": "completed",
+      "inputs": {
+        "phase": "after"
+      },
+      "outputs": {
+        "target_repo_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python",
+        "status": "ready"
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:57:35.197422+00:00",
+      "agent": "graphify_runner",
+      "status": "skipped",
+      "inputs": {
+        "phase": "after",
+        "dry_run": true
+      },
+      "outputs": {
+        "message": "Comparison-only after dry-run; existing before/after artifacts preserved (no graphify/detect/recommend regeneration)."
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:57:35.200912+00:00",
+      "agent": "graph_parser",
+      "status": "skipped",
+      "inputs": {
+        "phase": "after",
+        "dry_run": true
+      },
+      "outputs": {
+        "message": "Comparison-only after dry-run; existing before/after artifacts preserved (no graphify/detect/recommend regeneration)."
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:57:35.202319+00:00",
+      "agent": "obsidian_vault",
+      "status": "skipped",
+      "inputs": {
+        "phase": "after",
+        "dry_run": true
+      },
+      "outputs": {
+        "message": "Comparison-only after dry-run; existing before/after artifacts preserved (no graphify/detect/recommend regeneration)."
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:57:35.203739+00:00",
+      "agent": "dynamic_hotmd",
+      "status": "skipped",
+      "inputs": {
+        "phase": "after",
+        "dry_run": true
+      },
+      "outputs": {
+        "message": "Comparison-only after dry-run; existing before/after artifacts preserved (no graphify/detect/recommend regeneration)."
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:57:35.205039+00:00",
+      "agent": "graph_interpreter",
+      "status": "skipped",
+      "inputs": {
+        "phase": "after",
+        "dry_run": true
+      },
+      "outputs": {
+        "message": "Comparison-only after dry-run; existing before/after artifacts preserved (no graphify/detect/recommend regeneration)."
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:57:35.206117+00:00",
+      "agent": "architecture_bug",
+      "status": "skipped",
+      "inputs": {
+        "phase": "after",
+        "dry_run": true
+      },
+      "outputs": {
+        "message": "Comparison-only after dry-run; existing before/after artifacts preserved (no graphify/detect/recommend regeneration)."
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:57:35.207114+00:00",
+      "agent": "recommendation",
+      "status": "skipped",
+      "inputs": {
+        "phase": "after",
+        "dry_run": true
+      },
+      "outputs": {
+        "message": "Comparison-only after dry-run; existing before/after artifacts preserved (no graphify/detect/recommend regeneration)."
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:57:35.208186+00:00",
+      "agent": "patch",
+      "status": "skipped",
+      "inputs": {
+        "phase": "after",
+        "dry_run": true
+      },
+      "outputs": {
+        "message": "Comparison-only after dry-run; existing before/after artifacts preserved (no graphify/detect/recommend regeneration)."
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:57:35.209638+00:00",
+      "agent": "test_runner",
+      "status": "skipped",
+      "inputs": {
+        "phase": "after",
+        "dry_run": true
+      },
+      "outputs": {
+        "message": "Comparison-only after dry-run; existing before/after artifacts preserved (no graphify/detect/recommend regeneration)."
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:57:35.216749+00:00",
+      "agent": "comparison_report",
+      "status": "completed",
+      "inputs": {
+        "phase": "after"
+      },
+      "outputs": {
+        "before_nodes": 26,
+        "after_nodes": 25,
+        "before_findings": 19,
+        "after_findings": 8,
+        "before_recommendations": 19,
+        "after_recommendations": 8,
+        "resolved_or_removed_findings_count": 6,
+        "remaining_findings_count": 8,
+        "output_paths": {
+          "json": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.json",
+          "md": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.md"
+        }
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:57:35.217753+00:00",
+      "agent": "supervisor",
+      "status": "completed",
+      "inputs": {
+        "iteration": 1,
+        "errors": []
+      },
+      "outputs": {
+        "stop_reason": "dry_run_completed"
+      },
+      "errors": []
+    }
+  ]
+}

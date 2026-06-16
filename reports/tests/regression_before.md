@@ -8,7 +8,7 @@
 | AST parse | `passed` |
 | Safe import | `skipped` |
 | Target repo tests | `skipped` |
-| Project pytest | `passed` |
+| Project pytest | `failed` |
 | Coverage | `passed` |
 | Ruff | `passed` |
 
@@ -27,6 +27,6 @@
 
 ## Commands Run
 
-- `pytest`: passed (3.12s)
-- `coverage`: passed (4.41s)
-- `ruff`: passed (0.07s)
+- `pytest`: failed (11118.45s)
+- `coverage`: passed (8.55s)
+- `ruff`: passed (0.13s)

@@ -48,7 +48,7 @@ def test_cli_graphify_success(monkeypatch, capsys) -> None:
             assert phase == "before"
             return _sample_result()
 
-    monkeypatch.setattr("ex04_agent.cli.handlers.GraphifyRunnerAgent", FakeAgent)
+    monkeypatch.setattr("ex04_agent.cli.handlers_graph.GraphifyRunnerAgent", FakeAgent)
     code = main(["graphify", "--phase", "before"])
     payload = json.loads(capsys.readouterr().out)
 
@@ -64,7 +64,7 @@ def test_cli_graphify_failure(monkeypatch, capsys) -> None:
         def run(self, phase: str) -> GraphifyRunResult:
             return replace(_sample_result(success=False), return_code=2)
 
-    monkeypatch.setattr("ex04_agent.cli.handlers.GraphifyRunnerAgent", FakeAgent)
+    monkeypatch.setattr("ex04_agent.cli.handlers_graph.GraphifyRunnerAgent", FakeAgent)
     code = main(["graphify"])
     captured = capsys.readouterr()
 

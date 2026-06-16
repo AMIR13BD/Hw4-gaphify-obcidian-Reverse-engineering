@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-06-16T15:52:07.630074+00:00",
+  "agent": "comparison_report",
+  "status": "completed",
+  "inputs": {
+    "phase": "after"
+  },
+  "outputs": {
+    "before_nodes": 26,
+    "after_nodes": 25,
+    "before_findings": 19,
+    "after_findings": 8,
+    "before_recommendations": 19,
+    "after_recommendations": 8,
+    "resolved_or_removed_findings_count": 6,
+    "remaining_findings_count": 8,
+    "output_paths": {
+      "json": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.json",
+      "md": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\comparison\\before_after.md"
+    }
+  },
+  "errors": []
+}

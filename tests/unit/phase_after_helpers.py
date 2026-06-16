@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 
@@ -22,3 +23,23 @@ def setup_after_project(tmp_path: Path, monkeypatch) -> Path:
         (out / name).write_text("{}" if name.endswith(".json") else "# x", encoding="utf-8")
     monkeypatch.setattr("ex04_agent.shared.config.find_project_root", lambda start=None: project_root)
     return project_root
+
+
+def write_comparison_arch(root: Path) -> None:
+    for phase, nodes, findings in (("before", 26, 19), ("after", 25, 8)):
+        arch = root / "reports" / "architecture"
+        arch.mkdir(parents=True, exist_ok=True)
+        (arch / f"metrics_{phase}.json").write_text(json.dumps({
+            "summary": {"node_count": nodes, "link_count": nodes - 6,
+                        "connected_component_count": 7, "low_confidence_link_count": 0, "nodes": []},
+            "top_hubs": [{"label": "hub.py", "id": "h"}], "potential_god_nodes": [],
+            "communities": {"1": 3},
+        }), encoding="utf-8")
+        (arch / f"findings_{phase}.json").write_text(json.dumps({
+            "findings": [{"id": f"f{i}_{phase}", "title": f"F{i}", "category": "possible_hub",
+                          "severity": "medium", "affected_files": []} for i in range(findings)],
+        }), encoding="utf-8")
+        (arch / f"recommendations_{phase}.json").write_text(json.dumps({
+            "recommendations": [{"action_type": "review_required", "priority": "medium",
+                                 "phase10_patchable": False} for _ in range(findings)],
+        }), encoding="utf-8")

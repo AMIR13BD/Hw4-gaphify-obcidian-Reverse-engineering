@@ -238,14 +238,19 @@
 
 ## Phase 13: Before/After Comparison
 
-- [ ] Implement `ComparisonService` (metrics delta)
-- [ ] Implement `ComparisonReportAgent`
-- [ ] Write `reports/comparison/before_after.md`
-- [ ] Include graph story delta
-- [ ] Include hot.md rank changes
-- [ ] Placeholder paths for screenshots (`assets/`)
+- [x] Implement `ComparisonService` / comparison module (metrics, findings, recommendations, graph deltas)
+- [x] Implement `ComparisonReportAgent` wired to comparison engine
+- [x] CLI: `uv run ex04-agent compare [--before before] [--after after]`
+- [x] Pipeline: `comparison_report` completes on after dry-run; skips on before-only
+- [x] Write `reports/comparison/before_after.json` and `.md`
+- [x] Include graph story delta and patch/regression evidence paths
+- [x] Placeholder paths for screenshots (`assets/` noted in report)
+- [x] Comparison read-only: compare writes only to `reports/comparison/`
+- [x] Comparison-only after dry-run skips artifact regeneration when before/after exist
+- [x] Restored frozen before artifacts (26/20, 19 findings, 19 recommendations) from Phase 12
+- [x] Read-only tests: compare and pipeline after do not modify before architecture files
 
-**Definition of done:** Comparison report shows measurable before/after table.
+**Definition of done:** Comparison report shows measurable before/after table. Met.
 
 ---
 
@@ -313,8 +318,9 @@
 | 10 | Complete |
 | 11 | Complete |
 | 12 | Complete |
-| 13–15 | Not started |
+| 13 | Complete |
+| 14–15 | Not started |
 
-**Next action after approval:** Phase 13 — before/after comparison.
+**Next action after approval:** Phase 14 — token-efficiency report.
 
 

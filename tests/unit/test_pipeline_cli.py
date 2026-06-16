@@ -41,11 +41,13 @@ def test_cli_pipeline_dry_run(monkeypatch, capsys) -> None:
         patch_applied_count=0,
         regression_path="",
         regression_failed_files=(),
+        comparison_path="",
+        comparison={},
         trace_run_id="run1",
         errors=(),
     )
     monkeypatch.setattr(
-        "ex04_agent.cli.handlers.Ex04Sdk",
+        "ex04_agent.cli.handlers_workflow.Ex04Sdk",
         lambda: MagicMock(run_pipeline=MagicMock(return_value=mock_result)),
     )
     code = main(["pipeline", "--dry-run", "--phase", "before"])

@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 
 from ex04_agent.cli.handlers import (
+    run_compare,
     run_detect,
     run_graphify,
     run_health,
@@ -56,6 +57,10 @@ def build_parser() -> argparse.ArgumentParser:
     patch.add_argument("--allow-patches", action="store_true", default=False,
                        help="Actually modify target repo files (default: dry-run)")
     patch.set_defaults(func=run_patch)
+    compare = sp.add_parser("compare", help="Compare before/after architecture artifacts")
+    compare.add_argument("--before", default="before", choices=["before", "after"])
+    compare.add_argument("--after", default="after", choices=["before", "after"])
+    compare.set_defaults(func=run_compare)
     pipe = sp.add_parser("pipeline", help="Run LangGraph multi-agent pipeline")
     _add_phase(pipe)
     pipe.add_argument("--dry-run", action="store_true", default=True)

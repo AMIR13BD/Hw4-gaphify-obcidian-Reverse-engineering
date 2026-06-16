@@ -25,11 +25,12 @@ class PipelineState(TypedDict, total=False):
     patch_applied_count: int
     regression_path: str
     regression_failed_files: list[str]
+    comparison_path: str
+    comparison: dict[str, Any]
     findings: list[dict[str, Any]]
     recommendations: list[dict[str, Any]]
     applied_patches: list[dict[str, Any]]
     test_results: dict[str, Any]
-    comparison: dict[str, Any]
     iteration: int
     max_iterations: int
     errors: list[str]
@@ -61,11 +62,12 @@ def initial_state(config: AppConfig, *, phase: str, dry_run: bool) -> PipelineSt
         patch_applied_count=0,
         regression_path="",
         regression_failed_files=[],
+        comparison_path="",
+        comparison={},
         findings=[],
         recommendations=[],
         applied_patches=[],
         test_results={},
-        comparison={},
         iteration=1,
         max_iterations=config.max_iterations,
         errors=[],

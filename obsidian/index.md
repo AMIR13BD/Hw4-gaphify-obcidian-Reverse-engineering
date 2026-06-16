@@ -1,7 +1,7 @@
 # EX04 Graph Index
 
 - **Repository:** `broken-python` (`data/target_repo/broken-python`)
-- **Phase:** `after`
+- **Phase:** `before`
 
 ## Graph Summary
 

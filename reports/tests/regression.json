@@ -1,51 +1,51 @@
 {
-  "phase": "after",
+  "phase": "before",
   "target_repo_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python",
   "commands_run": [
     {
       "name": "pytest",
       "command": "uv run pytest",
       "cwd": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3",
-      "return_code": 0,
-      "stdout_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\after\\pytest_stdout.txt",
-      "stderr_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\after\\pytest_stderr.txt",
-      "status": "passed",
-      "duration_seconds": 3.72
+      "return_code": -1,
+      "stdout_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\before\\pytest_stdout.txt",
+      "stderr_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\before\\pytest_stderr.txt",
+      "status": "failed",
+      "duration_seconds": 11118.45
     },
     {
       "name": "coverage",
       "command": "uv run pytest --cov=src --cov-report=term-missing",
       "cwd": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3",
       "return_code": 0,
-      "stdout_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\after\\coverage_stdout.txt",
-      "stderr_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\after\\coverage_stderr.txt",
+      "stdout_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\before\\coverage_stdout.txt",
+      "stderr_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\before\\coverage_stderr.txt",
       "status": "passed",
-      "duration_seconds": 5.04
+      "duration_seconds": 8.55
     },
     {
       "name": "ruff",
       "command": "uv run ruff check",
       "cwd": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3",
       "return_code": 0,
-      "stdout_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\after\\ruff_stdout.txt",
-      "stderr_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\after\\ruff_stderr.txt",
+      "stdout_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\before\\ruff_stdout.txt",
+      "stderr_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\before\\ruff_stderr.txt",
       "status": "passed",
-      "duration_seconds": 0.08
+      "duration_seconds": 0.13
     }
   ],
   "compile_status": "passed",
   "ast_status": "passed",
   "import_status": "skipped",
   "target_test_status": "skipped",
-  "project_test_status": "passed",
+  "project_test_status": "failed",
   "coverage_status": "passed",
   "ruff_status": "passed",
   "failed_files": [],
   "passed_files": [
-    "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step3.py",
     "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz.py",
-    "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step2.py",
     "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\polygons\\polygons.py",
+    "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step2.py",
+    "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step3.py",
     "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step1.py"
   ],
   "skipped_checks": [
@@ -55,7 +55,7 @@
     "target repository has no dedicated test suite"
   ],
   "output_paths": {
-    "json": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_after.json",
-    "md": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_after.md"
+    "json": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_before.json",
+    "md": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\tests\\regression_before.md"
   }
 }

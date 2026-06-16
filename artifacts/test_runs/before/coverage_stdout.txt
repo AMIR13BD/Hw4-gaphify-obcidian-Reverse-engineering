@@ -4,40 +4,47 @@ rootdir: C:\Users\ameer\OneDrive\Desktop\Ai-wdefe3
 configfile: pyproject.toml
 testpaths: tests
 plugins: anyio-4.14.0, langsmith-0.8.16, cov-7.1.0
-collected 112 items
+collected 135 items
 
 tests\unit\test_agent_trace.py .                                         [  0%]
 tests\unit\test_cli.py .                                                 [  1%]
-tests\unit\test_config.py ..                                             [  3%]
-tests\unit\test_detect_cli.py ..                                         [  5%]
-tests\unit\test_detection_engine.py .                                    [  6%]
-tests\unit\test_detection_models.py .                                    [  7%]
-tests\unit\test_detection_scanner.py ........                            [ 14%]
-tests\unit\test_dynamic_hotmd.py ....                                    [ 17%]
-tests\unit\test_git_diff_reader.py ...                                   [ 20%]
-tests\unit\test_graph_collector.py ..                                    [ 22%]
-tests\unit\test_graph_parser.py ..........                               [ 31%]
-tests\unit\test_graphify_agent.py .                                      [ 32%]
-tests\unit\test_graphify_cli.py ...                                      [ 34%]
-tests\unit\test_graphify_runner.py ....                                  [ 38%]
-tests\unit\test_hotmd_cli.py ...                                         [ 41%]
-tests\unit\test_obsidian_cli.py ...                                      [ 43%]
-tests\unit\test_obsidian_vault.py .....                                  [ 48%]
-tests\unit\test_parse_cli.py ..                                          [ 50%]
+tests\unit\test_comparison_delta.py ....                                 [  4%]
+tests\unit\test_comparison_engine.py .....                               [  8%]
+tests\unit\test_comparison_pipeline.py .                                 [  8%]
+tests\unit\test_comparison_readonly.py ...                               [ 11%]
+tests\unit\test_config.py ..                                             [ 12%]
+tests\unit\test_detect_cli.py ..                                         [ 14%]
+tests\unit\test_detection_engine.py .                                    [ 14%]
+tests\unit\test_detection_models.py .                                    [ 15%]
+tests\unit\test_detection_scanner.py ........                            [ 21%]
+tests\unit\test_dynamic_hotmd.py ....                                    [ 24%]
+tests\unit\test_git_diff_reader.py ...                                   [ 26%]
+tests\unit\test_graph_collector.py ..                                    [ 28%]
+tests\unit\test_graph_parser.py ..........                               [ 35%]
+tests\unit\test_graphify_agent.py .                                      [ 36%]
+tests\unit\test_graphify_cli.py ...                                      [ 38%]
+tests\unit\test_graphify_runner.py ....                                  [ 41%]
+tests\unit\test_hotmd_cli.py ...                                         [ 43%]
+tests\unit\test_obsidian_cli.py ...                                      [ 45%]
+tests\unit\test_obsidian_vault.py .....                                  [ 49%]
+tests\unit\test_parse_cli.py ..                                          [ 51%]
 tests\unit\test_patching_engine.py .....                                 [ 54%]
 tests\unit\test_patching_models.py ..                                    [ 56%]
-tests\unit\test_patching_recipes.py ......                               [ 61%]
-tests\unit\test_patching_validator.py .......                            [ 67%]
-tests\unit\test_pipeline_agents.py ....                                  [ 71%]
-tests\unit\test_pipeline_cli.py ..                                       [ 73%]
-tests\unit\test_pipeline_state.py ..                                     [ 75%]
-tests\unit\test_recommend_cli.py ..                                      [ 76%]
-tests\unit\test_recommendation.py ......                                 [ 82%]
-tests\unit\test_regression_cli.py ...                                    [ 84%]
-tests\unit\test_regression_models.py ..                                  [ 86%]
-tests\unit\test_regression_pipeline.py .                                 [ 87%]
-tests\unit\test_regression_report_writer.py ..                           [ 89%]
-tests\unit\test_regression_validators.py ........                        [ 96%]
+tests\unit\test_patching_recipes.py ......                               [ 60%]
+tests\unit\test_patching_validator.py .......                            [ 65%]
+tests\unit\test_phase_after_paths.py .....                               [ 69%]
+tests\unit\test_phase_after_pipeline.py .                                [ 70%]
+tests\unit\test_phase_report_guard.py ....                               [ 73%]
+tests\unit\test_pipeline_agents.py ....                                  [ 76%]
+tests\unit\test_pipeline_cli.py ..                                       [ 77%]
+tests\unit\test_pipeline_state.py ..                                     [ 79%]
+tests\unit\test_recommend_cli.py ..                                      [ 80%]
+tests\unit\test_recommendation.py ......                                 [ 85%]
+tests\unit\test_regression_cli.py ...                                    [ 87%]
+tests\unit\test_regression_models.py ..                                  [ 88%]
+tests\unit\test_regression_pipeline.py .                                 [ 89%]
+tests\unit\test_regression_report_writer.py ..                           [ 91%]
+tests\unit\test_regression_validators.py ........                        [ 97%]
 tests\unit\test_sdk.py .                                                 [ 97%]
 tests\unit\test_version.py .                                             [ 98%]
 tests\unit\test_workflow_compile.py .                                    [ 99%]
@@ -52,10 +59,10 @@ src\ex04_agent\__init__.py                               3      0   100%
 src\ex04_agent\agent_trace\__init__.py                   2      0   100%
 src\ex04_agent\agent_trace\recorder.py                  35      0   100%
 src\ex04_agent\agents\__init__.py                       13      0   100%
-src\ex04_agent\agents\architecture_bug.py               25      6    76%   24, 47-51
+src\ex04_agent\agents\architecture_bug.py               25      5    80%   47-51
 src\ex04_agent\agents\base.py                           16      2    88%   38-39
-src\ex04_agent\agents\comparison_report.py              13      1    92%   18
-src\ex04_agent\agents\graph_interpreter.py              47      8    83%   22-23, 46-50, 53
+src\ex04_agent\agents\comparison_report.py              35      5    86%   54-58
+src\ex04_agent\agents\graph_interpreter.py              47      1    98%   53
 src\ex04_agent\agents\graph_parser.py                   37      2    95%   66-67
 src\ex04_agent\agents\graphify_runner.py                11      0   100%
 src\ex04_agent\agents\obsidian_vault.py                 30      1    97%   48
@@ -65,14 +72,25 @@ src\ex04_agent\agents\repository_setup.py               23      0   100%
 src\ex04_agent\agents\supervisor.py                     15      2    87%   18-19
 src\ex04_agent\agents\test_runner.py                    25      5    80%   48-52
 src\ex04_agent\cli\__init__.py                           0      0   100%
-src\ex04_agent\cli\handlers.py                          93     20    78%   23-25, 83-85, 94-96, 118-120, 130-132, 137-138, 141-143
-src\ex04_agent\cli\parser.py                            47      0   100%
+src\ex04_agent\cli\handler_io.py                        13      0   100%
+src\ex04_agent\cli\handlers.py                           4      0   100%
+src\ex04_agent\cli\handlers_graph.py                    44      3    93%   24-26
+src\ex04_agent\cli\handlers_workflow.py                 58      2    97%   91-92
+src\ex04_agent\cli\parser.py                            51      0   100%
+src\ex04_agent\comparison\__init__.py                    3      0   100%
+src\ex04_agent\comparison\engine.py                     74      7    91%   105, 113, 119, 128, 131, 134, 136
+src\ex04_agent\comparison\finding_delta.py              24      3    88%   14-16
+src\ex04_agent\comparison\loader.py                     60      1    98%   87
+src\ex04_agent\comparison\metrics_delta.py              33      5    85%   40-41, 59, 61, 63
+src\ex04_agent\comparison\model.py                      67      0   100%
+src\ex04_agent\comparison\recommendation_delta.py       13      0   100%
+src\ex04_agent\comparison\report_writer.py              40      1    98%   67
 src\ex04_agent\detection\__init__.py                     5      0   100%
 src\ex04_agent\detection\detectors.py                   19      0   100%
 src\ex04_agent\detection\detectors_graph.py             33      5    85%   12, 23-25, 74
-src\ex04_agent\detection\detectors_source.py            27      1    96%   14
+src\ex04_agent\detection\detectors_source.py            27      0   100%
 src\ex04_agent\detection\detectors_source_extra.py      18      0   100%
-src\ex04_agent\detection\engine.py                      47      3    94%   55, 77-78
+src\ex04_agent\detection\engine.py                      46      3    93%   58, 74-75
 src\ex04_agent\detection\finding.py                     38      0   100%
 src\ex04_agent\detection\report_writer.py               45      0   100%
 src\ex04_agent\detection\source_scanner.py              57      4    93%   49, 84-85, 89
@@ -83,10 +101,10 @@ src\ex04_agent\graph\__init__.py                         9      0   100%
 src\ex04_agent\graph\collector.py                       43      1    98%   66
 src\ex04_agent\graph\graphify_run_report.py             21      2    90%   17-18
 src\ex04_agent\graph\graphify_run_result.py             25      0   100%
-src\ex04_agent\graph\graphify_runner.py                 41      0   100%
+src\ex04_agent\graph\graphify_runner.py                 44      0   100%
 src\ex04_agent\graph\indexer.py                         49      0   100%
 src\ex04_agent\graph\metrics.py                         53      0   100%
-src\ex04_agent\graph\metrics_topology.py                56      2    96%   13, 61
+src\ex04_agent\graph\metrics_topology.py                56      1    98%   61
 src\ex04_agent\graph\models.py                          31      0   100%
 src\ex04_agent\graph\parser.py                          77     17    78%   31-32, 37-38, 40-41, 60-61, 80-81, 85-86, 114-115, 120, 123-124
 src\ex04_agent\graph\serializer.py                      19      0   100%
@@ -110,16 +128,17 @@ src\ex04_agent\patching\report_writer.py                43      5    88%   69, 7
 src\ex04_agent\patching\safe_patcher.py                 42      6    86%   45, 60, 70-71, 80-81
 src\ex04_agent\patching\validator.py                    23     12    48%   20-26, 31-35
 src\ex04_agent\recommendation\__init__.py                4      0   100%
-src\ex04_agent\recommendation\engine.py                 34      3    91%   25-26, 29
-src\ex04_agent\recommendation\mapper.py                 26      2    92%   37, 48
+src\ex04_agent\recommendation\engine.py                 35      3    91%   26-27, 30
+src\ex04_agent\recommendation\mapper.py                 26      0   100%
 src\ex04_agent\recommendation\model.py                  40      0   100%
-src\ex04_agent\recommendation\patch_plan.py             19      2    89%   19-20
+src\ex04_agent\recommendation\patch_plan.py             19      1    95%   20
 src\ex04_agent\recommendation\prioritizer.py            12      0   100%
 src\ex04_agent\recommendation\report_writer.py          60      0   100%
 src\ex04_agent\sdk\__init__.py                           2      0   100%
 src\ex04_agent\sdk\sdk.py                               35      5    86%   43, 62-65
 src\ex04_agent\shared\__init__.py                        3      0   100%
 src\ex04_agent\shared\config.py                         55      8    85%   49-50, 64-65, 81-82, 98-99
+src\ex04_agent\shared\phase_paths.py                    15      4    73%   11-12, 23-24
 src\ex04_agent\shared\version.py                         1      0   100%
 src\ex04_agent\testing\__init__.py                       4      0   100%
 src\ex04_agent\testing\command_runner.py                27     21    22%   21-48
@@ -130,12 +149,13 @@ src\ex04_agent\testing\report_writer.py                 36      4    89%   54-57
 src\ex04_agent\testing\result_parser.py                 38     18    53%   19-32, 37-39, 54
 src\ex04_agent\testing\validators.py                    50     24    52%   14-32, 63-70
 src\ex04_agent\workflow\__init__.py                      9      5    44%   16-21
+src\ex04_agent\workflow\comparison_mode.py              16      1    94%   37
 src\ex04_agent\workflow\graph.py                        29      0   100%
-src\ex04_agent\workflow\pipeline_nodes.py               44      0   100%
+src\ex04_agent\workflow\pipeline_nodes.py               53      0   100%
 src\ex04_agent\workflow\pipeline_steps.py               58     24    59%   30-38, 53-57, 78-82, 100-104
-src\ex04_agent\workflow\result.py                       34      0   100%
-src\ex04_agent\workflow\state.py                        48      0   100%
+src\ex04_agent\workflow\result.py                       36      0   100%
+src\ex04_agent\workflow\state.py                        49      0   100%
 ----------------------------------------------------------------------------------
-TOTAL                                                 2852    358    87%
-Required test coverage of 85.0% reached. Total coverage: 87.45%
-============================= 112 passed in 3.07s =============================
+TOTAL                                                 3264    356    89%
+Required test coverage of 85.0% reached. Total coverage: 89.09%
+============================= 135 passed in 6.48s =============================

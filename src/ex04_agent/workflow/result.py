@@ -30,6 +30,8 @@ class PipelineResult:
     patch_applied_count: int
     regression_path: str
     regression_failed_files: tuple[str, ...]
+    comparison_path: str
+    comparison: dict[str, Any]
     trace_run_id: str
     errors: tuple[str, ...]
 
@@ -60,6 +62,8 @@ class PipelineResult:
             patch_applied_count=int(state.get("patch_applied_count", 0)),
             regression_path=str(state.get("regression_path", "")),
             regression_failed_files=tuple(state.get("regression_failed_files", [])),
+            comparison_path=str(state.get("comparison_path", "")),
+            comparison=dict(state.get("comparison", {})),
             trace_run_id=str(state.get("trace_run_id", "")),
             errors=errors,
         )

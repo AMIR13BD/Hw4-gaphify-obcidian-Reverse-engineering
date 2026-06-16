@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-06-16T15:52:51.489690+00:00",
+  "agent": "comparison_report",
+  "status": "skipped",
+  "inputs": {
+    "phase": "before"
+  },
+  "outputs": {
+    "message": "Comparison requires after-phase pipeline; before-only run skipped."
+  },
+  "errors": []
+}

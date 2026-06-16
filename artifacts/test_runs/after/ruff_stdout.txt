@@ -1,1 +1,142 @@
-[1;32mAll checks passed![0m
+[1m[91mI001 [0m[[1m[96m*[0m] [1mImport block is un-sorted or un-formatted[0m
+  [1m[94m-->[0m src\ex04_agent\cli\parser.py:3:1
+   [1m[94m|[0m
+[1m[94m 1 |[0m   """CLI argument parser for ex04-agent."""
+[1m[94m 2 |[0m
+[1m[94m 3 |[0m [1m[91m/[0m from __future__ import annotations
+[1m[94m 4 |[0m [1m[91m|[0m
+[1m[94m 5 |[0m [1m[91m|[0m import argparse
+[1m[94m 6 |[0m [1m[91m|[0m
+[1m[94m 7 |[0m [1m[91m|[0m from ex04_agent.cli.handlers import (
+[1m[94m 8 |[0m [1m[91m|[0m     run_detect,
+[1m[94m 9 |[0m [1m[91m|[0m     run_graphify,
+[1m[94m10 |[0m [1m[91m|[0m     run_health,
+[1m[94m11 |[0m [1m[91m|[0m     run_hotmd,
+[1m[94m12 |[0m [1m[91m|[0m     run_obsidian,
+[1m[94m13 |[0m [1m[91m|[0m     run_parse,
+[1m[94m14 |[0m [1m[91m|[0m     run_patch,
+[1m[94m15 |[0m [1m[91m|[0m     run_pipeline,
+[1m[94m16 |[0m [1m[91m|[0m     run_recommend,
+[1m[94m17 |[0m [1m[91m|[0m     run_test,
+[1m[94m18 |[0m [1m[91m|[0m     run_compare,
+[1m[94m19 |[0m [1m[91m|[0m )
+   [1m[94m|[0m [1m[91m|_^[0m
+   [1m[94m|[0m
+[1m[96mhelp[0m: [1mOrganize imports[0m
+
+[1m[91mF401 [0m[[1m[96m*[0m] [1m`dataclasses.field` imported but unused[0m
+ [1m[94m-->[0m src\ex04_agent\comparison\model.py:5:44
+  [1m[94m|[0m
+[1m[94m3 |[0m from __future__ import annotations
+[1m[94m4 |[0m
+[1m[94m5 |[0m from dataclasses import asdict, dataclass, field
+  [1m[94m|[0m                                            [1m[91m^^^^^[0m
+[1m[94m6 |[0m from typing import Any
+  [1m[94m|[0m
+[1m[96mhelp[0m: [1mRemove unused import: `dataclasses.field`[0m
+
+[1m[91mI001 [0m[[1m[96m*[0m] [1mImport block is un-sorted or un-formatted[0m
+  [1m[94m-->[0m tests\unit\test_comparison_engine.py:3:1
+   [1m[94m|[0m
+[1m[94m 1 |[0m   """Tests for comparison engine, report writer, CLI, and pipeline."""
+[1m[94m 2 |[0m
+[1m[94m 3 |[0m [1m[91m/[0m from __future__ import annotations
+[1m[94m 4 |[0m [1m[91m|[0m
+[1m[94m 5 |[0m [1m[91m|[0m import json
+[1m[94m 6 |[0m [1m[91m|[0m from pathlib import Path
+[1m[94m 7 |[0m [1m[91m|[0m from unittest.mock import MagicMock
+[1m[94m 8 |[0m [1m[91m|[0m
+[1m[94m 9 |[0m [1m[91m|[0m import pytest
+[1m[94m10 |[0m [1m[91m|[0m
+[1m[94m11 |[0m [1m[91m|[0m from ex04_agent.cli.parser import build_parser
+[1m[94m12 |[0m [1m[91m|[0m from ex04_agent.comparison.engine import ComparisonSummary
+[1m[94m13 |[0m [1m[91m|[0m from ex04_agent.comparison.report_writer import ComparisonReportWriter
+[1m[94m14 |[0m [1m[91m|[0m from ex04_agent.comparison.model import ComparisonResult, FindingDelta, GraphDelta, MetricDelta, RecommendationDelta
+[1m[94m15 |[0m [1m[91m|[0m from ex04_agent.main import main
+[1m[94m16 |[0m [1m[91m|[0m from ex04_agent.shared.config import load_config
+[1m[94m17 |[0m [1m[91m|[0m from ex04_agent.workflow.graph import LangGraphWorkflow
+[1m[94m18 |[0m [1m[91m|[0m from ex04_agent.workflow.pipeline_nodes import PipelineAgents
+[1m[94m19 |[0m [1m[91m|[0m from phase_after_helpers import setup_after_project, write_comparison_arch
+[1m[94m20 |[0m [1m[91m|[0m from regression_helpers import make_regression_result
+   [1m[94m|[0m [1m[91m|_____________________________________________________^[0m
+   [1m[94m|[0m
+[1m[96mhelp[0m: [1mOrganize imports[0m
+
+[1m[91mF401 [0m[[1m[96m*[0m] [1m`json` imported but unused[0m
+ [1m[94m-->[0m tests\unit\test_comparison_engine.py:5:8
+  [1m[94m|[0m
+[1m[94m3 |[0m from __future__ import annotations
+[1m[94m4 |[0m
+[1m[94m5 |[0m import json
+  [1m[94m|[0m        [1m[91m^^^^[0m
+[1m[94m6 |[0m from pathlib import Path
+[1m[94m7 |[0m from unittest.mock import MagicMock
+  [1m[94m|[0m
+[1m[96mhelp[0m: [1mRemove unused import: `json`[0m
+
+[1m[91mF401 [0m[[1m[96m*[0m] [1m`pytest` imported but unused[0m
+  [1m[94m-->[0m tests\unit\test_comparison_engine.py:9:8
+   [1m[94m|[0m
+[1m[94m 7 |[0m from unittest.mock import MagicMock
+[1m[94m 8 |[0m
+[1m[94m 9 |[0m import pytest
+   [1m[94m|[0m        [1m[91m^^^^^^[0m
+[1m[94m10 |[0m
+[1m[94m11 |[0m from ex04_agent.cli.parser import build_parser
+   [1m[94m|[0m
+[1m[96mhelp[0m: [1mRemove unused import: `pytest`[0m
+
+[1m[91mF401 [0m[[1m[96m*[0m] [1m`ex04_agent.cli.parser.build_parser` imported but unused[0m
+  [1m[94m-->[0m tests\unit\test_comparison_engine.py:11:35
+   [1m[94m|[0m
+[1m[94m 9 |[0m import pytest
+[1m[94m10 |[0m
+[1m[94m11 |[0m from ex04_agent.cli.parser import build_parser
+   [1m[94m|[0m                                   [1m[91m^^^^^^^^^^^^[0m
+[1m[94m12 |[0m from ex04_agent.comparison.engine import ComparisonSummary
+[1m[94m13 |[0m from ex04_agent.comparison.report_writer import ComparisonReportWriter
+   [1m[94m|[0m
+[1m[96mhelp[0m: [1mRemove unused import: `ex04_agent.cli.parser.build_parser`[0m
+
+[1m[91mI001 [0m[[1m[96m*[0m] [1mImport block is un-sorted or un-formatted[0m
+  [1m[94m-->[0m tests\unit\test_comparison_engine.py:72:5
+   [1m[94m|[0m
+[1m[94m70 |[0m       config = load_config(project_root / "config" / "setup.json")
+[1m[94m71 |[0m       agents = PipelineAgents(config)
+[1m[94m72 |[0m [1m[91m/[0m     from ex04_agent.graph.graphify_run_result import GraphifyRunResult
+[1m[94m73 |[0m [1m[91m|[0m     from ex04_agent.obsidian.dynamic_hotmd_builder import DynamicHotMdResult
+[1m[94m74 |[0m [1m[91m|[0m     from ex04_agent.obsidian.vault_builder import VaultBuildResult
+[1m[94m75 |[0m [1m[91m|[0m     from ex04_agent.agents.architecture_bug import ArchitectureBugAgent
+[1m[94m76 |[0m [1m[91m|[0m     from ex04_agent.detection.report_writer import FindingsSummary
+[1m[94m77 |[0m [1m[91m|[0m     from ex04_agent.recommendation.report_writer import RecommendationSummary
+   [1m[94m|[0m [1m[91m|_____________________________________________________________________________^[0m
+[1m[94m78 |[0m
+[1m[94m79 |[0m       arch = project_root / "reports" / "architecture"
+   [1m[94m|[0m
+[1m[96mhelp[0m: [1mOrganize imports[0m
+
+[1m[91mI001 [0m[[1m[96m*[0m] [1mImport block is un-sorted or un-formatted[0m
+  [1m[94m-->[0m tests\unit\test_comparison_pipeline.py:3:1
+   [1m[94m|[0m
+[1m[94m 1 |[0m   """Tests for pipeline before-phase comparison skip."""
+[1m[94m 2 |[0m
+[1m[94m 3 |[0m [1m[91m/[0m from __future__ import annotations
+[1m[94m 4 |[0m [1m[91m|[0m
+[1m[94m 5 |[0m [1m[91m|[0m from unittest.mock import MagicMock
+[1m[94m 6 |[0m [1m[91m|[0m
+[1m[94m 7 |[0m [1m[91m|[0m from ex04_agent.detection.report_writer import FindingsSummary
+[1m[94m 8 |[0m [1m[91m|[0m from ex04_agent.graph.graphify_run_result import GraphifyRunResult
+[1m[94m 9 |[0m [1m[91m|[0m from ex04_agent.obsidian.dynamic_hotmd_builder import DynamicHotMdResult
+[1m[94m10 |[0m [1m[91m|[0m from ex04_agent.obsidian.vault_builder import VaultBuildResult
+[1m[94m11 |[0m [1m[91m|[0m from ex04_agent.recommendation.report_writer import RecommendationSummary
+[1m[94m12 |[0m [1m[91m|[0m from ex04_agent.shared.config import load_config
+[1m[94m13 |[0m [1m[91m|[0m from ex04_agent.workflow.graph import LangGraphWorkflow
+[1m[94m14 |[0m [1m[91m|[0m from ex04_agent.workflow.pipeline_nodes import PipelineAgents
+[1m[94m15 |[0m [1m[91m|[0m from phase_after_helpers import setup_after_project
+[1m[94m16 |[0m [1m[91m|[0m from regression_helpers import make_regression_result
+   [1m[94m|[0m [1m[91m|_____________________________________________________^[0m
+   [1m[94m|[0m
+[1m[96mhelp[0m: [1mOrganize imports[0m
+
+Found 8 errors.
+[[36m*[0m] 8 fixable with the `--fix` option.

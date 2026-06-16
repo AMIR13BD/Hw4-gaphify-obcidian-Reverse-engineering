@@ -17,13 +17,14 @@ from ex04_agent.agents.repository_setup import RepositorySetupAgent
 from ex04_agent.agents.supervisor import SupervisorAgent
 from ex04_agent.agents.test_runner import TestRunnerAgent
 from ex04_agent.shared.config import AppConfig
+from ex04_agent.workflow.comparison_mode import comparison_only_skip_reason
 from ex04_agent.workflow.pipeline_steps import (
     run_dynamic_hotmd,
     run_graph_parser,
     run_graphify,
     run_obsidian_vault,
 )
-from ex04_agent.workflow.state import PipelineState
+from ex04_agent.workflow.state import PipelineState, merge_skipped
 
 
 class PipelineAgents:
@@ -46,33 +47,51 @@ class PipelineAgents:
     def bind(self, recorder: AgentTraceRecorder) -> dict[str, Any]:
         """Return LangGraph node callables bound to a trace recorder."""
 
-        def step(handler):
+        def step(agent_name: str, handler):
             def wrapped(state: PipelineState) -> dict[str, Any]:
+                reason = comparison_only_skip_reason(state, self.config, agent_name)
+                if reason:
+                    recorder.record(
+                        agent_name,
+                        "skipped",
+                        inputs={"phase": state.get("phase"), "dry_run": state.get("dry_run")},
+                        outputs={"message": reason},
+                    )
+                    return merge_skipped(state, agent_name, reason)
                 return handler(self, state, recorder)
 
             wrapped.__name__ = handler.__name__
             return wrapped
 
-        def agent_step(agent, method_name: str):
+        def agent_step(agent, agent_name: str, method_name: str):
             method = getattr(agent, method_name)
 
             def wrapped(state: PipelineState) -> dict[str, Any]:
+                reason = comparison_only_skip_reason(state, self.config, agent_name)
+                if reason:
+                    recorder.record(
+                        agent_name,
+                        "skipped",
+                        inputs={"phase": state.get("phase"), "dry_run": state.get("dry_run")},
+                        outputs={"message": reason},
+                    )
+                    return merge_skipped(state, agent_name, reason)
                 return method(state, recorder)
 
             wrapped.__name__ = method_name
             return wrapped
 
         return {
-            "repository_setup": agent_step(self.repository_setup, "run_pipeline"),
-            "graphify_runner": step(run_graphify),
-            "graph_parser": step(run_graph_parser),
-            "obsidian_vault": step(run_obsidian_vault),
-            "dynamic_hotmd": step(run_dynamic_hotmd),
-            "graph_interpreter": agent_step(self.graph_interpreter, "run_pipeline"),
-            "architecture_bug": agent_step(self.architecture_bug, "run_pipeline"),
-            "recommendation": agent_step(self.recommendation, "run_pipeline"),
-            "patch": agent_step(self.patch, "run_pipeline"),
-            "test_runner": agent_step(self.test_runner, "run_pipeline"),
-            "comparison_report": agent_step(self.comparison_report, "run_pipeline"),
-            "supervisor": agent_step(self.supervisor, "run_pipeline"),
+            "repository_setup": agent_step(self.repository_setup, "repository_setup", "run_pipeline"),
+            "graphify_runner": step("graphify_runner", run_graphify),
+            "graph_parser": step("graph_parser", run_graph_parser),
+            "obsidian_vault": step("obsidian_vault", run_obsidian_vault),
+            "dynamic_hotmd": step("dynamic_hotmd", run_dynamic_hotmd),
+            "graph_interpreter": agent_step(self.graph_interpreter, "graph_interpreter", "run_pipeline"),
+            "architecture_bug": agent_step(self.architecture_bug, "architecture_bug", "run_pipeline"),
+            "recommendation": agent_step(self.recommendation, "recommendation", "run_pipeline"),
+            "patch": agent_step(self.patch, "patch", "run_pipeline"),
+            "test_runner": agent_step(self.test_runner, "test_runner", "run_pipeline"),
+            "comparison_report": agent_step(self.comparison_report, "comparison_report", "run_pipeline"),
+            "supervisor": agent_step(self.supervisor, "supervisor", "run_pipeline"),
         }

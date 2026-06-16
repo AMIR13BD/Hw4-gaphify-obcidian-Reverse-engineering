@@ -1,5 +1,5 @@
 {
-  "phase": "after",
+  "phase": "before",
   "finding_count": 8,
   "findings": [
     {
@@ -125,7 +125,7 @@
           "path": "reports/architecture/metrics_before.json",
           "start_line": null,
           "end_line": null,
-          "detail": "total_degree=3"
+          "detail": "total_degree=4"
         }
       ],
       "source_validation": "Graph centrality only; needs manual confirmation in source.",

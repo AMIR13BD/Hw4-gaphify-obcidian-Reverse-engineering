@@ -1,5 +1,5 @@
 {
-  "success": false,
+  "success": true,
   "phase": "before",
   "command": [
     "graphify",
@@ -7,12 +7,12 @@
     "."
   ],
   "cwd": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python",
-  "return_code": 1,
+  "return_code": 0,
   "graphify_cli": "graphify",
   "graphify_cli_path": "C:\\Users\\ameer\\.local\\bin\\graphify.EXE",
   "target_repo_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python",
-  "stdout": "Re-extracting code files in . (no LLM needed)...\n",
-  "stderr": "[graphify] WARNING: new graph has 25 nodes but existing graph.json has 26. Refusing to overwrite \u00e2\u20ac\u201d you may be missing chunk files from a previous session. Pass --force to override.\nNothing to update or rebuild failed \u00e2\u20ac\u201d check output above.\n",
+  "stdout": "Re-extracting code files in . (no LLM needed)...\n[graphify watch] No code-graph topology changes detected; outputs left untouched.\nCode graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.\nTip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.\n",
+  "stderr": "",
   "copied_artifacts": [
     "graph.json",
     "graph.html",
@@ -26,6 +26,6 @@
   "artifact_dest_dir": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\before",
   "log_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\graphify\\graphify_before_run.txt",
   "metadata_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\graphify\\graphify_before_metadata.json",
-  "timestamp": "2026-06-16T15:10:15.054963+00:00",
-  "error": "Graphify exited with code 1"
+  "timestamp": "2026-06-16T15:52:41.106414+00:00",
+  "error": null
 }

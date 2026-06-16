@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-06-16T15:57:35.205039+00:00",
+  "agent": "graph_interpreter",
+  "status": "skipped",
+  "inputs": {
+    "phase": "after",
+    "dry_run": true
+  },
+  "outputs": {
+    "message": "Comparison-only after dry-run; existing before/after artifacts preserved (no graphify/detect/recommend regeneration)."
+  },
+  "errors": []
+}

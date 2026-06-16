@@ -84,5 +84,5 @@ def test_cli_accepts_phase_after(monkeypatch) -> None:
                 timestamp="2026-01-01T00:00:00+00:00",
             )
 
-    monkeypatch.setattr("ex04_agent.cli.handlers.GraphifyRunnerAgent", FakeAgent)
+    monkeypatch.setattr("ex04_agent.cli.handlers_graph.GraphifyRunnerAgent", FakeAgent)
     assert main(["graphify", "--phase", "after"]) == 0

@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from unittest.mock import MagicMock
 
-from phase_after_helpers import setup_after_project
+from phase_after_helpers import setup_after_project, write_comparison_arch
 from regression_helpers import make_regression_result
 
 from ex04_agent.agents.architecture_bug import ArchitectureBugAgent
@@ -19,12 +19,13 @@ from ex04_agent.workflow.graph import LangGraphWorkflow
 from ex04_agent.workflow.pipeline_nodes import PipelineAgents
 
 
-def test_pipeline_after_skips_comparison_report(tmp_path: Path, monkeypatch) -> None:
+def test_pipeline_after_completes_comparison_report(tmp_path: Path, monkeypatch) -> None:
     project_root = setup_after_project(tmp_path, monkeypatch)
+    write_comparison_arch(project_root)
     graph_dir = project_root / "artifacts" / "graph" / "after"
     metrics_dir = project_root / "reports" / "architecture"
-    graph_dir.mkdir(parents=True)
-    metrics_dir.mkdir(parents=True)
+    graph_dir.mkdir(parents=True, exist_ok=True)
+    metrics_dir.mkdir(parents=True, exist_ok=True)
     fixtures = Path(__file__).resolve().parents[1] / "fixtures"
     (graph_dir / "graph.json").write_text(
         fixtures.joinpath("graph_sample.json").read_text(encoding="utf-8"), encoding="utf-8",
@@ -66,5 +67,6 @@ def test_pipeline_after_skips_comparison_report(tmp_path: Path, monkeypatch) -> 
     agents.test_runner.run = MagicMock(return_value=make_regression_result("after"))
     result = LangGraphWorkflow(config, agents=agents).run(phase="after", dry_run=True)
     assert result.stop_reason == "dry_run_completed"
-    assert "test_runner" in result.completed_agents
-    assert any("comparison_report:" in s for s in result.skipped_agents)
+    assert "comparison_report" in result.completed_agents
+    assert any("graphify_runner:" in s for s in result.skipped_agents)
+    assert "test_runner" not in result.completed_agents

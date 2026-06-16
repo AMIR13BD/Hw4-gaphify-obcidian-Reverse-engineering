@@ -274,35 +274,29 @@
 
 ## Phase 15: README and Final Submission Packaging
 
-- [ ] Write `README.md` per EX04 Section 8:
-  - [ ] Repo choice justification
-  - [ ] Bug/architecture problem description
-  - [ ] Research questions addressed
-  - [ ] Architecture map from graph
-  - [ ] Agent workflow description
-  - [ ] Graphify + Obsidian usage proof
-  - [ ] Reverse engineering narrative
-  - [ ] Root cause + fix story
-  - [ ] Before/after comparison
-  - [ ] Token efficiency comparison
-  - [ ] Original extension (dynamic hot.md)
-  - [ ] Screenshots, diagrams, tables
-- [ ] Add `assets/` diagrams (export from Mermaid / graph.html screenshots)
-- [ ] Verify deliverables checklist against EX04 Section 7
-- [ ] Final `uv run pytest` && `uv run ruff check`
-- [ ] GitHub push (when ready)
+- [x] Write `README.md` per EX04 Section 8 (repo choice, RQ, architecture, workflow, findings, patches, comparison, tokens, extension, how-to-run, evidence map, limitations)
+- [x] Add `assets/screenshots/README.md` with Obsidian capture instructions
+- [x] Screenshot placeholder paths in README (manual capture TODO)
+- [x] `reports/final/final_submission_checklist.md`
+- [x] `reports/final/final_summary.md`
+- [x] Verify deliverables checklist against EX04 Section 7
+- [x] Final `uv run pytest` && coverage && Ruff (144 passed, 89.86%, clean)
+- [ ] GitHub push (when ready — includes manual screenshots optional)
+- [ ] Manual Obsidian screenshots → `assets/screenshots/`
+- [ ] Manual clean zip (exclude `.venv/`, caches)
 
-**Definition of done:** Submission-ready repo matching course guidelines V3.
+**Definition of done:** Submission-ready repo matching course guidelines V3. Met (pending manual screenshots/zip).
 
 ---
 
 ## Cross-Cutting Checklist (All Phases)
 
-- [ ] No Python file >150 lines
-- [ ] OOP — no duplicated logic across agents
-- [ ] No secrets in git — `.env-example` only
-- [ ] All public functions have tests
-- [ ] Prompt engineering log (if LLM used) in `reports/`
+- [x] No Python file >150 lines
+- [x] OOP — no duplicated logic across agents
+- [x] No secrets in git — `.env-example` only
+- [x] All public functions have tests
+- [x] No LLM API for detection/recommendation/patching (deterministic only)
+- [ ] Prompt engineering log (N/A — no LLM used)
 
 ---
 
@@ -325,8 +319,8 @@
 | 12 | Complete |
 | 13 | Complete |
 | 14 | Complete |
-| 15 | Not started |
+| 15 | Complete |
 
-**Next action after approval:** Phase 15 — README and final submission packaging.
+**Next action:** Manual Obsidian screenshots + final clean zip + GitHub push when ready.
 
 

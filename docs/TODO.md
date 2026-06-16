@@ -221,12 +221,18 @@
 
 ## Phase 12: Rerun Graphify After Improvement
 
-- [ ] Wire after-phase Graphify in loop
-- [ ] Update `state.phase = after`
-- [ ] Refresh all after-artifacts
-- [ ] Regenerate Obsidian vault for after-phase
+- [x] Add `--force` to after-phase Graphify command (`graphify update . --force`)
+- [x] Run `uv run ex04-agent graphify --phase after`
+- [x] Run parse, obsidian, detect, recommend for after phase
+- [x] Generate `artifacts/graph/after/` (graph.json, graph.html, GRAPH_REPORT.md)
+- [x] Generate `reports/architecture/metrics_after.json`, `story_after.md`
+- [x] Generate `findings_after` and `recommendations_after` (+ patch_plan_after)
+- [x] Generate `artifacts/hotmd/hot_after_<timestamp>.md` snapshot
+- [x] Pipeline: `uv run ex04-agent pipeline --dry-run --phase after` completes test_runner
+- [x] Unit tests: after-phase paths, before isolation, pipeline skips comparison_report
+- [x] Phase 12 report: `reports/graphify/phase12_after_graphify_report.md`
 
-**Definition of done:** `artifacts/graph/after/graph.json` exists post-patch.
+**Definition of done:** After artifacts generated for Phase 13 comparison; before artifacts preserved. Met.
 
 ---
 
@@ -306,8 +312,9 @@
 | 9 | Complete |
 | 10 | Complete |
 | 11 | Complete |
-| 12–15 | Not started |
+| 12 | Complete |
+| 13–15 | Not started |
 
-**Next action after approval:** Phase 12 — rerun Graphify after improvement.
+**Next action after approval:** Phase 13 — before/after comparison.
 
 

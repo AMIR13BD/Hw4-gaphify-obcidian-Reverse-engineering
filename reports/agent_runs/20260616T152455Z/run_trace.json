@@ -1,0 +1,205 @@
+{
+  "run_id": "20260616T152455Z",
+  "entries": [
+    {
+      "timestamp": "2026-06-16T15:24:55.056310+00:00",
+      "agent": "repository_setup",
+      "status": "completed",
+      "inputs": {
+        "phase": "after"
+      },
+      "outputs": {
+        "target_repo_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python",
+        "status": "ready"
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:24:55.695565+00:00",
+      "agent": "graphify_runner",
+      "status": "completed",
+      "inputs": {
+        "phase": "after",
+        "dry_run": true
+      },
+      "outputs": {
+        "success": true,
+        "artifacts": {
+          "graph_json": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\after\\graph.json",
+          "graph_html": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\after\\graph.html",
+          "graph_report": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\after\\GRAPH_REPORT.md"
+        }
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:24:55.708901+00:00",
+      "agent": "graph_parser",
+      "status": "completed",
+      "inputs": {
+        "phase": "after"
+      },
+      "outputs": {
+        "metrics_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_after.json"
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:24:55.738832+00:00",
+      "agent": "obsidian_vault",
+      "status": "completed",
+      "inputs": {
+        "phase": "after"
+      },
+      "outputs": {
+        "paths": {
+          "index": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\index.md",
+          "hot": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\hot.md",
+          "report": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\reports\\graph_summary.md",
+          "vault_dir": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian"
+        },
+        "node_pages": 25
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:24:55.747477+00:00",
+      "agent": "dynamic_hotmd",
+      "status": "completed",
+      "inputs": {
+        "phase": "after"
+      },
+      "outputs": {
+        "hot_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\obsidian\\hot.md",
+        "snapshot_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\hotmd\\hot_after_20260616T152455Z.md",
+        "top_labels": [
+          "polygons.py",
+          "Maths Quiz",
+          "mathsquiz-step2.py",
+          "mathsquiz-step3.py",
+          "Polygon"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:24:55.750143+00:00",
+      "agent": "graph_interpreter",
+      "status": "completed",
+      "inputs": {
+        "metrics_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_after.json"
+      },
+      "outputs": {
+        "story_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\story_after.md"
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:24:55.763688+00:00",
+      "agent": "architecture_bug",
+      "status": "completed",
+      "inputs": {
+        "phase": "after",
+        "metrics_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_after.json"
+      },
+      "outputs": {
+        "finding_count": 8,
+        "by_category": {
+          "documentation_hub": 1,
+          "mixed_responsibility": 1,
+          "navigation_scope": 1,
+          "organization": 1,
+          "possible_hub": 4
+        },
+        "by_severity": {
+          "high": 1,
+          "low": 2,
+          "medium": 5
+        },
+        "high_confidence_count": 3,
+        "json_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.json",
+        "markdown_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.md"
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:24:55.781279+00:00",
+      "agent": "recommendation",
+      "status": "completed",
+      "inputs": {
+        "phase": "after",
+        "findings_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.json"
+      },
+      "outputs": {
+        "recommendation_count": 8,
+        "by_action_type": {
+          "docs_only": 3,
+          "review_required": 5
+        },
+        "by_priority": {
+          "high": 1,
+          "low": 3,
+          "medium": 4
+        },
+        "patchable_count": 0,
+        "recommendations_json_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_after.json",
+        "recommendations_markdown_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\recommendations_after.md",
+        "patch_plan_json_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_after.json",
+        "patch_plan_markdown_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\patch_plan_after.md"
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:24:55.782762+00:00",
+      "agent": "patch",
+      "status": "skipped",
+      "inputs": {
+        "dry_run": true,
+        "allow_patches": false
+      },
+      "outputs": {
+        "message": "Patching disabled in dry-run and planned for Phase 10."
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:25:07.584976+00:00",
+      "agent": "test_runner",
+      "status": "completed",
+      "inputs": {
+        "phase": "after"
+      },
+      "outputs": {
+        "compile_status": "passed",
+        "project_test_status": "passed",
+        "failed_files_count": 0
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:25:07.586449+00:00",
+      "agent": "comparison_report",
+      "status": "skipped",
+      "inputs": {
+        "phase": "after"
+      },
+      "outputs": {
+        "message": "Before/after comparison is planned for Phase 13."
+      },
+      "errors": []
+    },
+    {
+      "timestamp": "2026-06-16T15:25:07.588274+00:00",
+      "agent": "supervisor",
+      "status": "completed",
+      "inputs": {
+        "iteration": 1,
+        "errors": []
+      },
+      "outputs": {
+        "stop_reason": "dry_run_completed"
+      },
+      "errors": []
+    }
+  ]
+}

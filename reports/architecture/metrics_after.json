@@ -1,0 +1,556 @@
+{
+  "phase": "after",
+  "graph_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\after\\graph.json",
+  "summary": {
+    "node_count": 25,
+    "link_count": 19,
+    "file_node_count": 0,
+    "code_node_count": 25,
+    "isolated_node_count": 2,
+    "connected_component_count": 7,
+    "god_node_threshold": 3,
+    "low_confidence_link_count": 0,
+    "nodes": [
+      {
+        "id": "mathsquiz_mathsquiz_step1",
+        "label": "mathsquiz-step1.py",
+        "in_degree": 0,
+        "out_degree": 0,
+        "total_degree": 0,
+        "normalized_degree": 0.0,
+        "community": 7,
+        "source_file": "mathsquiz/mathsquiz-step1.py"
+      },
+      {
+        "id": "mathsquiz_mathsquiz_step2",
+        "label": "mathsquiz-step2.py",
+        "in_degree": 0,
+        "out_degree": 3,
+        "total_degree": 3,
+        "normalized_degree": 0.5,
+        "community": 2,
+        "source_file": "mathsquiz/mathsquiz-step2.py"
+      },
+      {
+        "id": "mathsquiz_mathsquiz_step2_welcome_message",
+        "label": "welcome_message()",
+        "in_degree": 1,
+        "out_degree": 0,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 2,
+        "source_file": "mathsquiz/mathsquiz-step2.py"
+      },
+      {
+        "id": "mathsquiz_mathsquiz_step2_ask_question",
+        "label": "ask_question()",
+        "in_degree": 1,
+        "out_degree": 0,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 2,
+        "source_file": "mathsquiz/mathsquiz-step2.py"
+      },
+      {
+        "id": "mathsquiz_mathsquiz_step2_print_final_scores",
+        "label": "print_final_scores()",
+        "in_degree": 1,
+        "out_degree": 0,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 2,
+        "source_file": "mathsquiz/mathsquiz-step2.py"
+      },
+      {
+        "id": "mathsquiz_mathsquiz_step3",
+        "label": "mathsquiz-step3.py",
+        "in_degree": 0,
+        "out_degree": 3,
+        "total_degree": 3,
+        "normalized_degree": 0.5,
+        "community": 3,
+        "source_file": "mathsquiz/mathsquiz-step3.py"
+      },
+      {
+        "id": "mathsquiz_mathsquiz_step3_welcome_message",
+        "label": "welcome_message()",
+        "in_degree": 1,
+        "out_degree": 0,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 3,
+        "source_file": "mathsquiz/mathsquiz-step3.py"
+      },
+      {
+        "id": "mathsquiz_mathsquiz_step3_ask_question",
+        "label": "ask_question()",
+        "in_degree": 1,
+        "out_degree": 0,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 3,
+        "source_file": "mathsquiz/mathsquiz-step3.py"
+      },
+      {
+        "id": "mathsquiz_mathsquiz_step3_print_final_scores",
+        "label": "print_final_scores()",
+        "in_degree": 1,
+        "out_degree": 0,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 3,
+        "source_file": "mathsquiz/mathsquiz-step3.py"
+      },
+      {
+        "id": "mathsquiz_mathsquiz",
+        "label": "mathsquiz.py",
+        "in_degree": 0,
+        "out_degree": 0,
+        "total_degree": 0,
+        "normalized_degree": 0.0,
+        "community": 6,
+        "source_file": "mathsquiz/mathsquiz.py"
+      },
+      {
+        "id": "polygons_polygons",
+        "label": "polygons.py",
+        "in_degree": 3,
+        "out_degree": 3,
+        "total_degree": 6,
+        "normalized_degree": 1.0,
+        "community": 1,
+        "source_file": "polygons/polygons.py"
+      },
+      {
+        "id": "polygons_polygons_polygon",
+        "label": "Polygon",
+        "in_degree": 2,
+        "out_degree": 1,
+        "total_degree": 3,
+        "normalized_degree": 0.5,
+        "community": 1,
+        "source_file": "polygons/polygons.py"
+      },
+      {
+        "id": "polygons_polygons_polygon_init",
+        "label": ".__init__()",
+        "in_degree": 1,
+        "out_degree": 0,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 1,
+        "source_file": "polygons/polygons.py"
+      },
+      {
+        "id": "polygons_polygons_calc_polygon_details",
+        "label": "calc_polygon_details()",
+        "in_degree": 1,
+        "out_degree": 1,
+        "total_degree": 2,
+        "normalized_degree": 0.3333,
+        "community": 1,
+        "source_file": "polygons/polygons.py"
+      },
+      {
+        "id": "polygons_polygons_draw_polygon",
+        "label": "draw_polygon()",
+        "in_degree": 1,
+        "out_degree": 0,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 1,
+        "source_file": "polygons/polygons.py"
+      },
+      {
+        "id": "polygons_polygons_rationale_18",
+        "label": "# TODO: find a better way to work this stuff out",
+        "in_degree": 0,
+        "out_degree": 1,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 1,
+        "source_file": "polygons/polygons.py"
+      },
+      {
+        "id": "polygons_polygons_rationale_33",
+        "label": "# TODO: perhaps I should use the class Polygon instead!",
+        "in_degree": 0,
+        "out_degree": 1,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 1,
+        "source_file": "polygons/polygons.py"
+      },
+      {
+        "id": "polygons_polygons_rationale_50",
+        "label": "# TODO: make this work for any type of polygon",
+        "in_degree": 0,
+        "out_degree": 1,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 1,
+        "source_file": "polygons/polygons.py"
+      },
+      {
+        "id": "readme",
+        "label": "README.md",
+        "in_degree": 0,
+        "out_degree": 1,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 5,
+        "source_file": "README.md"
+      },
+      {
+        "id": "readme_broken_python",
+        "label": "broken-python",
+        "in_degree": 1,
+        "out_degree": 0,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 5,
+        "source_file": "README.md"
+      },
+      {
+        "id": "mathsquiz_readme",
+        "label": "README.md",
+        "in_degree": 0,
+        "out_degree": 1,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 0,
+        "source_file": "mathsquiz/README.md"
+      },
+      {
+        "id": "mathsquiz_readme_maths_quiz",
+        "label": "Maths Quiz",
+        "in_degree": 1,
+        "out_degree": 3,
+        "total_degree": 4,
+        "normalized_degree": 0.6667,
+        "community": 0,
+        "source_file": "mathsquiz/README.md"
+      },
+      {
+        "id": "mathsquiz_readme_introduction",
+        "label": "Introduction",
+        "in_degree": 1,
+        "out_degree": 0,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 0,
+        "source_file": "mathsquiz/README.md"
+      },
+      {
+        "id": "mathsquiz_readme_objectives",
+        "label": "Objectives",
+        "in_degree": 1,
+        "out_degree": 0,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 0,
+        "source_file": "mathsquiz/README.md"
+      },
+      {
+        "id": "mathsquiz_readme_the_files",
+        "label": "The Files",
+        "in_degree": 1,
+        "out_degree": 0,
+        "total_degree": 1,
+        "normalized_degree": 0.1667,
+        "community": 0,
+        "source_file": "mathsquiz/README.md"
+      }
+    ]
+  },
+  "top_hubs": [
+    {
+      "id": "polygons_polygons",
+      "label": "polygons.py",
+      "in_degree": 3,
+      "out_degree": 3,
+      "total_degree": 6,
+      "normalized_degree": 1.0,
+      "community": 1,
+      "source_file": "polygons/polygons.py"
+    },
+    {
+      "id": "mathsquiz_readme_maths_quiz",
+      "label": "Maths Quiz",
+      "in_degree": 1,
+      "out_degree": 3,
+      "total_degree": 4,
+      "normalized_degree": 0.6667,
+      "community": 0,
+      "source_file": "mathsquiz/README.md"
+    },
+    {
+      "id": "mathsquiz_mathsquiz_step2",
+      "label": "mathsquiz-step2.py",
+      "in_degree": 0,
+      "out_degree": 3,
+      "total_degree": 3,
+      "normalized_degree": 0.5,
+      "community": 2,
+      "source_file": "mathsquiz/mathsquiz-step2.py"
+    },
+    {
+      "id": "mathsquiz_mathsquiz_step3",
+      "label": "mathsquiz-step3.py",
+      "in_degree": 0,
+      "out_degree": 3,
+      "total_degree": 3,
+      "normalized_degree": 0.5,
+      "community": 3,
+      "source_file": "mathsquiz/mathsquiz-step3.py"
+    },
+    {
+      "id": "polygons_polygons_polygon",
+      "label": "Polygon",
+      "in_degree": 2,
+      "out_degree": 1,
+      "total_degree": 3,
+      "normalized_degree": 0.5,
+      "community": 1,
+      "source_file": "polygons/polygons.py"
+    },
+    {
+      "id": "polygons_polygons_calc_polygon_details",
+      "label": "calc_polygon_details()",
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_degree": 2,
+      "normalized_degree": 0.3333,
+      "community": 1,
+      "source_file": "polygons/polygons.py"
+    },
+    {
+      "id": "mathsquiz_mathsquiz_step2_ask_question",
+      "label": "ask_question()",
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_degree": 1,
+      "normalized_degree": 0.1667,
+      "community": 2,
+      "source_file": "mathsquiz/mathsquiz-step2.py"
+    },
+    {
+      "id": "mathsquiz_mathsquiz_step2_print_final_scores",
+      "label": "print_final_scores()",
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_degree": 1,
+      "normalized_degree": 0.1667,
+      "community": 2,
+      "source_file": "mathsquiz/mathsquiz-step2.py"
+    },
+    {
+      "id": "mathsquiz_mathsquiz_step2_welcome_message",
+      "label": "welcome_message()",
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_degree": 1,
+      "normalized_degree": 0.1667,
+      "community": 2,
+      "source_file": "mathsquiz/mathsquiz-step2.py"
+    },
+    {
+      "id": "mathsquiz_mathsquiz_step3_ask_question",
+      "label": "ask_question()",
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_degree": 1,
+      "normalized_degree": 0.1667,
+      "community": 3,
+      "source_file": "mathsquiz/mathsquiz-step3.py"
+    }
+  ],
+  "bottleneck_candidates": [
+    {
+      "id": "polygons_polygons",
+      "label": "polygons.py",
+      "bridging_score": 14.0,
+      "total_degree": 6
+    },
+    {
+      "id": "mathsquiz_readme_maths_quiz",
+      "label": "Maths Quiz",
+      "bridging_score": 6.0,
+      "total_degree": 4
+    },
+    {
+      "id": "mathsquiz_mathsquiz_step2",
+      "label": "mathsquiz-step2.py",
+      "bridging_score": 3.0,
+      "total_degree": 3
+    },
+    {
+      "id": "mathsquiz_mathsquiz_step3",
+      "label": "mathsquiz-step3.py",
+      "bridging_score": 3.0,
+      "total_degree": 3
+    },
+    {
+      "id": "polygons_polygons_polygon",
+      "label": "Polygon",
+      "bridging_score": 2.0,
+      "total_degree": 3
+    },
+    {
+      "id": "polygons_polygons_calc_polygon_details",
+      "label": "calc_polygon_details()",
+      "bridging_score": 0.0,
+      "total_degree": 2
+    },
+    {
+      "id": "mathsquiz_mathsquiz_step2_ask_question",
+      "label": "ask_question()",
+      "bridging_score": 0.0,
+      "total_degree": 1
+    },
+    {
+      "id": "mathsquiz_mathsquiz_step2_print_final_scores",
+      "label": "print_final_scores()",
+      "bridging_score": 0.0,
+      "total_degree": 1
+    },
+    {
+      "id": "mathsquiz_mathsquiz_step2_welcome_message",
+      "label": "welcome_message()",
+      "bridging_score": 0.0,
+      "total_degree": 1
+    },
+    {
+      "id": "mathsquiz_mathsquiz_step3_ask_question",
+      "label": "ask_question()",
+      "bridging_score": 0.0,
+      "total_degree": 1
+    }
+  ],
+  "potential_god_nodes": [
+    {
+      "id": "mathsquiz_mathsquiz_step2",
+      "label": "mathsquiz-step2.py",
+      "in_degree": 0,
+      "out_degree": 3,
+      "total_degree": 3,
+      "normalized_degree": 0.5,
+      "community": 2,
+      "source_file": "mathsquiz/mathsquiz-step2.py"
+    },
+    {
+      "id": "mathsquiz_mathsquiz_step3",
+      "label": "mathsquiz-step3.py",
+      "in_degree": 0,
+      "out_degree": 3,
+      "total_degree": 3,
+      "normalized_degree": 0.5,
+      "community": 3,
+      "source_file": "mathsquiz/mathsquiz-step3.py"
+    },
+    {
+      "id": "polygons_polygons",
+      "label": "polygons.py",
+      "in_degree": 3,
+      "out_degree": 3,
+      "total_degree": 6,
+      "normalized_degree": 1.0,
+      "community": 1,
+      "source_file": "polygons/polygons.py"
+    },
+    {
+      "id": "polygons_polygons_polygon",
+      "label": "Polygon",
+      "in_degree": 2,
+      "out_degree": 1,
+      "total_degree": 3,
+      "normalized_degree": 0.5,
+      "community": 1,
+      "source_file": "polygons/polygons.py"
+    },
+    {
+      "id": "mathsquiz_readme_maths_quiz",
+      "label": "Maths Quiz",
+      "in_degree": 1,
+      "out_degree": 3,
+      "total_degree": 4,
+      "normalized_degree": 0.6667,
+      "community": 0,
+      "source_file": "mathsquiz/README.md"
+    }
+  ],
+  "relation_counts": {
+    "calls": 1,
+    "contains": 14,
+    "method": 1,
+    "rationale_for": 3
+  },
+  "confidence_counts": {
+    "EXTRACTED": 19
+  },
+  "communities": {
+    "0": 5,
+    "1": 8,
+    "2": 4,
+    "3": 4,
+    "5": 2,
+    "6": 1,
+    "7": 1
+  },
+  "components": {
+    "count": 7,
+    "sizes": [
+      1,
+      4,
+      4,
+      1,
+      8,
+      2,
+      5
+    ],
+    "largest_size": 8,
+    "components": [
+      [
+        "mathsquiz_mathsquiz_step1"
+      ],
+      [
+        "mathsquiz_mathsquiz_step2",
+        "mathsquiz_mathsquiz_step2_ask_question",
+        "mathsquiz_mathsquiz_step2_print_final_scores",
+        "mathsquiz_mathsquiz_step2_welcome_message"
+      ],
+      [
+        "mathsquiz_mathsquiz_step3",
+        "mathsquiz_mathsquiz_step3_ask_question",
+        "mathsquiz_mathsquiz_step3_print_final_scores",
+        "mathsquiz_mathsquiz_step3_welcome_message"
+      ],
+      [
+        "mathsquiz_mathsquiz"
+      ],
+      [
+        "polygons_polygons",
+        "polygons_polygons_calc_polygon_details",
+        "polygons_polygons_draw_polygon",
+        "polygons_polygons_polygon",
+        "polygons_polygons_polygon_init",
+        "polygons_polygons_rationale_18",
+        "polygons_polygons_rationale_33",
+        "polygons_polygons_rationale_50"
+      ],
+      [
+        "readme",
+        "readme_broken_python"
+      ],
+      [
+        "mathsquiz_readme",
+        "mathsquiz_readme_introduction",
+        "mathsquiz_readme_maths_quiz",
+        "mathsquiz_readme_objectives",
+        "mathsquiz_readme_the_files"
+      ]
+    ]
+  },
+  "low_confidence_links": [],
+  "generated_at": "2026-06-16T15:35:34.760101+00:00"
+}

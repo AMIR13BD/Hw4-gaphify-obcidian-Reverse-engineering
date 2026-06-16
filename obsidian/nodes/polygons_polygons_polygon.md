@@ -6,14 +6,14 @@ Back: [[../index|index]] · Hot list: [[../hot|hot]]
 
 - **Node id:** `polygons_polygons_polygon`
 - **Source file:** `polygons/polygons.py`
-- **Community:** 4
+- **Community:** 1
 - **Type:** `code`
 
 ## Degree (from metrics)
 
 - In-degree: 2
-- Out-degree: 2
-- Total degree: 4
+- Out-degree: 1
+- Total degree: 3
 
 ## Incoming Relations
 
@@ -22,7 +22,6 @@ Back: [[../index|index]] · Hot list: [[../hot|hot]]
 
 ## Outgoing Relations
 
-- `inherits` → [[nodes/object|Object]] (EXTRACTED)
 - `method` → [[nodes/polygons_polygons_polygon_init|.__init__()]] (EXTRACTED)
 
 ## Investigation Notes

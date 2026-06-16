@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "phase": "after",
+  "command": [
+    "graphify",
+    "update",
+    ".",
+    "--force"
+  ],
+  "cwd": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python",
+  "return_code": 0,
+  "graphify_cli": "graphify",
+  "graphify_cli_path": "C:\\Users\\ameer\\.local\\bin\\graphify.EXE",
+  "target_repo_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python",
+  "stdout": "Re-extracting code files in . (no LLM needed)...\n[graphify watch] No code-graph topology changes detected; outputs left untouched.\nCode graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.\nTip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.\n",
+  "stderr": "",
+  "copied_artifacts": [
+    "graph.json",
+    "graph.html",
+    "GRAPH_REPORT.md",
+    "manifest.json",
+    ".graphify_labels.json",
+    ".graphify_root"
+  ],
+  "missing_required_artifacts": [],
+  "missing_optional_artifacts": [],
+  "artifact_dest_dir": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\after",
+  "log_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\graphify\\graphify_after_run.txt",
+  "metadata_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\graphify\\graphify_after_metadata.json",
+  "timestamp": "2026-06-16T15:35:34.131533+00:00",
+  "error": null
+}

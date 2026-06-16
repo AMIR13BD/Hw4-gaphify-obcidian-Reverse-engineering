@@ -41,7 +41,8 @@ def test_graphify_runner_builds_expected_command(tmp_path, monkeypatch) -> None:
     """Runner uses AST-only graphify update in target repo cwd."""
     _, config = _project_setup(tmp_path, monkeypatch)
     runner = GraphifyRunner(config)
-    assert runner.build_command() == ["graphify", "update", "."]
+    assert runner.build_command("before") == ["graphify", "update", "."]
+    assert runner.build_command("after") == ["graphify", "update", ".", "--force"]
 
 
 def test_graphify_runner_executes_and_collects(tmp_path, monkeypatch) -> None:

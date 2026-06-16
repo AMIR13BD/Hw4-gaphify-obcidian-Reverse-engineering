@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-06-16T15:35:43.705161+00:00",
+  "agent": "supervisor",
+  "status": "completed",
+  "inputs": {
+    "iteration": 1,
+    "errors": []
+  },
+  "outputs": {
+    "stop_reason": "dry_run_completed"
+  },
+  "errors": []
+}

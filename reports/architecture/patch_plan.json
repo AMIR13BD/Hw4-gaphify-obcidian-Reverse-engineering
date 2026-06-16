@@ -3,6 +3,32 @@
   "note": "Phase 9 does not modify the target repository.",
   "items": [
     {
+      "recommendation_id": "rec_017_execution_blocker_mathsquiz_mathsquiz.py",
+      "finding_id": "execution_blocker_mathsquiz_mathsquiz.py",
+      "action_type": "review_required",
+      "affected_files": [
+        "mathsquiz/mathsquiz.py"
+      ],
+      "planned_operation": "Remove compile blocker with minimal syntax modernization.",
+      "safety_level": "high",
+      "requires_manual_review": true,
+      "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+      "validation_command": "uv run pytest -q"
+    },
+    {
+      "recommendation_id": "rec_018_execution_blocker_polygons_polygons.py",
+      "finding_id": "execution_blocker_polygons_polygons.py",
+      "action_type": "review_required",
+      "affected_files": [
+        "polygons/polygons.py"
+      ],
+      "planned_operation": "Remove compile blocker with minimal syntax modernization.",
+      "safety_level": "high",
+      "requires_manual_review": true,
+      "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+      "validation_command": "uv run pytest -q"
+    },
+    {
       "recommendation_id": "rec_007_mixed_responsibility_polygons",
       "finding_id": "mixed_responsibility_polygons",
       "action_type": "review_required",
@@ -11,6 +37,123 @@
       ],
       "planned_operation": "Separate domain logic from drawing/input and top-level execution.",
       "safety_level": "high",
+      "requires_manual_review": true,
+      "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+      "validation_command": "uv run pytest -q"
+    },
+    {
+      "recommendation_id": "rec_008_top_level_polygons_polygons_py",
+      "finding_id": "top_level_polygons_polygons_py",
+      "action_type": "review_required",
+      "affected_files": [
+        "polygons/polygons.py"
+      ],
+      "planned_operation": "Add safe main guard or move top-level calls into entrypoint.",
+      "safety_level": "medium",
+      "requires_manual_review": true,
+      "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+      "validation_command": "uv run pytest -q"
+    },
+    {
+      "recommendation_id": "rec_009_top_level_mathsquiz_mathsquiz-step2_py",
+      "finding_id": "top_level_mathsquiz_mathsquiz-step2_py",
+      "action_type": "review_required",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "planned_operation": "Add safe main guard or move top-level calls into entrypoint.",
+      "safety_level": "medium",
+      "requires_manual_review": true,
+      "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+      "validation_command": "uv run pytest -q"
+    },
+    {
+      "recommendation_id": "rec_010_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "action_type": "review_required",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "planned_operation": "Use function parameters consistently instead of global variables.",
+      "safety_level": "medium",
+      "requires_manual_review": true,
+      "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+      "validation_command": "uv run pytest -q"
+    },
+    {
+      "recommendation_id": "rec_011_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "action_type": "review_required",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "planned_operation": "Use function parameters consistently instead of global variables.",
+      "safety_level": "medium",
+      "requires_manual_review": true,
+      "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+      "validation_command": "uv run pytest -q"
+    },
+    {
+      "recommendation_id": "rec_012_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "action_type": "review_required",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "planned_operation": "Use function parameters consistently instead of global variables.",
+      "safety_level": "medium",
+      "requires_manual_review": true,
+      "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+      "validation_command": "uv run pytest -q"
+    },
+    {
+      "recommendation_id": "rec_013_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "action_type": "review_required",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "planned_operation": "Use function parameters consistently instead of global variables.",
+      "safety_level": "medium",
+      "requires_manual_review": true,
+      "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+      "validation_command": "uv run pytest -q"
+    },
+    {
+      "recommendation_id": "rec_014_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "action_type": "review_required",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "planned_operation": "Use function parameters consistently instead of global variables.",
+      "safety_level": "medium",
+      "requires_manual_review": true,
+      "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+      "validation_command": "uv run pytest -q"
+    },
+    {
+      "recommendation_id": "rec_015_hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+      "action_type": "review_required",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step3.py"
+      ],
+      "planned_operation": "Use function parameters consistently instead of global variables.",
+      "safety_level": "medium",
+      "requires_manual_review": true,
+      "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+      "validation_command": "uv run pytest -q"
+    },
+    {
+      "recommendation_id": "rec_016_hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+      "action_type": "review_required",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step3.py"
+      ],
+      "planned_operation": "Use function parameters consistently instead of global variables.",
+      "safety_level": "medium",
       "requires_manual_review": true,
       "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
       "validation_command": "uv run pytest -q"
@@ -92,7 +235,7 @@
       "validation_command": "uv run ruff check"
     },
     {
-      "recommendation_id": "rec_008_duplicate_evolution_mathsquiz",
+      "recommendation_id": "rec_019_duplicate_evolution_mathsquiz",
       "finding_id": "duplicate_evolution_mathsquiz",
       "action_type": "docs_only",
       "affected_files": [
@@ -109,6 +252,151 @@
     }
   ],
   "groups": {
+    "safe_candidates_phase10": [
+      {
+        "recommendation_id": "rec_017_execution_blocker_mathsquiz_mathsquiz.py",
+        "finding_id": "execution_blocker_mathsquiz_mathsquiz.py",
+        "action_type": "review_required",
+        "affected_files": [
+          "mathsquiz/mathsquiz.py"
+        ],
+        "planned_operation": "Remove compile blocker with minimal syntax modernization.",
+        "safety_level": "high",
+        "requires_manual_review": true,
+        "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+        "validation_command": "uv run pytest -q"
+      },
+      {
+        "recommendation_id": "rec_018_execution_blocker_polygons_polygons.py",
+        "finding_id": "execution_blocker_polygons_polygons.py",
+        "action_type": "review_required",
+        "affected_files": [
+          "polygons/polygons.py"
+        ],
+        "planned_operation": "Remove compile blocker with minimal syntax modernization.",
+        "safety_level": "high",
+        "requires_manual_review": true,
+        "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+        "validation_command": "uv run pytest -q"
+      },
+      {
+        "recommendation_id": "rec_008_top_level_polygons_polygons_py",
+        "finding_id": "top_level_polygons_polygons_py",
+        "action_type": "review_required",
+        "affected_files": [
+          "polygons/polygons.py"
+        ],
+        "planned_operation": "Add safe main guard or move top-level calls into entrypoint.",
+        "safety_level": "medium",
+        "requires_manual_review": true,
+        "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+        "validation_command": "uv run pytest -q"
+      },
+      {
+        "recommendation_id": "rec_009_top_level_mathsquiz_mathsquiz-step2_py",
+        "finding_id": "top_level_mathsquiz_mathsquiz-step2_py",
+        "action_type": "review_required",
+        "affected_files": [
+          "mathsquiz/mathsquiz-step2.py"
+        ],
+        "planned_operation": "Add safe main guard or move top-level calls into entrypoint.",
+        "safety_level": "medium",
+        "requires_manual_review": true,
+        "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+        "validation_command": "uv run pytest -q"
+      },
+      {
+        "recommendation_id": "rec_010_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+        "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+        "action_type": "review_required",
+        "affected_files": [
+          "mathsquiz/mathsquiz-step2.py"
+        ],
+        "planned_operation": "Use function parameters consistently instead of global variables.",
+        "safety_level": "medium",
+        "requires_manual_review": true,
+        "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+        "validation_command": "uv run pytest -q"
+      },
+      {
+        "recommendation_id": "rec_011_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+        "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+        "action_type": "review_required",
+        "affected_files": [
+          "mathsquiz/mathsquiz-step2.py"
+        ],
+        "planned_operation": "Use function parameters consistently instead of global variables.",
+        "safety_level": "medium",
+        "requires_manual_review": true,
+        "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+        "validation_command": "uv run pytest -q"
+      },
+      {
+        "recommendation_id": "rec_012_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+        "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+        "action_type": "review_required",
+        "affected_files": [
+          "mathsquiz/mathsquiz-step2.py"
+        ],
+        "planned_operation": "Use function parameters consistently instead of global variables.",
+        "safety_level": "medium",
+        "requires_manual_review": true,
+        "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+        "validation_command": "uv run pytest -q"
+      },
+      {
+        "recommendation_id": "rec_013_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+        "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+        "action_type": "review_required",
+        "affected_files": [
+          "mathsquiz/mathsquiz-step2.py"
+        ],
+        "planned_operation": "Use function parameters consistently instead of global variables.",
+        "safety_level": "medium",
+        "requires_manual_review": true,
+        "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+        "validation_command": "uv run pytest -q"
+      },
+      {
+        "recommendation_id": "rec_014_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+        "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+        "action_type": "review_required",
+        "affected_files": [
+          "mathsquiz/mathsquiz-step2.py"
+        ],
+        "planned_operation": "Use function parameters consistently instead of global variables.",
+        "safety_level": "medium",
+        "requires_manual_review": true,
+        "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+        "validation_command": "uv run pytest -q"
+      },
+      {
+        "recommendation_id": "rec_015_hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+        "finding_id": "hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+        "action_type": "review_required",
+        "affected_files": [
+          "mathsquiz/mathsquiz-step3.py"
+        ],
+        "planned_operation": "Use function parameters consistently instead of global variables.",
+        "safety_level": "medium",
+        "requires_manual_review": true,
+        "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+        "validation_command": "uv run pytest -q"
+      },
+      {
+        "recommendation_id": "rec_016_hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+        "finding_id": "hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+        "action_type": "review_required",
+        "affected_files": [
+          "mathsquiz/mathsquiz-step3.py"
+        ],
+        "planned_operation": "Use function parameters consistently instead of global variables.",
+        "safety_level": "medium",
+        "requires_manual_review": true,
+        "rollback_notes": "Revert planned file edits and re-run detection/recommendation.",
+        "validation_command": "uv run pytest -q"
+      }
+    ],
     "review_required_items": [
       {
         "recommendation_id": "rec_007_mixed_responsibility_polygons",
@@ -202,7 +490,7 @@
         "validation_command": "uv run ruff check"
       },
       {
-        "recommendation_id": "rec_008_duplicate_evolution_mathsquiz",
+        "recommendation_id": "rec_019_duplicate_evolution_mathsquiz",
         "finding_id": "duplicate_evolution_mathsquiz",
         "action_type": "docs_only",
         "affected_files": [

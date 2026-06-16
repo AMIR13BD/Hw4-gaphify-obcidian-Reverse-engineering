@@ -29,16 +29,19 @@ class GraphifyRunner:
         self._collector = collector or GraphCollector(config)
         self._subprocess_runner = subprocess_runner or subprocess.run
 
-    def build_command(self) -> list[str]:
+    def build_command(self, phase: str = "before") -> list[str]:
         """AST-only Graphify update command (no LLM extract)."""
-        return [self._config.graphify_cli, "update", "."]
+        cmd = [self._config.graphify_cli, "update", "."]
+        if phase == "after":
+            cmd.append("--force")
+        return cmd
 
     def run(self, phase: str) -> GraphifyRunResult:
         """Execute Graphify in the target repo and collect artifacts."""
         self._validate_phase(phase)
         timestamp = datetime.now(UTC).isoformat()
         cwd = self._config.target_repo_path
-        command = self.build_command()
+        command = self.build_command(phase)
         graphify_path = shutil.which(self._config.graphify_cli)
 
         completed = self._subprocess_runner(

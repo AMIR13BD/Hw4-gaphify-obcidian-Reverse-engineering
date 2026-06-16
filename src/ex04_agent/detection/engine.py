@@ -12,6 +12,7 @@ from ex04_agent.detection.finding import ArchitectureFinding
 from ex04_agent.detection.report_writer import FindingsSummary, ReportWriter
 from ex04_agent.detection.source_scanner import SourceScanner
 from ex04_agent.shared.config import AppConfig
+from ex04_agent.shared.phase_paths import architecture_report_path, ensure_phase_write_path
 
 
 @dataclass
@@ -40,8 +41,10 @@ class ArchitectureDetectionEngine:
         metrics = json.loads(inputs.metrics_path.read_text(encoding="utf-8"))
         scanner = SourceScanner(inputs.repo_root)
         findings = run_all_detectors(metrics, scanner, inputs.repo_root)
-        json_path = self._findings_json_path(phase)
-        md_path = self._findings_md_path(phase)
+        json_path = architecture_report_path(self._config.project_root, "findings", phase, "json")
+        md_path = architecture_report_path(self._config.project_root, "findings", phase, "md")
+        ensure_phase_write_path(json_path, phase)
+        ensure_phase_write_path(md_path, phase)
         latest = self._config.project_root / "reports" / "architecture" / "findings.json"
         return self._writer.write(
             findings,
@@ -59,17 +62,11 @@ class ArchitectureDetectionEngine:
         return DetectionInputs(
             phase=phase,
             graph_path=root / "artifacts" / "graph" / phase / "graph.json",
-            metrics_path=root / "reports" / "architecture" / f"metrics_{phase}.json",
+            metrics_path=architecture_report_path(root, "metrics", phase, "json"),
             hotmd_path=root / "obsidian" / "hot.md",
-            story_path=root / "reports" / "architecture" / f"story_{phase}.md",
+            story_path=architecture_report_path(root, "story", phase, "md"),
             repo_root=self._config.target_repo_path,
         )
-
-    def _findings_json_path(self, phase: str) -> Path:
-        return self._config.project_root / "reports" / "architecture" / f"findings_{phase}.json"
-
-    def _findings_md_path(self, phase: str) -> Path:
-        return self._config.project_root / "reports" / "architecture" / f"findings_{phase}.md"
 
     @staticmethod
     def _require_file(path: Path, label: str) -> None:

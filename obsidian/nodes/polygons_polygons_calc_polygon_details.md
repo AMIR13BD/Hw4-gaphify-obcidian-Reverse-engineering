@@ -6,7 +6,7 @@ Back: [[../index|index]] · Hot list: [[../hot|hot]]
 
 - **Node id:** `polygons_polygons_calc_polygon_details`
 - **Source file:** `polygons/polygons.py`
-- **Community:** 4
+- **Community:** 1
 - **Type:** `code`
 
 ## Degree (from metrics)

@@ -1,0 +1,49 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.13, pytest-9.1.0, pluggy-1.6.0
+rootdir: C:\Users\ameer\OneDrive\Desktop\Ai-wdefe3
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.14.0, langsmith-0.8.16, cov-7.1.0
+collected 122 items
+
+tests\unit\test_agent_trace.py .                                         [  0%]
+tests\unit\test_cli.py .                                                 [  1%]
+tests\unit\test_config.py ..                                             [  3%]
+tests\unit\test_detect_cli.py ..                                         [  4%]
+tests\unit\test_detection_engine.py .                                    [  5%]
+tests\unit\test_detection_models.py .                                    [  6%]
+tests\unit\test_detection_scanner.py ........                            [ 13%]
+tests\unit\test_dynamic_hotmd.py ....                                    [ 16%]
+tests\unit\test_git_diff_reader.py ...                                   [ 18%]
+tests\unit\test_graph_collector.py ..                                    [ 20%]
+tests\unit\test_graph_parser.py ..........                               [ 28%]
+tests\unit\test_graphify_agent.py .                                      [ 29%]
+tests\unit\test_graphify_cli.py ...                                      [ 31%]
+tests\unit\test_graphify_runner.py ....                                  [ 35%]
+tests\unit\test_hotmd_cli.py ...                                         [ 37%]
+tests\unit\test_obsidian_cli.py ...                                      [ 40%]
+tests\unit\test_obsidian_vault.py .....                                  [ 44%]
+tests\unit\test_parse_cli.py ..                                          [ 45%]
+tests\unit\test_patching_engine.py .....                                 [ 50%]
+tests\unit\test_patching_models.py ..                                    [ 51%]
+tests\unit\test_patching_recipes.py ......                               [ 56%]
+tests\unit\test_patching_validator.py .......                            [ 62%]
+tests\unit\test_phase_after_paths.py .....                               [ 66%]
+tests\unit\test_phase_after_pipeline.py .                                [ 67%]
+tests\unit\test_phase_report_guard.py ....                               [ 70%]
+tests\unit\test_pipeline_agents.py ....                                  [ 73%]
+tests\unit\test_pipeline_cli.py ..                                       [ 75%]
+tests\unit\test_pipeline_state.py ..                                     [ 77%]
+tests\unit\test_recommend_cli.py ..                                      [ 78%]
+tests\unit\test_recommendation.py ......                                 [ 83%]
+tests\unit\test_regression_cli.py ...                                    [ 86%]
+tests\unit\test_regression_models.py ..                                  [ 87%]
+tests\unit\test_regression_pipeline.py .                                 [ 88%]
+tests\unit\test_regression_report_writer.py ..                           [ 90%]
+tests\unit\test_regression_validators.py ........                        [ 96%]
+tests\unit\test_sdk.py .                                                 [ 97%]
+tests\unit\test_version.py .                                             [ 98%]
+tests\unit\test_workflow_compile.py .                                    [ 99%]
+tests\unit\test_workflow_dry_run.py .                                    [100%]
+
+============================= 122 passed in 2.62s =============================

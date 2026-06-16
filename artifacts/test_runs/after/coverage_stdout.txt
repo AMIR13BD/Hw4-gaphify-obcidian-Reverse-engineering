@@ -1,0 +1,145 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.13, pytest-9.1.0, pluggy-1.6.0
+rootdir: C:\Users\ameer\OneDrive\Desktop\Ai-wdefe3
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.14.0, langsmith-0.8.16, cov-7.1.0
+collected 122 items
+
+tests\unit\test_agent_trace.py .                                         [  0%]
+tests\unit\test_cli.py .                                                 [  1%]
+tests\unit\test_config.py ..                                             [  3%]
+tests\unit\test_detect_cli.py ..                                         [  4%]
+tests\unit\test_detection_engine.py .                                    [  5%]
+tests\unit\test_detection_models.py .                                    [  6%]
+tests\unit\test_detection_scanner.py ........                            [ 13%]
+tests\unit\test_dynamic_hotmd.py ....                                    [ 16%]
+tests\unit\test_git_diff_reader.py ...                                   [ 18%]
+tests\unit\test_graph_collector.py ..                                    [ 20%]
+tests\unit\test_graph_parser.py ..........                               [ 28%]
+tests\unit\test_graphify_agent.py .                                      [ 29%]
+tests\unit\test_graphify_cli.py ...                                      [ 31%]
+tests\unit\test_graphify_runner.py ....                                  [ 35%]
+tests\unit\test_hotmd_cli.py ...                                         [ 37%]
+tests\unit\test_obsidian_cli.py ...                                      [ 40%]
+tests\unit\test_obsidian_vault.py .....                                  [ 44%]
+tests\unit\test_parse_cli.py ..                                          [ 45%]
+tests\unit\test_patching_engine.py .....                                 [ 50%]
+tests\unit\test_patching_models.py ..                                    [ 51%]
+tests\unit\test_patching_recipes.py ......                               [ 56%]
+tests\unit\test_patching_validator.py .......                            [ 62%]
+tests\unit\test_phase_after_paths.py .....                               [ 66%]
+tests\unit\test_phase_after_pipeline.py .                                [ 67%]
+tests\unit\test_phase_report_guard.py ....                               [ 70%]
+tests\unit\test_pipeline_agents.py ....                                  [ 73%]
+tests\unit\test_pipeline_cli.py ..                                       [ 75%]
+tests\unit\test_pipeline_state.py ..                                     [ 77%]
+tests\unit\test_recommend_cli.py ..                                      [ 78%]
+tests\unit\test_recommendation.py ......                                 [ 83%]
+tests\unit\test_regression_cli.py ...                                    [ 86%]
+tests\unit\test_regression_models.py ..                                  [ 87%]
+tests\unit\test_regression_pipeline.py .                                 [ 88%]
+tests\unit\test_regression_report_writer.py ..                           [ 90%]
+tests\unit\test_regression_validators.py ........                        [ 96%]
+tests\unit\test_sdk.py .                                                 [ 97%]
+tests\unit\test_version.py .                                             [ 98%]
+tests\unit\test_workflow_compile.py .                                    [ 99%]
+tests\unit\test_workflow_dry_run.py .                                    [100%]
+
+=============================== tests coverage ================================
+______________ coverage: platform win32, python 3.13.13-final-0 _______________
+
+Name                                                 Stmts   Miss  Cover   Missing
+----------------------------------------------------------------------------------
+src\ex04_agent\__init__.py                               3      0   100%
+src\ex04_agent\agent_trace\__init__.py                   2      0   100%
+src\ex04_agent\agent_trace\recorder.py                  35      0   100%
+src\ex04_agent\agents\__init__.py                       13      0   100%
+src\ex04_agent\agents\architecture_bug.py               25      5    80%   47-51
+src\ex04_agent\agents\base.py                           16      2    88%   38-39
+src\ex04_agent\agents\comparison_report.py              13      1    92%   18
+src\ex04_agent\agents\graph_interpreter.py              47      8    83%   22-23, 46-50, 53
+src\ex04_agent\agents\graph_parser.py                   37      2    95%   66-67
+src\ex04_agent\agents\graphify_runner.py                11      0   100%
+src\ex04_agent\agents\obsidian_vault.py                 30      1    97%   48
+src\ex04_agent\agents\patch.py                          30     10    67%   24, 43-59
+src\ex04_agent\agents\recommendation.py                 25      5    80%   39-43
+src\ex04_agent\agents\repository_setup.py               23      0   100%
+src\ex04_agent\agents\supervisor.py                     15      2    87%   18-19
+src\ex04_agent\agents\test_runner.py                    25      5    80%   48-52
+src\ex04_agent\cli\__init__.py                           0      0   100%
+src\ex04_agent\cli\handlers.py                          93     20    78%   23-25, 83-85, 94-96, 118-120, 130-132, 137-138, 141-143
+src\ex04_agent\cli\parser.py                            47      0   100%
+src\ex04_agent\detection\__init__.py                     5      0   100%
+src\ex04_agent\detection\detectors.py                   19      0   100%
+src\ex04_agent\detection\detectors_graph.py             33      5    85%   12, 23-25, 74
+src\ex04_agent\detection\detectors_source.py            27      0   100%
+src\ex04_agent\detection\detectors_source_extra.py      18      0   100%
+src\ex04_agent\detection\engine.py                      46      3    93%   58, 74-75
+src\ex04_agent\detection\finding.py                     38      0   100%
+src\ex04_agent\detection\report_writer.py               45      0   100%
+src\ex04_agent\detection\source_scanner.py              57      4    93%   49, 84-85, 89
+src\ex04_agent\detection\source_scanner_rules.py        43      9    79%   29-36, 56
+src\ex04_agent\git\__init__.py                           2      0   100%
+src\ex04_agent\git\diff_reader.py                       33      1    97%   68
+src\ex04_agent\graph\__init__.py                         9      0   100%
+src\ex04_agent\graph\collector.py                       43      1    98%   66
+src\ex04_agent\graph\graphify_run_report.py             21      2    90%   17-18
+src\ex04_agent\graph\graphify_run_result.py             25      0   100%
+src\ex04_agent\graph\graphify_runner.py                 44      0   100%
+src\ex04_agent\graph\indexer.py                         49      0   100%
+src\ex04_agent\graph\metrics.py                         53      0   100%
+src\ex04_agent\graph\metrics_topology.py                56      1    98%   61
+src\ex04_agent\graph\models.py                          31      0   100%
+src\ex04_agent\graph\parser.py                          77     17    78%   31-32, 37-38, 40-41, 60-61, 80-81, 85-86, 114-115, 120, 123-124
+src\ex04_agent\graph\serializer.py                      19      0   100%
+src\ex04_agent\obsidian\__init__.py                      9      0   100%
+src\ex04_agent\obsidian\dynamic_hotmd_builder.py        75      7    91%   117-118, 130-131, 137-139
+src\ex04_agent\obsidian\hot_md_builder.py               22      0   100%
+src\ex04_agent\obsidian\hotmd_renderer.py               56      9    84%   45-48, 107, 111-114
+src\ex04_agent\obsidian\index_builder.py                22      1    95%   84
+src\ex04_agent\obsidian\node_page_builder.py            42      0   100%
+src\ex04_agent\obsidian\node_ranker.py                  72      2    97%   122, 126
+src\ex04_agent\obsidian\rank_proximity.py               35      2    94%   32, 34
+src\ex04_agent\obsidian\report_builder.py               39      3    92%   46, 73, 80
+src\ex04_agent\obsidian\vault_builder.py                76      3    96%   106, 126-127
+src\ex04_agent\obsidian\vault_context.py                25      0   100%
+src\ex04_agent\patching\__init__.py                      4      0   100%
+src\ex04_agent\patching\diff_writer.py                  14      0   100%
+src\ex04_agent\patching\engine.py                       75     30    60%   25-26, 29, 45, 51-52, 55-58, 87-114
+src\ex04_agent\patching\model.py                        33      0   100%
+src\ex04_agent\patching\recipes.py                      74      4    95%   31, 53, 105, 136
+src\ex04_agent\patching\report_writer.py                43      5    88%   69, 75, 77-79
+src\ex04_agent\patching\safe_patcher.py                 42      6    86%   45, 60, 70-71, 80-81
+src\ex04_agent\patching\validator.py                    23     12    48%   20-26, 31-35
+src\ex04_agent\recommendation\__init__.py                4      0   100%
+src\ex04_agent\recommendation\engine.py                 35      3    91%   26-27, 30
+src\ex04_agent\recommendation\mapper.py                 26      0   100%
+src\ex04_agent\recommendation\model.py                  40      0   100%
+src\ex04_agent\recommendation\patch_plan.py             19      1    95%   20
+src\ex04_agent\recommendation\prioritizer.py            12      0   100%
+src\ex04_agent\recommendation\report_writer.py          60      0   100%
+src\ex04_agent\sdk\__init__.py                           2      0   100%
+src\ex04_agent\sdk\sdk.py                               35      5    86%   43, 62-65
+src\ex04_agent\shared\__init__.py                        3      0   100%
+src\ex04_agent\shared\config.py                         55      8    85%   49-50, 64-65, 81-82, 98-99
+src\ex04_agent\shared\phase_paths.py                    15      4    73%   11-12, 23-24
+src\ex04_agent\shared\version.py                         1      0   100%
+src\ex04_agent\testing\__init__.py                       4      0   100%
+src\ex04_agent\testing\command_runner.py                27     21    22%   21-48
+src\ex04_agent\testing\discovery.py                     22      1    95%   42
+src\ex04_agent\testing\engine.py                        65     50    23%   22-97, 100
+src\ex04_agent\testing\model.py                         35      0   100%
+src\ex04_agent\testing\report_writer.py                 36      4    89%   54-57
+src\ex04_agent\testing\result_parser.py                 38     18    53%   19-32, 37-39, 54
+src\ex04_agent\testing\validators.py                    50     24    52%   14-32, 63-70
+src\ex04_agent\workflow\__init__.py                      9      5    44%   16-21
+src\ex04_agent\workflow\graph.py                        29      0   100%
+src\ex04_agent\workflow\pipeline_nodes.py               44      0   100%
+src\ex04_agent\workflow\pipeline_steps.py               58     24    59%   30-38, 53-57, 78-82, 100-104
+src\ex04_agent\workflow\result.py                       34      0   100%
+src\ex04_agent\workflow\state.py                        48      0   100%
+----------------------------------------------------------------------------------
+TOTAL                                                 2870    356    88%
+Required test coverage of 85.0% reached. Total coverage: 87.60%
+============================= 122 passed in 3.64s =============================

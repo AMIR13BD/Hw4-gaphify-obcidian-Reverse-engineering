@@ -13,6 +13,7 @@ from ex04_agent.recommendation.report_writer import (
     RecommendationSummary,
 )
 from ex04_agent.shared.config import AppConfig
+from ex04_agent.shared.phase_paths import architecture_report_path, ensure_phase_write_path
 
 
 class RecommendationEngine:
@@ -24,7 +25,7 @@ class RecommendationEngine:
         if phase not in {"before", "after"}:
             msg = f"Invalid phase {phase!r}; expected 'before' or 'after'"
             raise ValueError(msg)
-        inputs = findings_path or self._path(f"findings_{phase}.json")
+        inputs = findings_path or architecture_report_path(self._config.project_root, "findings", phase, "json")
         if not inputs.is_file():
             raise FileNotFoundError(f"Required findings file not found: {inputs}")
         findings = json.loads(inputs.read_text(encoding="utf-8")).get("findings", [])
@@ -32,14 +33,19 @@ class RecommendationEngine:
         recs = [map_finding(item, i + 1) for i, item in enumerate(findings)]
         ordered = sort_recommendations(recs, by_id)
         plan_items, groups = build_patch_plan(ordered)
-        rec_json = self._path(f"recommendations_{phase}.json")
-        rec_md = self._path(f"recommendations_{phase}.md")
-        plan_json = self._path(f"patch_plan_{phase}.json")
-        plan_md = self._path(f"patch_plan_{phase}.md")
+        rec_json = architecture_report_path(self._config.project_root, "recommendations", phase, "json")
+        rec_md = architecture_report_path(self._config.project_root, "recommendations", phase, "md")
+        plan_json = architecture_report_path(self._config.project_root, "patch_plan", phase, "json")
+        plan_md = architecture_report_path(self._config.project_root, "patch_plan", phase, "md")
+        for path in (rec_json, rec_md, plan_json, plan_md):
+            ensure_phase_write_path(path, phase)
         rec_json.parent.mkdir(parents=True, exist_ok=True)
-        self._writer.write_recommendations(ordered, phase, rec_json, rec_md, self._path("recommendations.json"))
-        self._writer.write_patch_plan(plan_items, groups, phase, plan_json, plan_md, self._path("patch_plan.json"))
+        self._writer.write_recommendations(
+            ordered, phase, rec_json, rec_md,
+            self._config.project_root / "reports" / "architecture" / "recommendations.json",
+        )
+        self._writer.write_patch_plan(
+            plan_items, groups, phase, plan_json, plan_md,
+            self._config.project_root / "reports" / "architecture" / "patch_plan.json",
+        )
         return self._writer.build_summary(ordered, rec_json, rec_md, plan_json, plan_md)
-
-    def _path(self, name: str) -> Path:
-        return self._config.project_root / "reports" / "architecture" / name

@@ -1,13 +1,13 @@
 # EX04 Graph Index
 
 - **Repository:** `broken-python` (`data/target_repo/broken-python`)
-- **Phase:** `before`
+- **Phase:** `after`
 
 ## Graph Summary
 
-- Nodes: **26**
-- Links: **20**
-- Communities: **8**
+- Nodes: **25**
+- Links: **19**
+- Communities: **7**
 - Connected components: **7**
 
 ## Top Hubs (graph centrality)
@@ -16,9 +16,9 @@
 | --- | ---: | --- |
 | polygons.py | 6 | [[nodes/polygons_polygons|polygons.py]] |
 | Maths Quiz | 4 | [[nodes/mathsquiz_readme_maths_quiz|Maths Quiz]] |
-| Polygon | 4 | [[nodes/polygons_polygons_polygon|Polygon]] |
 | mathsquiz-step2.py | 3 | [[nodes/mathsquiz_mathsquiz_step2|mathsquiz-step2.py]] |
 | mathsquiz-step3.py | 3 | [[nodes/mathsquiz_mathsquiz_step3|mathsquiz-step3.py]] |
+| Polygon | 3 | [[nodes/polygons_polygons_polygon|Polygon]] |
 | calc_polygon_details() | 2 | [[nodes/polygons_polygons_calc_polygon_details|calc_polygon_details()]] |
 | ask_question() | 1 | [[nodes/mathsquiz_mathsquiz_step2_ask_question|ask_question()]] |
 | print_final_scores() | 1 | [[nodes/mathsquiz_mathsquiz_step2_print_final_scores|print_final_scores()]] |
@@ -28,7 +28,7 @@
 - [[nodes/mathsquiz_mathsquiz_step2|mathsquiz-step2.py]] (degree 3) — graph suggests high connectivity; validate in source before drawing architecture conclusions.
 - [[nodes/mathsquiz_mathsquiz_step3|mathsquiz-step3.py]] (degree 3) — graph suggests high connectivity; validate in source before drawing architecture conclusions.
 - [[nodes/polygons_polygons|polygons.py]] (degree 6) — graph suggests high connectivity; validate in source before drawing architecture conclusions.
-- [[nodes/polygons_polygons_polygon|Polygon]] (degree 4) — graph suggests high connectivity; validate in source before drawing architecture conclusions.
+- [[nodes/polygons_polygons_polygon|Polygon]] (degree 3) — graph suggests high connectivity; validate in source before drawing architecture conclusions.
 - [[nodes/mathsquiz_readme_maths_quiz|Maths Quiz]] (degree 4) — graph suggests high connectivity; validate in source before drawing architecture conclusions.
 
 ## Start Here
@@ -40,9 +40,9 @@
 
 - [[nodes/polygons_polygons|polygons.py]]
 - [[nodes/mathsquiz_readme_maths_quiz|Maths Quiz]]
-- [[nodes/polygons_polygons_polygon|Polygon]]
 - [[nodes/mathsquiz_mathsquiz_step2|mathsquiz-step2.py]]
 - [[nodes/mathsquiz_mathsquiz_step3|mathsquiz-step3.py]]
+- [[nodes/polygons_polygons_polygon|Polygon]]
 - [[nodes/polygons_polygons_calc_polygon_details|calc_polygon_details()]]
 
 ## How to Investigate

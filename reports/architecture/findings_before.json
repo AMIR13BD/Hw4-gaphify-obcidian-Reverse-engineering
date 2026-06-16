@@ -1,6 +1,6 @@
 {
   "phase": "before",
-  "finding_count": 8,
+  "finding_count": 19,
   "findings": [
     {
       "id": "god_node_mathsquiz_mathsquiz_step2",
@@ -203,7 +203,7 @@
       "severity": "high",
       "confidence": "high",
       "status": "validated_by_source",
-      "observation": "Source scan suggests multiple responsibilities in one file: calculation, class_definition, drawing, global_state, input, output.",
+      "observation": "Source scan suggests multiple responsibilities in one file: calculation, class_definition, drawing, global_state, input, output, top_level_execution.",
       "relation": "Class/model, calculation, drawing, I/O, and top-level execution coexist.",
       "confidence_reason": "Responsibility tags detected in source file.",
       "context": "SRC: polygons.py combines tutorial script and reusable module patterns.",
@@ -218,49 +218,442 @@
           "kind": "source",
           "path": "polygons/polygons.py",
           "start_line": 1,
-          "end_line": 68,
+          "end_line": 66,
           "detail": "responsibility=calculation"
         },
         {
           "kind": "source",
           "path": "polygons/polygons.py",
           "start_line": 1,
-          "end_line": 68,
+          "end_line": 66,
           "detail": "responsibility=class_definition"
         },
         {
           "kind": "source",
           "path": "polygons/polygons.py",
           "start_line": 1,
-          "end_line": 68,
+          "end_line": 66,
           "detail": "responsibility=drawing"
         },
         {
           "kind": "source",
           "path": "polygons/polygons.py",
           "start_line": 1,
-          "end_line": 68,
+          "end_line": 66,
           "detail": "responsibility=global_state"
         },
         {
           "kind": "source",
           "path": "polygons/polygons.py",
           "start_line": 1,
-          "end_line": 68,
+          "end_line": 66,
           "detail": "responsibility=input"
         },
         {
           "kind": "source",
           "path": "polygons/polygons.py",
           "start_line": 1,
-          "end_line": 68,
+          "end_line": 66,
           "detail": "responsibility=output"
+        },
+        {
+          "kind": "source",
+          "path": "polygons/polygons.py",
+          "start_line": 1,
+          "end_line": 66,
+          "detail": "responsibility=top_level_execution"
         }
       ],
       "source_validation": "Validated by source responsibility scan.",
       "next_validation_steps": [
         "Split drawing, domain logic, and CLI entry point.",
         "Phase 9 may consider safe extraction recommendations."
+      ]
+    },
+    {
+      "id": "top_level_polygons_polygons_py",
+      "title": "Top-level side effects in polygons/polygons.py",
+      "detector": "TopLevelSideEffectDetector",
+      "category": "import_script_mixing",
+      "severity": "medium",
+      "confidence": "high",
+      "status": "validated_by_source",
+      "observation": "Graph suggests importable code and runnable script behavior may be mixed.",
+      "relation": "Module-level input/print/calls run on import.",
+      "confidence_reason": "Top-level execution tags and line matches.",
+      "context": "Not a confirmed bug unless import fails; needs manual confirmation.",
+      "affected_nodes": [],
+      "affected_files": [
+        "polygons/polygons.py"
+      ],
+      "evidence": [
+        {
+          "kind": "source",
+          "path": "polygons/polygons.py",
+          "start_line": 3,
+          "end_line": 3,
+          "detail": "top-level execution"
+        },
+        {
+          "kind": "source",
+          "path": "polygons/polygons.py",
+          "start_line": 13,
+          "end_line": 13,
+          "detail": "top-level execution"
+        },
+        {
+          "kind": "source",
+          "path": "polygons/polygons.py",
+          "start_line": 41,
+          "end_line": 41,
+          "detail": "top-level execution"
+        },
+        {
+          "kind": "source",
+          "path": "polygons/polygons.py",
+          "start_line": 58,
+          "end_line": 58,
+          "detail": "top-level execution"
+        },
+        {
+          "kind": "source",
+          "path": "polygons/polygons.py",
+          "start_line": 60,
+          "end_line": 60,
+          "detail": "top-level execution"
+        }
+      ],
+      "source_validation": "Validated by source line scan.",
+      "next_validation_steps": [
+        "Try importing module without running side effects."
+      ]
+    },
+    {
+      "id": "top_level_mathsquiz_mathsquiz-step2_py",
+      "title": "Top-level side effects in mathsquiz/mathsquiz-step2.py",
+      "detector": "TopLevelSideEffectDetector",
+      "category": "import_script_mixing",
+      "severity": "medium",
+      "confidence": "high",
+      "status": "validated_by_source",
+      "observation": "Graph suggests importable code and runnable script behavior may be mixed.",
+      "relation": "Module-level input/print/calls run on import.",
+      "confidence_reason": "Top-level execution tags and line matches.",
+      "context": "Not a confirmed bug unless import fails; needs manual confirmation.",
+      "affected_nodes": [],
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "evidence": [
+        {
+          "kind": "source",
+          "path": "mathsquiz/mathsquiz-step2.py",
+          "start_line": 3,
+          "end_line": 3,
+          "detail": "top-level execution"
+        },
+        {
+          "kind": "source",
+          "path": "mathsquiz/mathsquiz-step2.py",
+          "start_line": 8,
+          "end_line": 8,
+          "detail": "top-level execution"
+        },
+        {
+          "kind": "source",
+          "path": "mathsquiz/mathsquiz-step2.py",
+          "start_line": 23,
+          "end_line": 23,
+          "detail": "top-level execution"
+        },
+        {
+          "kind": "source",
+          "path": "mathsquiz/mathsquiz-step2.py",
+          "start_line": 39,
+          "end_line": 39,
+          "detail": "top-level execution"
+        },
+        {
+          "kind": "source",
+          "path": "mathsquiz/mathsquiz-step2.py",
+          "start_line": 45,
+          "end_line": 45,
+          "detail": "top-level execution"
+        }
+      ],
+      "source_validation": "Validated by source line scan.",
+      "next_validation_steps": [
+        "Try importing module without running side effects."
+      ]
+    },
+    {
+      "id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "title": "Possible hidden global `score` in print_final_scores()",
+      "detector": "HiddenGlobalStateDetector",
+      "category": "hidden_global_state",
+      "severity": "medium",
+      "confidence": "high",
+      "status": "validated_by_source",
+      "observation": "Function `print_final_scores` appears to use global `score` instead of its parameters.",
+      "relation": "Parameter/global mismatch increases coupling.",
+      "confidence_reason": "AST or text scan of function body.",
+      "context": "Example: print_final_scores(final_score) prints global score.",
+      "affected_nodes": [],
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "evidence": [
+        {
+          "kind": "source",
+          "path": "mathsquiz/mathsquiz-step2.py",
+          "start_line": 25,
+          "end_line": 25,
+          "detail": "uses global `score`"
+        }
+      ],
+      "source_validation": "Validated by source scan.",
+      "next_validation_steps": [
+        "Confirm intended parameter usage in source."
+      ]
+    },
+    {
+      "id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "title": "Possible hidden global `score` in print_final_scores()",
+      "detector": "HiddenGlobalStateDetector",
+      "category": "hidden_global_state",
+      "severity": "medium",
+      "confidence": "high",
+      "status": "validated_by_source",
+      "observation": "Function `print_final_scores` appears to use global `score` instead of its parameters.",
+      "relation": "Parameter/global mismatch increases coupling.",
+      "confidence_reason": "AST or text scan of function body.",
+      "context": "Example: print_final_scores(final_score) prints global score.",
+      "affected_nodes": [],
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "evidence": [
+        {
+          "kind": "source",
+          "path": "mathsquiz/mathsquiz-step2.py",
+          "start_line": 26,
+          "end_line": 26,
+          "detail": "uses global `score`"
+        }
+      ],
+      "source_validation": "Validated by source scan.",
+      "next_validation_steps": [
+        "Confirm intended parameter usage in source."
+      ]
+    },
+    {
+      "id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "title": "Possible hidden global `score` in print_final_scores()",
+      "detector": "HiddenGlobalStateDetector",
+      "category": "hidden_global_state",
+      "severity": "medium",
+      "confidence": "high",
+      "status": "validated_by_source",
+      "observation": "Function `print_final_scores` appears to use global `score` instead of its parameters.",
+      "relation": "Parameter/global mismatch increases coupling.",
+      "confidence_reason": "AST or text scan of function body.",
+      "context": "Example: print_final_scores(final_score) prints global score.",
+      "affected_nodes": [],
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "evidence": [
+        {
+          "kind": "source",
+          "path": "mathsquiz/mathsquiz-step2.py",
+          "start_line": 28,
+          "end_line": 28,
+          "detail": "uses global `score`"
+        }
+      ],
+      "source_validation": "Validated by source scan.",
+      "next_validation_steps": [
+        "Confirm intended parameter usage in source."
+      ]
+    },
+    {
+      "id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "title": "Possible hidden global `score` in print_final_scores()",
+      "detector": "HiddenGlobalStateDetector",
+      "category": "hidden_global_state",
+      "severity": "medium",
+      "confidence": "high",
+      "status": "validated_by_source",
+      "observation": "Function `print_final_scores` appears to use global `score` instead of its parameters.",
+      "relation": "Parameter/global mismatch increases coupling.",
+      "confidence_reason": "AST or text scan of function body.",
+      "context": "Example: print_final_scores(final_score) prints global score.",
+      "affected_nodes": [],
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "evidence": [
+        {
+          "kind": "source",
+          "path": "mathsquiz/mathsquiz-step2.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detail": "uses global `score`"
+        }
+      ],
+      "source_validation": "Validated by source scan.",
+      "next_validation_steps": [
+        "Confirm intended parameter usage in source."
+      ]
+    },
+    {
+      "id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "title": "Possible hidden global `score` in print_final_scores()",
+      "detector": "HiddenGlobalStateDetector",
+      "category": "hidden_global_state",
+      "severity": "medium",
+      "confidence": "high",
+      "status": "validated_by_source",
+      "observation": "Function `print_final_scores` appears to use global `score` instead of its parameters.",
+      "relation": "Parameter/global mismatch increases coupling.",
+      "confidence_reason": "AST or text scan of function body.",
+      "context": "Example: print_final_scores(final_score) prints global score.",
+      "affected_nodes": [],
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "evidence": [
+        {
+          "kind": "source",
+          "path": "mathsquiz/mathsquiz-step2.py",
+          "start_line": 32,
+          "end_line": 32,
+          "detail": "uses global `score`"
+        }
+      ],
+      "source_validation": "Validated by source scan.",
+      "next_validation_steps": [
+        "Confirm intended parameter usage in source."
+      ]
+    },
+    {
+      "id": "hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+      "title": "Possible hidden global `score` in print_final_scores()",
+      "detector": "HiddenGlobalStateDetector",
+      "category": "hidden_global_state",
+      "severity": "medium",
+      "confidence": "high",
+      "status": "validated_by_source",
+      "observation": "Function `print_final_scores` appears to use global `score` instead of its parameters.",
+      "relation": "Parameter/global mismatch increases coupling.",
+      "confidence_reason": "AST or text scan of function body.",
+      "context": "Example: print_final_scores(final_score) prints global score.",
+      "affected_nodes": [],
+      "affected_files": [
+        "mathsquiz/mathsquiz-step3.py"
+      ],
+      "evidence": [
+        {
+          "kind": "source",
+          "path": "mathsquiz/mathsquiz-step3.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detail": "uses global `score`"
+        }
+      ],
+      "source_validation": "Validated by source scan.",
+      "next_validation_steps": [
+        "Confirm intended parameter usage in source."
+      ]
+    },
+    {
+      "id": "hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+      "title": "Possible hidden global `score` in print_final_scores()",
+      "detector": "HiddenGlobalStateDetector",
+      "category": "hidden_global_state",
+      "severity": "medium",
+      "confidence": "high",
+      "status": "validated_by_source",
+      "observation": "Function `print_final_scores` appears to use global `score` instead of its parameters.",
+      "relation": "Parameter/global mismatch increases coupling.",
+      "confidence_reason": "AST or text scan of function body.",
+      "context": "Example: print_final_scores(final_score) prints global score.",
+      "affected_nodes": [],
+      "affected_files": [
+        "mathsquiz/mathsquiz-step3.py"
+      ],
+      "evidence": [
+        {
+          "kind": "source",
+          "path": "mathsquiz/mathsquiz-step3.py",
+          "start_line": 32,
+          "end_line": 32,
+          "detail": "uses global `score`"
+        }
+      ],
+      "source_validation": "Validated by source scan.",
+      "next_validation_steps": [
+        "Confirm intended parameter usage in source."
+      ]
+    },
+    {
+      "id": "execution_blocker_mathsquiz_mathsquiz.py",
+      "title": "Syntax blocker in mathsquiz/mathsquiz.py",
+      "detector": "ExecutionBlockerDetector",
+      "category": "code_health_blocker",
+      "severity": "high",
+      "confidence": "high",
+      "status": "validated_by_source",
+      "observation": "Source validation proves the file does not compile under Python 3.",
+      "relation": "Blocks safe AST analysis, testing, and patching.",
+      "confidence_reason": "Missing parentheses in call to 'print'. Did you mean print(...)? (mathsquiz/mathsquiz.py, line 3)",
+      "context": "Separate from pure architecture; affects analysis workflow.",
+      "affected_nodes": [],
+      "affected_files": [
+        "mathsquiz/mathsquiz.py"
+      ],
+      "evidence": [
+        {
+          "kind": "source",
+          "path": "mathsquiz/mathsquiz.py",
+          "start_line": null,
+          "end_line": null,
+          "detail": "Missing parentheses in call to 'print'. Did you mean print(...)? (mathsquiz/mathsquiz.py, line 3)"
+        }
+      ],
+      "source_validation": "Validated by compile().",
+      "next_validation_steps": [
+        "Fix syntax before automated refactor."
+      ]
+    },
+    {
+      "id": "execution_blocker_polygons_polygons.py",
+      "title": "Syntax blocker in polygons/polygons.py",
+      "detector": "ExecutionBlockerDetector",
+      "category": "code_health_blocker",
+      "severity": "high",
+      "confidence": "high",
+      "status": "validated_by_source",
+      "observation": "Source validation proves the file does not compile under Python 3.",
+      "relation": "Blocks safe AST analysis, testing, and patching.",
+      "confidence_reason": "invalid syntax (polygons/polygons.py, line 29)",
+      "context": "Separate from pure architecture; affects analysis workflow.",
+      "affected_nodes": [],
+      "affected_files": [
+        "polygons/polygons.py"
+      ],
+      "evidence": [
+        {
+          "kind": "source",
+          "path": "polygons/polygons.py",
+          "start_line": null,
+          "end_line": null,
+          "detail": "invalid syntax (polygons/polygons.py, line 29)"
+        }
+      ],
+      "source_validation": "Validated by compile().",
+      "next_validation_steps": [
+        "Fix syntax before automated refactor."
       ]
     },
     {

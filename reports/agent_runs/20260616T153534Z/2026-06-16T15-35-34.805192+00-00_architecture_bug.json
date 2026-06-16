@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-06-16T15:35:34.805192+00:00",
+  "agent": "architecture_bug",
+  "status": "completed",
+  "inputs": {
+    "phase": "after",
+    "metrics_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\metrics_after.json"
+  },
+  "outputs": {
+    "finding_count": 8,
+    "by_category": {
+      "documentation_hub": 1,
+      "mixed_responsibility": 1,
+      "navigation_scope": 1,
+      "organization": 1,
+      "possible_hub": 4
+    },
+    "by_severity": {
+      "high": 1,
+      "low": 2,
+      "medium": 5
+    },
+    "high_confidence_count": 3,
+    "json_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.json",
+    "markdown_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\reports\\architecture\\findings_after.md"
+  },
+  "errors": []
+}

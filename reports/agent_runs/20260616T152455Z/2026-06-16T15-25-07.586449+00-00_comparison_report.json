@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-06-16T15:25:07.586449+00:00",
+  "agent": "comparison_report",
+  "status": "skipped",
+  "inputs": {
+    "phase": "after"
+  },
+  "outputs": {
+    "message": "Before/after comparison is planned for Phase 13."
+  },
+  "errors": []
+}

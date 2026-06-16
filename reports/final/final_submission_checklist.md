@@ -66,7 +66,8 @@
 - [x] No secrets in git — `.env-example` only
 - [x] `uv.lock` present
 - [x] `.venv/` not committed (in `.gitignore`)
-- [ ] **Screenshots:** manual Obsidian capture pending — see `assets/screenshots/README.md`
+- [x] README includes research questions (8), §5.4 repair proof, §5.5 token proof, block/OOP diagrams, requirement checklist
+- [x] `assets/screenshots/README.md` with capture instructions and image filenames
 - [ ] **Final zip:** create manually before upload
 
 ---

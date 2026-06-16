@@ -28,7 +28,15 @@ Save the following PNG files in this directory:
    - `hot.md`
    - Obsidian **Graph view** (Ctrl+G or left ribbon)
 4. Save PNG files here under `assets/screenshots/`.
-5. Update image links in the root `README.md` (Obsidian section).
+5. GitHub README already contains image links — they will display once PNGs exist:
+
+   ```md
+   ![Obsidian index](assets/screenshots/obsidian_index.png)
+   ![Obsidian hot](assets/screenshots/obsidian_hot.png)
+   ![Obsidian graph view](assets/screenshots/obsidian_graph_view.png)
+   ![Graphify before](assets/screenshots/graphify_before.png)
+   ![Graphify after](assets/screenshots/graphify_after.png)
+   ```
 
 ## Graphify screenshots (optional)
 

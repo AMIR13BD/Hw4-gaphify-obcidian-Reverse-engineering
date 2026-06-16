@@ -59,9 +59,11 @@ All agents run in a **LangGraph** linear workflow with traces under `reports/age
 
 ---
 
-## Submission status
+## Compliance highlights (EX04 §5)
 
-- All phases 0–15 complete.
-- Final README and evidence map in root `README.md`.
-- Obsidian screenshots: **manual capture required** — see `assets/screenshots/README.md`.
-- Clean zip: create manually excluding `.venv/`, caches, and `.coverage` (instructions in `final_submission_checklist.md`).
+- **Research questions:** 8 questions with method/evidence/result — see root `README.md` §2
+- **§5.4 Code repair proof:** per-file table + 4 applied / 0 failed / 0 rolled back
+- **§5.5 Token-saving proof:** scenario table + proof dimensions (tokens, files, iterations, quality)
+- **Block + OOP diagrams:** in README §3
+- **Requirement coverage checklist:** in README
+- **Screenshots:** manual — `assets/screenshots/README.md`

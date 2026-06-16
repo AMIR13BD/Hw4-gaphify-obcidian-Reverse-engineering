@@ -1,0 +1,42 @@
+# Secrets
+.env
+*.pem
+*.key
+credentials.json
+
+# Python / uv
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Test / lint caches
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary logs (optional local only)
+*.log
+.venv/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.pyc
+.coverage
+htmlcov/
+.env
+*.zip
+_pdf_extracts/

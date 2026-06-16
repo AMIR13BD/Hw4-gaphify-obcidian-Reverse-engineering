@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-06-16T12:00:09.587030+00:00",
+  "agent": "graphify_runner",
+  "status": "completed",
+  "inputs": {
+    "phase": "before",
+    "dry_run": true
+  },
+  "outputs": {
+    "success": true,
+    "artifacts": {
+      "graph_json": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\before\\graph.json",
+      "graph_html": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\before\\graph.html",
+      "graph_report": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\graph\\before\\GRAPH_REPORT.md"
+    }
+  },
+  "errors": []
+}

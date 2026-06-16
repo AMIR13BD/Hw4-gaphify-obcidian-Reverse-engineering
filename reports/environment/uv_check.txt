@@ -1,0 +1,61 @@
+uv environment check — Phase 2
+Date: 2026-06-16
+
+================================================================================
+INITIAL CHECK (before install)
+================================================================================
+
+=== COMMAND: uv --version ===
+OUTPUT:
+  The term 'uv' is not recognized...
+EXIT CODE: (command not found)
+
+=== COMMAND: where uv ===
+OUTPUT:
+  INFO: Could not find files for the given pattern(s).
+
+INITIAL STATUS: uv NOT on PATH.
+
+================================================================================
+INSTALL
+================================================================================
+
+=== COMMAND: powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex" ===
+OUTPUT:
+  downloading uv 0.11.21 (x86_64-pc-windows-msvc)
+  installing to C:\Users\ameer\.local\bin
+  everything's installed!
+EXIT CODE: 0
+
+PATH refresh (current shell):
+  $env:Path = "C:\Users\ameer\.local\bin;$env:Path"
+
+================================================================================
+POST-INSTALL CHECK
+================================================================================
+
+=== COMMAND: uv --version ===
+OUTPUT:
+  uv 0.11.21 (5aa65dd7a 2026-06-11 x86_64-pc-windows-msvc)
+EXIT CODE: 0
+
+=== COMMAND: where uv ===
+OUTPUT:
+  C:\Users\ameer\.local\bin\uv.exe
+
+FINAL STATUS: uv INSTALLED and WORKING.
+
+NOTE: New terminals may need PATH to include C:\Users\ameer\.local\bin
+(or restart shell) unless uv installer updated user PATH permanently.
+
+================================================================================
+PROJECT COMMANDS (Phase 2)
+================================================================================
+
+=== uv lock ===
+EXIT CODE: 0
+Resolved 44 packages
+
+=== uv sync ===
+EXIT CODE: 0
+Created .venv at project root; installed ex04-agent + dev dependencies

@@ -1,0 +1,68 @@
+{
+  "directed": true,
+  "built_at_commit": "abc123",
+  "nodes": [
+    {
+      "id": "hub",
+      "label": "Hub Module",
+      "file_type": "code",
+      "source_file": "src/hub.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 1
+    },
+    {
+      "id": "leaf_a",
+      "label": "Leaf A"
+    },
+    {
+      "id": "leaf_b",
+      "label": "Leaf B",
+      "type": "module",
+      "community": 1
+    },
+    {
+      "id": "readme",
+      "label": "README.md",
+      "file_type": "file",
+      "source_file": "README.md"
+    },
+    {
+      "id": "isolated",
+      "label": "Isolated Node",
+      "file_type": "code"
+    }
+  ],
+  "links": [
+    {
+      "source": "hub",
+      "target": "leaf_a",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "weight": 2.0
+    },
+    {
+      "source": "hub",
+      "target": "leaf_b",
+      "label": "imports",
+      "edge_type": "INFERRED",
+      "confidence_score": 0.5
+    },
+    {
+      "source": "leaf_a",
+      "target": "readme",
+      "relation": "documents",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.9
+    },
+    {
+      "source": "hub",
+      "target": "readme",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.6,
+      "source_file": "src/hub.py"
+    }
+  ]
+}

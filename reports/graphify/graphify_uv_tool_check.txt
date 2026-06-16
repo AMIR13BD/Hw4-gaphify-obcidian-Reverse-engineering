@@ -1,0 +1,52 @@
+Graphify uv tool check — Phase 2
+Date: 2026-06-16
+
+================================================================================
+PRE-INSTALL CHECK
+================================================================================
+
+=== COMMAND: graphify --version ===
+OUTPUT:
+  graphify 0.8.40
+EXIT CODE: 0
+
+NOTE: graphify was already available from Phase 1 global pip install
+(C:\Users\ameer\AppData\Local\Programs\Python\Python313\Scripts\graphify.exe).
+
+================================================================================
+UV TOOL INSTALL (course-preferred method)
+================================================================================
+
+=== COMMAND: uv tool install graphifyy ===
+OUTPUT:
+  Installed graphifyy==0.8.40
+  Installed 2 executables: graphify, graphify-mcp
+EXIT CODE: 0
+
+================================================================================
+POST-INSTALL CHECK
+================================================================================
+
+=== COMMAND: graphify --version ===
+OUTPUT:
+  graphify 0.8.40
+EXIT CODE: 0
+
+=== COMMAND: where graphify ===
+OUTPUT:
+  C:\Users\ameer\.local\bin\graphify.exe
+  C:\Users\ameer\AppData\Local\Programs\Python\Python313\Scripts\graphify.exe
+
+FINAL STATUS: Graphify AVAILABLE via uv tool (preferred) and legacy pip path.
+
+Package: graphifyy (PyPI)
+CLI command: graphify
+Version: 0.8.40
+
+RECOMMENDED USAGE:
+  - AST-only scan (no API key): graphify update data/target_repo/broken-python
+  - Full semantic extract: requires LLM API key via graphify extract
+
+CONFIG REFERENCE:
+  config/setup.json -> "graphify_cli": "graphify"
+  .env-example -> GRAPHIFY_PATH=graphify

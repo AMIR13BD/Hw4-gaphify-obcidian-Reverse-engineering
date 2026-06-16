@@ -1,0 +1,82 @@
+{
+  "phase": "before",
+  "graph_path": "artifacts/graph/before/graph.json",
+  "summary": {
+    "node_count": 5,
+    "link_count": 4,
+    "file_node_count": 1,
+    "code_node_count": 4,
+    "isolated_node_count": 1,
+    "connected_component_count": 2,
+    "god_node_threshold": 3,
+    "low_confidence_link_count": 3,
+    "nodes": [
+      {
+        "id": "hub",
+        "label": "Hub Module",
+        "in_degree": 0,
+        "out_degree": 3,
+        "total_degree": 3,
+        "normalized_degree": 1.0,
+        "community": 1,
+        "source_file": "src/hub.py"
+      },
+      {
+        "id": "leaf_a",
+        "label": "Leaf A",
+        "in_degree": 1,
+        "out_degree": 1,
+        "total_degree": 2,
+        "normalized_degree": 0.6667,
+        "community": 1,
+        "source_file": null
+      },
+      {
+        "id": "leaf_b",
+        "label": "Leaf B",
+        "in_degree": 1,
+        "out_degree": 0,
+        "total_degree": 1,
+        "normalized_degree": 0.3333,
+        "community": 1,
+        "source_file": null
+      },
+      {
+        "id": "readme",
+        "label": "README.md",
+        "in_degree": 2,
+        "out_degree": 0,
+        "total_degree": 2,
+        "normalized_degree": 0.6667,
+        "community": 2,
+        "source_file": "README.md"
+      },
+      {
+        "id": "isolated",
+        "label": "Isolated Node",
+        "in_degree": 0,
+        "out_degree": 0,
+        "total_degree": 0,
+        "normalized_degree": 0.0,
+        "community": null,
+        "source_file": null
+      }
+    ]
+  },
+  "top_hubs": [
+    {"id": "hub", "label": "Hub Module", "total_degree": 3, "in_degree": 0, "out_degree": 3, "source_file": "src/hub.py"},
+    {"id": "readme", "label": "README.md", "total_degree": 2, "in_degree": 2, "out_degree": 0, "source_file": "README.md"},
+    {"id": "leaf_a", "label": "Leaf A", "total_degree": 2, "in_degree": 1, "out_degree": 1, "source_file": null}
+  ],
+  "potential_god_nodes": [
+    {"id": "hub", "label": "Hub Module", "total_degree": 3, "in_degree": 0, "out_degree": 3, "source_file": "src/hub.py"}
+  ],
+  "relation_counts": {"calls": 1, "contains": 1, "documents": 1, "imports": 1},
+  "confidence_counts": {"AMBIGUOUS": 1, "EXTRACTED": 2, "INFERRED": 1},
+  "communities": {"1": 3, "2": 1},
+  "components": {"count": 2, "sizes": [4, 1]},
+  "low_confidence_links": [
+    {"source": "hub", "target": "leaf_b", "relation": "imports", "confidence": "INFERRED"}
+  ],
+  "generated_at": "2026-01-01T00:00:00+00:00"
+}

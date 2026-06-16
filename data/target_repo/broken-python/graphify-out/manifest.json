@@ -1,0 +1,42 @@
+{
+  "mathsquiz/mathsquiz-step1.py": {
+    "mtime": 1781604644.0916164,
+    "ast_hash": "3c75ac66a9ba4e01f4155d2177f753d7",
+    "semantic_hash": ""
+  },
+  "mathsquiz/mathsquiz-step2.py": {
+    "mtime": 1781604644.092859,
+    "ast_hash": "12eadd3622e950be58b5af6e6aa80135",
+    "semantic_hash": ""
+  },
+  "mathsquiz/mathsquiz-step3.py": {
+    "mtime": 1781604644.092859,
+    "ast_hash": "8c91301f4ef1745674f3d77ee12bf8b4",
+    "semantic_hash": ""
+  },
+  "mathsquiz/mathsquiz.py": {
+    "mtime": 1781604644.0938642,
+    "ast_hash": "2e22031f319fa7f104ada5be48010f6d",
+    "semantic_hash": ""
+  },
+  "polygons/polygons.py": {
+    "mtime": 1781604644.0963347,
+    "ast_hash": "a6f47047728c8eb89ce2e0c82463287b",
+    "semantic_hash": ""
+  },
+  "LICENSE.txt": {
+    "mtime": 1781604644.0906124,
+    "ast_hash": "8609ae3dad339dff01b2295c56d8c8ef",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1781604644.0906124,
+    "ast_hash": "184eb0316f3bcf366e364fcb0f9efc35",
+    "semantic_hash": ""
+  },
+  "mathsquiz/README.md": {
+    "mtime": 1781604644.0916164,
+    "ast_hash": "ef983ca3d08a497e108de04e620ae421",
+    "semantic_hash": ""
+  }
+}

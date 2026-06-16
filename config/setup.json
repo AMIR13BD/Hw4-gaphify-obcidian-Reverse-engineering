@@ -1,0 +1,16 @@
+{
+  "version": "1.00",
+  "target_repo": "data/target_repo/broken-python",
+  "graphify_cli": "graphify",
+  "max_iterations": 3,
+  "allow_patches": false,
+  "index_max_chars": 4000,
+  "hotmd_weights": {
+    "degree": 0.20,
+    "betweenness": 0.25,
+    "diff_proximity": 0.30,
+    "test_proximity": 0.15,
+    "ambiguous": 0.05,
+    "god_node": 0.05
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "repo_url": "https://github.com/martinpeck/broken-python.git",
+  "local_path": "data/target_repo/broken-python",
+  "local_path_absolute": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python",
+  "commit_sha": "fc222e2431035de82e35fc8e07f85bd294ca0c58",
+  "commit_sha_short": "fc222e24",
+  "branch": "master",
+  "cloned_at": "2026-06-16",
+  "python_files_count": 5,
+  "python_lines_approximate": 321,
+  "python_files": [
+    {
+      "path": "mathsquiz/mathsquiz-step1.py",
+      "lines": 116
+    },
+    {
+      "path": "mathsquiz/mathsquiz-step2.py",
+      "lines": 45
+    },
+    {
+      "path": "mathsquiz/mathsquiz-step3.py",
+      "lines": 47
+    },
+    {
+      "path": "mathsquiz/mathsquiz.py",
+      "lines": 62
+    },
+    {
+      "path": "polygons/polygons.py",
+      "lines": 51
+    }
+  ],
+  "non_python_files": [
+    "README.md",
+    "LICENSE.txt",
+    ".gitignore",
+    "mathsquiz/README.md"
+  ],
+  "dependency_files_found": [],
+  "test_files_found": [],
+  "readme_found": true,
+  "architecture_analysis_sufficiency": {
+    "large_enough_for_graph_analysis": true,
+    "graphify_verdict": "corpus is large enough that graph structure adds value (per GRAPH_REPORT.md)",
+    "graph_nodes": 26,
+    "graph_links": 20,
+    "graph_communities": 8,
+    "concerns": [
+      "Only 5 Python source files (~321 LOC) — very small for rich architecture narrative",
+      "No formal package layout (flat scripts in mathsquiz/ and polygons/)",
+      "No unit tests in target repo — failing-test proximity feature will need wrapper tests",
+      "Code appears Python 2-style in places (invalid Python 3 syntax) — debugging-focused, not production architecture",
+      "Graphify AST-only run produced 100% EXTRACTED edges; no INFERRED/AMBIGUOUS edges without LLM semantic pass on README docs"
+    ],
+    "too_small_risk": "Moderate. Graphify still produced 26 nodes and communities, but god-node/bottleneck story may be thin. Token-efficiency demo may show little savings on such a tiny corpus. Assignment is still feasible if we add project-level tests and rich Obsidian narrative.",
+    "recommendation": "Continue with broken-python unless lecturer requires larger codebase; do not switch automatically."
+  }
+}

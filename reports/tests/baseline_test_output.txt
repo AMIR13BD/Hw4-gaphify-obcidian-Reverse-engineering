@@ -1,0 +1,81 @@
+Baseline test run — Phase 1
+Date: 2026-06-16
+Target repo: C:\Users\ameer\OneDrive\Desktop\Ai-wdefe3\data\target_repo\broken-python
+
+================================================================================
+SUMMARY
+================================================================================
+RESULT: NO TESTS FOUND — baseline test run not possible in target repository.
+
+The martinpeck/broken-python repository contains no test files, no pytest
+configuration, and no requirements.txt / pyproject.toml. This is expected for
+this educational debugging repo (students fix scripts manually).
+
+================================================================================
+ENVIRONMENT
+================================================================================
+=== python --version ===
+Python 3.13.13
+EXIT CODE: 0
+
+================================================================================
+TEST FILE DISCOVERY
+================================================================================
+=== Search: test_*.py (recursive) ===
+(no test_*.py files found)
+
+=== Search: *_test.py (recursive) ===
+(no *_test.py files found)
+
+=== Search: tests/ directory ===
+(not present)
+
+=== Search: pytest.ini / pyproject.toml [tool.pytest] ===
+(not present)
+
+================================================================================
+COMMANDS ATTEMPTED
+================================================================================
+=== COMMAND: python -m pytest --version ===
+OUTPUT:
+  No module named pytest
+EXIT CODE: 1
+
+=== COMMAND: pytest --version ===
+OUTPUT:
+  (command not found on PATH)
+EXIT CODE: (not available)
+
+=== COMMAND: python -m pytest "C:\Users\ameer\OneDrive\Desktop\Ai-wdefe3\data\target_repo\broken-python" -v ===
+OUTPUT:
+  No module named pytest
+EXIT CODE: 1
+
+================================================================================
+WHAT FAILED AND WHY
+================================================================================
+1. Target repo has zero automated tests — nothing to run.
+2. Global Python 3.13 environment does not have pytest installed.
+3. Our EX04 project (uv scaffold) does not exist yet — Phase 2 not started.
+
+================================================================================
+RECOMMENDED WORKAROUND (for later phases)
+================================================================================
+1. Phase 2: Create uv project with pytest as a dev dependency.
+2. Phase 11: Add wrapper tests under our project's tests/ that:
+   - Import or subprocess-run target scripts where syntax allows, OR
+   - Use AST/static checks for known bugs, OR
+   - Add minimal characterization tests after safe fixes are applied.
+3. For TestRunnerAgent: default command should be our project's
+   `uv run pytest tests/` (targeting broken-python via fixtures/path config),
+   not pytest inside the target repo.
+4. Document in README that broken-python ships without tests by design;
+   regression gate is provided by our assignment wrapper.
+
+================================================================================
+MANUAL SMOKE (informational, not automated tests)
+================================================================================
+Attempted: python mathsquiz/mathsquiz.py
+Note: mathsquiz.py uses Python 2-style print and invalid assignment syntax
+      (e.g. `if answer = 55:`). Expected SyntaxError on Python 3.13.
+This confirms the repo is intentionally broken for student debugging exercises.

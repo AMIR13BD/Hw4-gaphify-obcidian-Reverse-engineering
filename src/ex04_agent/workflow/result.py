@@ -26,6 +26,8 @@ class PipelineResult:
     recommendations_path: str
     recommendation_count: int
     patch_plan_path: str
+    patch_result_path: str
+    patch_applied_count: int
     trace_run_id: str
     errors: tuple[str, ...]
 
@@ -52,6 +54,8 @@ class PipelineResult:
             recommendations_path=str(state.get("recommendations_path", "")),
             recommendation_count=int(state.get("recommendation_count", 0)),
             patch_plan_path=str(state.get("patch_plan_path", "")),
+            patch_result_path=str(state.get("patch_result_path", "")),
+            patch_applied_count=int(state.get("patch_applied_count", 0)),
             trace_run_id=str(state.get("trace_run_id", "")),
             errors=errors,
         )

@@ -96,6 +96,18 @@ def run_recommend(args: argparse.Namespace) -> int:
         return 1
 
 
+def run_patch(args: argparse.Namespace) -> int:
+    from ex04_agent.agents.patch import PatchAgent
+
+    try:
+        summary = PatchAgent().run(phase=args.phase, allow_patches=args.allow_patches)
+        print(json.dumps(summary.to_dict(), indent=2))
+        return 0
+    except (ValueError, FileNotFoundError, OSError) as exc:
+        print(json.dumps({"success": False, "error": str(exc)}, indent=2))
+        return 1
+
+
 def run_pipeline(args: argparse.Namespace) -> int:
     if not args.dry_run and not Ex04Sdk().config.allow_patches:
         print(json.dumps({"success": False, "error": "Non-dry-run pipeline requires allow_patches in config"}, indent=2))

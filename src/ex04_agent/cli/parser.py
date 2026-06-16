@@ -11,6 +11,7 @@ from ex04_agent.cli.handlers import (
     run_hotmd,
     run_obsidian,
     run_parse,
+    run_patch,
     run_pipeline,
     run_recommend,
 )
@@ -48,6 +49,11 @@ def build_parser() -> argparse.ArgumentParser:
 
     _phase_only(sp.add_parser("detect", help="Detect architecture findings from graph and source"), run_detect)
     _phase_only(sp.add_parser("recommend", help="Generate recommendations from findings"), run_recommend)
+    patch = sp.add_parser("patch", help="Apply safe patches from patch plan")
+    _add_phase(patch)
+    patch.add_argument("--allow-patches", action="store_true", default=False,
+                       help="Actually modify target repo files (default: dry-run)")
+    patch.set_defaults(func=run_patch)
     pipe = sp.add_parser("pipeline", help="Run LangGraph multi-agent pipeline")
     _add_phase(pipe)
     pipe.add_argument("--dry-run", action="store_true", default=True)

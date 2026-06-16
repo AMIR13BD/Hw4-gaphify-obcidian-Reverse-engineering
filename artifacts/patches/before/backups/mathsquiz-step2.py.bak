@@ -22,34 +22,36 @@ def ask_question(first_number, second_number):
 # this function will look at the final scores and print the results
 def print_final_scores(final_score):
     print("That's all the questions done. So...what was your score...?")
-    print("You scored", final_score, "points out of a possible 10.")
-    if final_score < 5:
+    print("You scored", score, "points out of a possible 10.")
+    if score < 5:
         print("You need to practice your maths!")
-    elif final_score < 8:
+    elif score < 8:
         print("That's pretty good!")
-    elif final_score < 10:
+    elif score < 10:
         print("You did really well! Try and get 10 out of 10 next time!")
-    elif final_score == 10:
+    elif score == 10:
         print("Wow! What a maths star you are!! I'm impressed!")
 
-if __name__ == "__main__":
-    # display welcome message
-    welcome_message()
 
-    # set the score to zero
-    score = 0
 
-    # ask questions
-    score = score + ask_question(8,7)
-    score = score + ask_question(4,9)
-    score = score + ask_question(12,6)
-    score = score + ask_question(6,8)
-    score = score + ask_question(7,7)
-    score = score + ask_question(11,6)
-    score = score + ask_question(11,2)
-    score = score + ask_question(7,9)
-    score = score + ask_question(6,6)
-    score = score + ask_question(4,8)
 
-    # print the final scores
-    print_final_scores(score)
+# display welcome message
+welcome_message()
+
+# set the score to zero
+score = 0
+
+# ask questions
+score = score + ask_question(8,7)
+score = score + ask_question(4,9)
+score = score + ask_question(12,6)
+score = score + ask_question(6,8)
+score = score + ask_question(7,7)
+score = score + ask_question(11,6)
+score = score + ask_question(11,2)
+score = score + ask_question(7,9)
+score = score + ask_question(6,6)
+score = score + ask_question(4,8)
+
+# print the final scores
+print_final_scores(score)

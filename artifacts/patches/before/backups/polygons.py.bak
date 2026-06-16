@@ -1,6 +1,6 @@
 import turtle
 
-class Polygon:
+class Polygon(Object):
 
     def __init__(self, sides, internal_angles_sum, internal_angle):
         self.sides = sides
@@ -26,7 +26,7 @@ def calc_polygon_details(sides):
         internal_angles_sum = 1000
         internal_angles = 200
 
-    poly = Polygon(sides, internal_angles_sum, internal_angles)
+    poly = new Polygon(sides, internal_angles_sum, internal_angles)
     print(poly)
 
     # return a dictionary containing info about the polygon
@@ -55,17 +55,21 @@ def draw_polygon(polygon_details):
 
 
 
+sides = int(input("How many sides does your polygon have?: "))
 
-if __name__ == "__main__":
-    sides = int(input("How many sides does your polygon have?: "))
+polygon_details = calc_polygon_details(sides)
 
-    polygon_details = calc_polygon_details(sides)
+print("    Sides:", polygon_details["sides"])
+print("    Internal angles sum:", polygon_details["internal_angles_sum"])
+print("    Internal angles:", polygon_details["internal_angles"])
 
-    print("    Sides:", polygon_details["sides"])
-    print("    Internal angles sum:", polygon_details["internal_angles_sum"])
-    print("    Internal angles:", polygon_details["internal_angles"])
+draw = input("Would you like me to draw it? (Y/n): ")
 
-    draw = input("Would you like me to draw it? (Y/n): ")
+if draw == "" or draw.lower() == "y":
+    draw_polygon(polygon_details)
+        
 
-    if draw == "" or draw.lower() == "y":
-        draw_polygon(polygon_details)
+
+
+
+    

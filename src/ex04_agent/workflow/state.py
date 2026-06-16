@@ -21,6 +21,8 @@ class PipelineState(TypedDict, total=False):
     recommendations_path: str
     recommendation_count: int
     patch_plan_path: str
+    patch_result_path: str
+    patch_applied_count: int
     findings: list[dict[str, Any]]
     recommendations: list[dict[str, Any]]
     applied_patches: list[dict[str, Any]]
@@ -53,6 +55,8 @@ def initial_state(config: AppConfig, *, phase: str, dry_run: bool) -> PipelineSt
         recommendations_path="",
         recommendation_count=0,
         patch_plan_path="",
+        patch_result_path="",
+        patch_applied_count=0,
         findings=[],
         recommendations=[],
         applied_patches=[],

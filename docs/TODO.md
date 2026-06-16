@@ -184,13 +184,19 @@
 
 ## Phase 10: Safe Patch / Refactor Implementation
 
-- [ ] Implement `SafePatcher` (whitelist operations)
-- [ ] Implement `PatchAgent` with `allow_patches` guard
-- [ ] Store diffs in `artifacts/patches/`
-- [ ] Rollback on apply failure
-- [ ] Unit tests: patch application on temp dir
+- [x] Implement `SafePatcher` (whitelist operations) (`patching/safe_patcher.py`)
+- [x] Implement `PatchAgent` with `allow_patches` guard
+- [x] Implement deterministic recipes for 4 target files
+- [x] Store diffs in `artifacts/patches/{phase}/diffs/`
+- [x] Store backups in `artifacts/patches/{phase}/backups/`
+- [x] Rollback on apply failure with compile-time validation
+- [x] Output `reports/architecture/patch_result_{phase}.json` and `.md`
+- [x] CLI: `uv run ex04-agent patch --phase before|after [--allow-patches]`
+- [x] Pipeline: `PatchAgent` skipped unless `allow_patches=True`
+- [x] Unit tests: model, validator, recipes, diff_writer, safe_patcher, engine, CLI, pipeline
+- [x] Phase 10 report: `reports/architecture/phase10_safe_patch_report.md`
 
-**Definition of done:** One safe patch applies cleanly to broken-python.
+**Definition of done:** Safe patches apply cleanly to broken-python with backup/diff/validation. Met (2 files patched, both validate, 96 tests pass).
 
 ---
 
@@ -296,3 +302,5 @@
 | 10–15 | Not started |
 
 **Next action after approval:** Phase 10 — safe patch/refactor implementation.
+
+

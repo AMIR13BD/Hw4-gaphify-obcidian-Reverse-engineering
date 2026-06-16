@@ -8,8 +8,6 @@ from ex04_agent.shared.config import AppConfig
 
 
 class PipelineState(TypedDict, total=False):
-    """Shared state passed between pipeline agents."""
-
     phase: str
     dry_run: bool
     target_repo_path: str
@@ -20,6 +18,9 @@ class PipelineState(TypedDict, total=False):
     story_path: str
     findings_path: str
     finding_count: int
+    recommendations_path: str
+    recommendation_count: int
+    patch_plan_path: str
     findings: list[dict[str, Any]]
     recommendations: list[dict[str, Any]]
     applied_patches: list[dict[str, Any]]
@@ -35,7 +36,6 @@ class PipelineState(TypedDict, total=False):
 
 
 def initial_state(config: AppConfig, *, phase: str, dry_run: bool) -> PipelineState:
-    """Create a fresh pipeline state."""
     from datetime import UTC, datetime
 
     run_id = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
@@ -50,6 +50,9 @@ def initial_state(config: AppConfig, *, phase: str, dry_run: bool) -> PipelineSt
         story_path="",
         findings_path="",
         finding_count=0,
+        recommendations_path="",
+        recommendation_count=0,
+        patch_plan_path="",
         findings=[],
         recommendations=[],
         applied_patches=[],
@@ -66,7 +69,6 @@ def initial_state(config: AppConfig, *, phase: str, dry_run: bool) -> PipelineSt
 
 
 def merge_completed(state: PipelineState, agent_name: str, **updates: Any) -> dict[str, Any]:
-    """Return state updates marking an agent completed."""
     completed = list(state.get("completed_agents", []))
     if agent_name not in completed:
         completed.append(agent_name)
@@ -74,7 +76,6 @@ def merge_completed(state: PipelineState, agent_name: str, **updates: Any) -> di
 
 
 def merge_skipped(state: PipelineState, agent_name: str, reason: str) -> dict[str, Any]:
-    """Return state updates marking an agent skipped."""
     skipped = list(state.get("skipped_agents", []))
     entry = f"{agent_name}:{reason}"
     if entry not in skipped:

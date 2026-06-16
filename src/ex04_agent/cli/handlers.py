@@ -13,47 +13,34 @@ from ex04_agent.sdk.sdk import Ex04Sdk
 
 
 def run_health(_: argparse.Namespace) -> int:
-    """Execute the health subcommand."""
-    status = Ex04Sdk().health_check()
-    print(json.dumps(status.to_dict(), indent=2))
+    print(json.dumps(Ex04Sdk().health_check().to_dict(), indent=2))
     return 0
 
 
 def run_graphify(args: argparse.Namespace) -> int:
-    """Execute the graphify subcommand."""
     try:
         result = GraphifyRunnerAgent().run(phase=args.phase)
     except ValueError as exc:
         print(json.dumps({"success": False, "error": str(exc)}, indent=2))
         return 1
-
     print(json.dumps(result.to_dict(), indent=2))
     if not result.success:
-        message = result.error or "Graphify run failed"
-        print(message, file=sys.stderr)
+        print(result.error or "Graphify run failed", file=sys.stderr)
         return 1
     return 0
 
 
 def run_parse(args: argparse.Namespace) -> int:
-    """Execute the parse subcommand."""
     try:
         agent = GraphParserAgent()
-        report = agent.run(
-            phase=args.phase,
-            graph_path=args.graph_path,
-            output_path=args.output_path,
-        )
+        print(agent.terminal_summary(agent.run(phase=args.phase, graph_path=args.graph_path, output_path=args.output_path)))
+        return 0
     except (ValueError, FileNotFoundError, OSError) as exc:
         print(json.dumps({"success": False, "error": str(exc)}, indent=2))
         return 1
 
-    print(agent.terminal_summary(report))
-    return 0
-
 
 def run_obsidian(args: argparse.Namespace) -> int:
-    """Execute the obsidian subcommand."""
     try:
         result = ObsidianVaultAgent().run(
             phase=args.phase,
@@ -66,13 +53,11 @@ def run_obsidian(args: argparse.Namespace) -> int:
     except (ValueError, FileNotFoundError, OSError) as exc:
         print(json.dumps({"success": False, "error": str(exc)}, indent=2))
         return 1
-
     print(json.dumps(result.to_dict(), indent=2))
     return 0 if result.success else 1
 
 
 def run_hotmd(args: argparse.Namespace) -> int:
-    """Execute the hotmd subcommand."""
     try:
         result = ObsidianVaultAgent().run_dynamic_hotmd(
             phase=args.phase,
@@ -85,44 +70,40 @@ def run_hotmd(args: argparse.Namespace) -> int:
     except (ValueError, FileNotFoundError, OSError) as exc:
         print(json.dumps({"success": False, "error": str(exc)}, indent=2))
         return 1
-
     print(json.dumps(result.to_dict(), indent=2))
     return 0 if result.success else 1
 
 
 def run_detect(args: argparse.Namespace) -> int:
-    """Execute the detect subcommand."""
     from ex04_agent.agents.architecture_bug import ArchitectureBugAgent
 
     try:
-        summary = ArchitectureBugAgent().run(phase=args.phase)
+        print(json.dumps(ArchitectureBugAgent().run(phase=args.phase).to_dict(), indent=2))
+        return 0
     except (ValueError, FileNotFoundError, OSError) as exc:
         print(json.dumps({"success": False, "error": str(exc)}, indent=2))
         return 1
 
-    print(json.dumps(summary.to_dict(), indent=2))
-    return 0
+
+def run_recommend(args: argparse.Namespace) -> int:
+    from ex04_agent.agents.recommendation import RecommendationAgent
+
+    try:
+        print(json.dumps(RecommendationAgent().run(phase=args.phase).to_dict(), indent=2))
+        return 0
+    except (ValueError, FileNotFoundError, OSError) as exc:
+        print(json.dumps({"success": False, "error": str(exc)}, indent=2))
+        return 1
 
 
 def run_pipeline(args: argparse.Namespace) -> int:
-    """Execute the pipeline subcommand."""
-    dry_run = args.dry_run
-    if not dry_run and not Ex04Sdk().config.allow_patches:
-        print(
-            json.dumps(
-                {
-                    "success": False,
-                    "error": "Non-dry-run pipeline requires allow_patches in config",
-                },
-                indent=2,
-            )
-        )
+    if not args.dry_run and not Ex04Sdk().config.allow_patches:
+        print(json.dumps({"success": False, "error": "Non-dry-run pipeline requires allow_patches in config"}, indent=2))
         return 1
     try:
-        result = Ex04Sdk().run_pipeline(dry_run=dry_run, phase=args.phase)
+        result = Ex04Sdk().run_pipeline(dry_run=args.dry_run, phase=args.phase)
     except (ValueError, FileNotFoundError, OSError) as exc:
         print(json.dumps({"success": False, "error": str(exc)}, indent=2))
         return 1
-
     print(json.dumps(result.to_dict(), indent=2))
     return 0 if result.success else 1

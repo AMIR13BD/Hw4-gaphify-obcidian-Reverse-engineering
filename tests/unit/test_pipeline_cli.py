@@ -34,6 +34,9 @@ def test_cli_pipeline_dry_run(monkeypatch, capsys) -> None:
         story_path="story.md",
         findings_path="findings.json",
         finding_count=3,
+        recommendations_path="recommendations.json",
+        recommendation_count=3,
+        patch_plan_path="patch_plan.json",
         trace_run_id="run1",
         errors=(),
     )

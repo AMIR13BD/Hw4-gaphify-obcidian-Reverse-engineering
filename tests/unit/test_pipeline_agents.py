@@ -9,6 +9,7 @@ import pytest
 from ex04_agent.agent_trace.recorder import AgentTraceRecorder
 from ex04_agent.agents.graph_interpreter import GraphInterpreterAgent
 from ex04_agent.agents.patch import PatchAgent
+from ex04_agent.agents.recommendation import RecommendationAgent
 from ex04_agent.agents.repository_setup import RepositorySetupAgent
 from ex04_agent.agents.supervisor import SupervisorAgent
 from ex04_agent.shared.config import load_config
@@ -73,3 +74,10 @@ def test_placeholder_agents_return_skipped(recorder) -> None:
     updates = PatchAgent(config).run_pipeline(state, recorder)
     assert updates["skipped_agents"]
     assert SupervisorAgent(config).run_pipeline(state, recorder)["stop_reason"] == "dry_run_completed"
+
+
+def test_recommendation_agent_runs_after_findings(recorder) -> None:
+    """Recommendation agent writes outputs from findings report."""
+    config = load_config()
+    summary = RecommendationAgent(config).run(phase="before")
+    assert summary.recommendation_count >= 1

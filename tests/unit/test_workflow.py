@@ -107,6 +107,7 @@ def test_pipeline_dry_run_with_mocked_services(tmp_path, monkeypatch) -> None:
     )
     from ex04_agent.agents.architecture_bug import ArchitectureBugAgent
     from ex04_agent.detection.report_writer import FindingsSummary
+    from ex04_agent.recommendation.report_writer import RecommendationSummary
 
     agents.architecture_bug = ArchitectureBugAgent(config)
     agents.architecture_bug.run = MagicMock(
@@ -119,10 +120,23 @@ def test_pipeline_dry_run_with_mocked_services(tmp_path, monkeypatch) -> None:
             markdown_path=str(metrics_dir / "findings_before.md"),
         )
     )
+    agents.recommendation.run = MagicMock(
+        return_value=RecommendationSummary(
+            recommendation_count=2,
+            by_action_type={"review_required": 2},
+            by_priority={"high": 1, "medium": 1},
+            patchable_count=1,
+            recommendations_json_path=str(metrics_dir / "recommendations_before.json"),
+            recommendations_markdown_path=str(metrics_dir / "recommendations_before.md"),
+            patch_plan_json_path=str(metrics_dir / "patch_plan_before.json"),
+            patch_plan_markdown_path=str(metrics_dir / "patch_plan_before.md"),
+        )
+    )
 
     result = LangGraphWorkflow(config, agents=agents).run(phase="before", dry_run=True)
     assert result.stop_reason == "dry_run_completed"
     assert "repository_setup" in result.completed_agents
     assert "supervisor" in result.completed_agents
     assert "architecture_bug" in result.completed_agents
+    assert "recommendation" in result.completed_agents
     assert any("patch:" in item for item in result.skipped_agents)

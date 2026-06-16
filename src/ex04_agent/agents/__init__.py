@@ -1,4 +1,4 @@
-"""LangGraph agent wrappers (Phase 3–7)."""
+"""LangGraph agent wrappers."""
 
 from ex04_agent.agents.architecture_bug import ArchitectureBugAgent
 from ex04_agent.agents.base import BaseAgent

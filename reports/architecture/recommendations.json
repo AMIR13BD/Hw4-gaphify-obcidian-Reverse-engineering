@@ -1,0 +1,485 @@
+{
+  "phase": "before",
+  "recommendation_count": 19,
+  "recommendations": [
+    {
+      "id": "rec_017_execution_blocker_mathsquiz_mathsquiz.py",
+      "finding_id": "execution_blocker_mathsquiz_mathsquiz.py",
+      "title": "Recommendation for Syntax blocker in mathsquiz/mathsquiz.py",
+      "category": "code_health_blocker",
+      "action_type": "review_required",
+      "priority": "critical",
+      "confidence": "high",
+      "rationale": "Mapped from category `code_health_blocker` with deterministic phase-9 policy.",
+      "proposed_change": "Remove compile blocker with minimal syntax modernization.",
+      "affected_files": [
+        "mathsquiz/mathsquiz.py"
+      ],
+      "risk_level": "high",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Fix syntax before automated refactor."
+      ],
+      "blocked_by": [],
+      "phase10_patchable": true,
+      "evidence_summary": "Validated by compile()."
+    },
+    {
+      "id": "rec_018_execution_blocker_polygons_polygons.py",
+      "finding_id": "execution_blocker_polygons_polygons.py",
+      "title": "Recommendation for Syntax blocker in polygons/polygons.py",
+      "category": "code_health_blocker",
+      "action_type": "review_required",
+      "priority": "critical",
+      "confidence": "high",
+      "rationale": "Mapped from category `code_health_blocker` with deterministic phase-9 policy.",
+      "proposed_change": "Remove compile blocker with minimal syntax modernization.",
+      "affected_files": [
+        "polygons/polygons.py"
+      ],
+      "risk_level": "high",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Fix syntax before automated refactor."
+      ],
+      "blocked_by": [],
+      "phase10_patchable": true,
+      "evidence_summary": "Validated by compile()."
+    },
+    {
+      "id": "rec_007_mixed_responsibility_polygons",
+      "finding_id": "mixed_responsibility_polygons",
+      "title": "Recommendation for Candidate mixed responsibilities in polygons.py",
+      "category": "mixed_responsibility",
+      "action_type": "review_required",
+      "priority": "high",
+      "confidence": "high",
+      "rationale": "Mapped from category `mixed_responsibility` with deterministic phase-9 policy.",
+      "proposed_change": "Separate domain logic from drawing/input and top-level execution.",
+      "affected_files": [
+        "polygons/polygons.py"
+      ],
+      "risk_level": "high",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Split drawing, domain logic, and CLI entry point.",
+        "Phase 9 may consider safe extraction recommendations."
+      ],
+      "blocked_by": [
+        "Needs manual approval for Phase 10 changes."
+      ],
+      "phase10_patchable": false,
+      "evidence_summary": "Validated by source responsibility scan."
+    },
+    {
+      "id": "rec_008_top_level_polygons_polygons_py",
+      "finding_id": "top_level_polygons_polygons_py",
+      "title": "Recommendation for Top-level side effects in polygons/polygons.py",
+      "category": "import_script_mixing",
+      "action_type": "review_required",
+      "priority": "high",
+      "confidence": "high",
+      "rationale": "Mapped from category `import_script_mixing` with deterministic phase-9 policy.",
+      "proposed_change": "Add safe main guard or move top-level calls into entrypoint.",
+      "affected_files": [
+        "polygons/polygons.py"
+      ],
+      "risk_level": "medium",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Try importing module without running side effects."
+      ],
+      "blocked_by": [],
+      "phase10_patchable": true,
+      "evidence_summary": "Validated by source line scan."
+    },
+    {
+      "id": "rec_009_top_level_mathsquiz_mathsquiz-step2_py",
+      "finding_id": "top_level_mathsquiz_mathsquiz-step2_py",
+      "title": "Recommendation for Top-level side effects in mathsquiz/mathsquiz-step2.py",
+      "category": "import_script_mixing",
+      "action_type": "review_required",
+      "priority": "high",
+      "confidence": "high",
+      "rationale": "Mapped from category `import_script_mixing` with deterministic phase-9 policy.",
+      "proposed_change": "Add safe main guard or move top-level calls into entrypoint.",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "risk_level": "medium",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Try importing module without running side effects."
+      ],
+      "blocked_by": [],
+      "phase10_patchable": true,
+      "evidence_summary": "Validated by source line scan."
+    },
+    {
+      "id": "rec_010_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "title": "Recommendation for Possible hidden global `score` in print_final_scores()",
+      "category": "hidden_global_state",
+      "action_type": "review_required",
+      "priority": "medium",
+      "confidence": "high",
+      "rationale": "Mapped from category `hidden_global_state` with deterministic phase-9 policy.",
+      "proposed_change": "Use function parameters consistently instead of global variables.",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "risk_level": "medium",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Confirm intended parameter usage in source."
+      ],
+      "blocked_by": [],
+      "phase10_patchable": true,
+      "evidence_summary": "Validated by source scan."
+    },
+    {
+      "id": "rec_011_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "title": "Recommendation for Possible hidden global `score` in print_final_scores()",
+      "category": "hidden_global_state",
+      "action_type": "review_required",
+      "priority": "medium",
+      "confidence": "high",
+      "rationale": "Mapped from category `hidden_global_state` with deterministic phase-9 policy.",
+      "proposed_change": "Use function parameters consistently instead of global variables.",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "risk_level": "medium",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Confirm intended parameter usage in source."
+      ],
+      "blocked_by": [],
+      "phase10_patchable": true,
+      "evidence_summary": "Validated by source scan."
+    },
+    {
+      "id": "rec_012_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "title": "Recommendation for Possible hidden global `score` in print_final_scores()",
+      "category": "hidden_global_state",
+      "action_type": "review_required",
+      "priority": "medium",
+      "confidence": "high",
+      "rationale": "Mapped from category `hidden_global_state` with deterministic phase-9 policy.",
+      "proposed_change": "Use function parameters consistently instead of global variables.",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "risk_level": "medium",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Confirm intended parameter usage in source."
+      ],
+      "blocked_by": [],
+      "phase10_patchable": true,
+      "evidence_summary": "Validated by source scan."
+    },
+    {
+      "id": "rec_013_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "title": "Recommendation for Possible hidden global `score` in print_final_scores()",
+      "category": "hidden_global_state",
+      "action_type": "review_required",
+      "priority": "medium",
+      "confidence": "high",
+      "rationale": "Mapped from category `hidden_global_state` with deterministic phase-9 policy.",
+      "proposed_change": "Use function parameters consistently instead of global variables.",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "risk_level": "medium",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Confirm intended parameter usage in source."
+      ],
+      "blocked_by": [],
+      "phase10_patchable": true,
+      "evidence_summary": "Validated by source scan."
+    },
+    {
+      "id": "rec_014_hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step2.py_print_final_scores",
+      "title": "Recommendation for Possible hidden global `score` in print_final_scores()",
+      "category": "hidden_global_state",
+      "action_type": "review_required",
+      "priority": "medium",
+      "confidence": "high",
+      "rationale": "Mapped from category `hidden_global_state` with deterministic phase-9 policy.",
+      "proposed_change": "Use function parameters consistently instead of global variables.",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "risk_level": "medium",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Confirm intended parameter usage in source."
+      ],
+      "blocked_by": [],
+      "phase10_patchable": true,
+      "evidence_summary": "Validated by source scan."
+    },
+    {
+      "id": "rec_015_hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+      "title": "Recommendation for Possible hidden global `score` in print_final_scores()",
+      "category": "hidden_global_state",
+      "action_type": "review_required",
+      "priority": "medium",
+      "confidence": "high",
+      "rationale": "Mapped from category `hidden_global_state` with deterministic phase-9 policy.",
+      "proposed_change": "Use function parameters consistently instead of global variables.",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step3.py"
+      ],
+      "risk_level": "medium",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Confirm intended parameter usage in source."
+      ],
+      "blocked_by": [],
+      "phase10_patchable": true,
+      "evidence_summary": "Validated by source scan."
+    },
+    {
+      "id": "rec_016_hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+      "title": "Recommendation for Possible hidden global `score` in print_final_scores()",
+      "category": "hidden_global_state",
+      "action_type": "review_required",
+      "priority": "medium",
+      "confidence": "high",
+      "rationale": "Mapped from category `hidden_global_state` with deterministic phase-9 policy.",
+      "proposed_change": "Use function parameters consistently instead of global variables.",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step3.py"
+      ],
+      "risk_level": "medium",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Confirm intended parameter usage in source."
+      ],
+      "blocked_by": [],
+      "phase10_patchable": true,
+      "evidence_summary": "Validated by source scan."
+    },
+    {
+      "id": "rec_001_god_node_mathsquiz_mathsquiz_step2",
+      "finding_id": "god_node_mathsquiz_mathsquiz_step2",
+      "title": "Recommendation for Possible code hub candidate: mathsquiz-step2.py",
+      "category": "possible_hub",
+      "action_type": "review_required",
+      "priority": "medium",
+      "confidence": "medium",
+      "rationale": "Mapped from category `possible_hub` with deterministic phase-9 policy.",
+      "proposed_change": "Inspect responsibility boundaries before structural refactor.",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step2.py"
+      ],
+      "risk_level": "medium",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Open source file and confirm responsibilities.",
+        "Compare with obsidian/hot.md ranking."
+      ],
+      "blocked_by": [
+        "Needs manual approval for Phase 10 changes."
+      ],
+      "phase10_patchable": false,
+      "evidence_summary": "Graph centrality only; needs manual confirmation in source."
+    },
+    {
+      "id": "rec_002_god_node_mathsquiz_mathsquiz_step3",
+      "finding_id": "god_node_mathsquiz_mathsquiz_step3",
+      "title": "Recommendation for Possible code hub candidate: mathsquiz-step3.py",
+      "category": "possible_hub",
+      "action_type": "review_required",
+      "priority": "medium",
+      "confidence": "medium",
+      "rationale": "Mapped from category `possible_hub` with deterministic phase-9 policy.",
+      "proposed_change": "Inspect responsibility boundaries before structural refactor.",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step3.py"
+      ],
+      "risk_level": "medium",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Open source file and confirm responsibilities.",
+        "Compare with obsidian/hot.md ranking."
+      ],
+      "blocked_by": [
+        "Needs manual approval for Phase 10 changes."
+      ],
+      "phase10_patchable": false,
+      "evidence_summary": "Graph centrality only; needs manual confirmation in source."
+    },
+    {
+      "id": "rec_003_god_node_polygons_polygons",
+      "finding_id": "god_node_polygons_polygons",
+      "title": "Recommendation for Possible code hub candidate: polygons.py",
+      "category": "possible_hub",
+      "action_type": "review_required",
+      "priority": "medium",
+      "confidence": "medium",
+      "rationale": "Mapped from category `possible_hub` with deterministic phase-9 policy.",
+      "proposed_change": "Inspect responsibility boundaries before structural refactor.",
+      "affected_files": [
+        "polygons/polygons.py"
+      ],
+      "risk_level": "medium",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Open source file and confirm responsibilities.",
+        "Compare with obsidian/hot.md ranking."
+      ],
+      "blocked_by": [
+        "Needs manual approval for Phase 10 changes."
+      ],
+      "phase10_patchable": false,
+      "evidence_summary": "Graph centrality only; needs manual confirmation in source."
+    },
+    {
+      "id": "rec_004_god_node_polygons_polygons_polygon",
+      "finding_id": "god_node_polygons_polygons_polygon",
+      "title": "Recommendation for Possible code hub candidate: Polygon",
+      "category": "possible_hub",
+      "action_type": "review_required",
+      "priority": "medium",
+      "confidence": "medium",
+      "rationale": "Mapped from category `possible_hub` with deterministic phase-9 policy.",
+      "proposed_change": "Inspect responsibility boundaries before structural refactor.",
+      "affected_files": [
+        "polygons/polygons.py"
+      ],
+      "risk_level": "medium",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Open source file and confirm responsibilities.",
+        "Compare with obsidian/hot.md ranking."
+      ],
+      "blocked_by": [
+        "Needs manual approval for Phase 10 changes."
+      ],
+      "phase10_patchable": false,
+      "evidence_summary": "Graph centrality only; needs manual confirmation in source."
+    },
+    {
+      "id": "rec_005_god_node_mathsquiz_readme_maths_quiz",
+      "finding_id": "god_node_mathsquiz_readme_maths_quiz",
+      "title": "Recommendation for Documentation/knowledge hub candidate: Maths Quiz",
+      "category": "documentation_hub",
+      "action_type": "docs_only",
+      "priority": "low",
+      "confidence": "medium",
+      "rationale": "Mapped from category `documentation_hub` with deterministic phase-9 policy.",
+      "proposed_change": "Document this as a knowledge hub, not a code bottleneck.",
+      "affected_files": [
+        "mathsquiz/README.md"
+      ],
+      "risk_level": "low",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Open source file and confirm responsibilities.",
+        "Compare with obsidian/hot.md ranking."
+      ],
+      "blocked_by": [
+        "Needs manual approval for Phase 10 changes."
+      ],
+      "phase10_patchable": false,
+      "evidence_summary": "Graph centrality only; needs manual confirmation in source."
+    },
+    {
+      "id": "rec_006_disconnected_components",
+      "finding_id": "disconnected_components",
+      "title": "Recommendation for Multiple disconnected graph components",
+      "category": "navigation_scope",
+      "action_type": "docs_only",
+      "priority": "low",
+      "confidence": "high",
+      "rationale": "Mapped from category `navigation_scope` with deterministic phase-9 policy.",
+      "proposed_change": "Document disconnected components as expected tutorial scope.",
+      "affected_files": [],
+      "risk_level": "low",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Map each component to a tutorial module in README."
+      ],
+      "blocked_by": [
+        "Needs manual approval for Phase 10 changes."
+      ],
+      "phase10_patchable": false,
+      "evidence_summary": "Validated by metrics component analysis."
+    },
+    {
+      "id": "rec_019_duplicate_evolution_mathsquiz",
+      "finding_id": "duplicate_evolution_mathsquiz",
+      "title": "Recommendation for Multiple mathsquiz evolution versions coexist",
+      "category": "organization",
+      "action_type": "docs_only",
+      "priority": "low",
+      "confidence": "high",
+      "rationale": "Mapped from category `organization` with deterministic phase-9 policy.",
+      "proposed_change": "Document tutorial versioning or move variants under examples.",
+      "affected_files": [
+        "mathsquiz/mathsquiz-step1.py",
+        "mathsquiz/mathsquiz-step2.py",
+        "mathsquiz/mathsquiz-step3.py",
+        "mathsquiz/mathsquiz.py"
+      ],
+      "risk_level": "low",
+      "preconditions": [
+        "Phase 9 does not modify the target repository."
+      ],
+      "validation_steps": [
+        "Confirm which file is canonical for execution."
+      ],
+      "blocked_by": [
+        "Needs manual approval for Phase 10 changes."
+      ],
+      "phase10_patchable": false,
+      "evidence_summary": "File inventory validated; intent needs manual confirmation."
+    }
+  ]
+}

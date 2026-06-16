@@ -10,8 +10,6 @@ from ex04_agent.workflow.state import PipelineState
 
 @dataclass(frozen=True)
 class PipelineResult:
-    """Outcome of a LangGraph pipeline run."""
-
     success: bool
     phase: str
     dry_run: bool
@@ -25,6 +23,9 @@ class PipelineResult:
     story_path: str
     findings_path: str
     finding_count: int
+    recommendations_path: str
+    recommendation_count: int
+    patch_plan_path: str
     trace_run_id: str
     errors: tuple[str, ...]
 
@@ -48,6 +49,9 @@ class PipelineResult:
             story_path=str(state.get("story_path", "")),
             findings_path=str(state.get("findings_path", "")),
             finding_count=int(state.get("finding_count", 0)),
+            recommendations_path=str(state.get("recommendations_path", "")),
+            recommendation_count=int(state.get("recommendation_count", 0)),
+            patch_plan_path=str(state.get("patch_plan_path", "")),
             trace_run_id=str(state.get("trace_run_id", "")),
             errors=errors,
         )

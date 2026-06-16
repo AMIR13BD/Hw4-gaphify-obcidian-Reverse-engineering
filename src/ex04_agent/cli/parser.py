@@ -12,127 +12,54 @@ from ex04_agent.cli.handlers import (
     run_obsidian,
     run_parse,
     run_pipeline,
+    run_recommend,
 )
 
 
 def build_parser() -> argparse.ArgumentParser:
-    """Build the top-level CLI parser."""
-    parser = argparse.ArgumentParser(
-        prog="ex04-agent",
-        description="EX04 graph-guided reverse engineering agent",
-    )
-    subparsers = parser.add_subparsers(dest="command", required=True)
+    parser = argparse.ArgumentParser(prog="ex04-agent", description="EX04 graph-guided reverse engineering agent")
+    sp = parser.add_subparsers(dest="command", required=True)
+    sp.add_parser("health", help="Print scaffold health check").set_defaults(func=run_health)
+    _phase_only(sp.add_parser("graphify", help="Run Graphify update and collect graph artifacts"), run_graphify)
 
-    health_parser = subparsers.add_parser("health", help="Print scaffold health check")
-    health_parser.set_defaults(func=run_health)
+    parse = sp.add_parser("parse", help="Parse graph.json and compute architecture metrics")
+    _add_phase(parse)
+    parse.add_argument("--graph-path", default=None, help="Override input graph.json path")
+    parse.add_argument("--output-path", default=None, help="Override metrics output JSON path")
+    parse.set_defaults(func=run_parse)
 
-    graphify_parser = subparsers.add_parser(
-        "graphify",
-        help="Run Graphify update and collect graph artifacts",
-    )
-    graphify_parser.add_argument(
-        "--phase",
-        default="before",
-        choices=["before", "after"],
-        help="Artifact phase directory (default: before)",
-    )
-    graphify_parser.set_defaults(func=run_graphify)
+    obsidian = sp.add_parser("obsidian", help="Generate Obsidian vault from graph metrics")
+    _add_phase(obsidian)
+    obsidian.add_argument("--metrics-path", default=None)
+    obsidian.add_argument("--graph-path", default=None)
+    obsidian.add_argument("--graph-report-path", default=None)
+    obsidian.add_argument("--vault-dir", default=None)
+    obsidian.add_argument("--dynamic-hot", action="store_true")
+    obsidian.set_defaults(func=run_obsidian)
 
-    parse_parser = subparsers.add_parser(
-        "parse",
-        help="Parse graph.json and compute architecture metrics",
-    )
-    parse_parser.add_argument(
-        "--phase",
-        default="before",
-        choices=["before", "after"],
-        help="Graph phase directory (default: before)",
-    )
-    parse_parser.add_argument("--graph-path", default=None, help="Override input graph.json path")
-    parse_parser.add_argument("--output-path", default=None, help="Override metrics output JSON path")
-    parse_parser.set_defaults(func=run_parse)
+    hotmd = sp.add_parser("hotmd", help="Generate dynamic hot.md from graph metrics and git diff")
+    _add_phase(hotmd)
+    hotmd.add_argument("--metrics-path", default=None)
+    hotmd.add_argument("--graph-path", default=None)
+    hotmd.add_argument("--hot-path", default=None)
+    hotmd.add_argument("--snapshot-dir", default=None)
+    hotmd.add_argument("--failing-test", action="append", default=None)
+    hotmd.set_defaults(func=run_hotmd)
 
-    obsidian_parser = subparsers.add_parser(
-        "obsidian",
-        help="Generate Obsidian vault from graph metrics",
-    )
-    obsidian_parser.add_argument(
-        "--phase",
-        default="before",
-        choices=["before", "after"],
-        help="Artifact phase (default: before)",
-    )
-    obsidian_parser.add_argument("--metrics-path", default=None, help="Override metrics JSON path")
-    obsidian_parser.add_argument("--graph-path", default=None, help="Override graph.json path")
-    obsidian_parser.add_argument(
-        "--graph-report-path",
-        default=None,
-        help="Override GRAPH_REPORT.md path",
-    )
-    obsidian_parser.add_argument("--vault-dir", default=None, help="Override output vault directory")
-    obsidian_parser.add_argument(
-        "--dynamic-hot",
-        action="store_true",
-        help="Also regenerate dynamic hot.md after vault build",
-    )
-    obsidian_parser.set_defaults(func=run_obsidian)
-
-    hotmd_parser = subparsers.add_parser(
-        "hotmd",
-        help="Generate dynamic hot.md from graph metrics and git diff",
-    )
-    hotmd_parser.add_argument(
-        "--phase",
-        default="before",
-        choices=["before", "after"],
-        help="Artifact phase (default: before)",
-    )
-    hotmd_parser.add_argument("--metrics-path", default=None, help="Override metrics JSON path")
-    hotmd_parser.add_argument("--graph-path", default=None, help="Override graph.json path")
-    hotmd_parser.add_argument("--hot-path", default=None, help="Override output hot.md path")
-    hotmd_parser.add_argument("--snapshot-dir", default=None, help="Override snapshot directory")
-    hotmd_parser.add_argument(
-        "--failing-test",
-        action="append",
-        default=None,
-        help="Optional failing test file path (repeatable)",
-    )
-    hotmd_parser.set_defaults(func=run_hotmd)
-
-    pipeline_parser = subparsers.add_parser(
-        "pipeline",
-        help="Run LangGraph multi-agent pipeline",
-    )
-    pipeline_parser.add_argument(
-        "--phase",
-        default="before",
-        choices=["before", "after"],
-        help="Pipeline phase (default: before)",
-    )
-    pipeline_parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        default=True,
-        help="Safe dry-run mode (default: true)",
-    )
-    pipeline_parser.add_argument(
-        "--no-dry-run",
-        action="store_false",
-        dest="dry_run",
-        help="Disable dry-run (patching still gated by config)",
-    )
-    pipeline_parser.set_defaults(func=run_pipeline)
-
-    detect_parser = subparsers.add_parser(
-        "detect",
-        help="Detect architecture findings from graph and source",
-    )
-    detect_parser.add_argument(
-        "--phase",
-        default="before",
-        choices=["before", "after"],
-        help="Detection phase (default: before)",
-    )
-    detect_parser.set_defaults(func=run_detect)
-
+    _phase_only(sp.add_parser("detect", help="Detect architecture findings from graph and source"), run_detect)
+    _phase_only(sp.add_parser("recommend", help="Generate recommendations from findings"), run_recommend)
+    pipe = sp.add_parser("pipeline", help="Run LangGraph multi-agent pipeline")
+    _add_phase(pipe)
+    pipe.add_argument("--dry-run", action="store_true", default=True)
+    pipe.add_argument("--no-dry-run", action="store_false", dest="dry_run")
+    pipe.set_defaults(func=run_pipeline)
     return parser
+
+
+def _phase_only(parser: argparse.ArgumentParser, handler) -> None:
+    _add_phase(parser)
+    parser.set_defaults(func=handler)
+
+
+def _add_phase(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--phase", default="before", choices=["before", "after"])

@@ -168,13 +168,17 @@
 
 ## Phase 9: Recommendation Generation
 
-- [ ] Implement `RecommendationService` (finding → action mapping)
-- [ ] Classify `safe_auto` / `review_required` / `docs_only`
-- [ ] Implement `RecommendationAgent`
-- [ ] Output `recommendations.json` and `patch_plan`
-- [ ] Unit tests: priority ordering
+- [x] Implement deterministic recommendation engine (finding → action mapping)
+- [x] Classify `safe_auto` / `review_required` / `docs_only` / `defer`
+- [x] Implement `RecommendationAgent`
+- [x] Output `recommendations_{phase}.json`/`.md` and `patch_plan_{phase}.json`/`.md`
+- [x] Output latest `recommendations.json` and `patch_plan.json`
+- [x] Unit tests: mapping, prioritization, patch-plan grouping, engine, CLI, pipeline
+- [x] CLI: `uv run ex04-agent recommend --phase before|after`
+- [x] Pipeline dry-run: `recommendation` completed; patch/test/comparison still skipped
+- [x] Phase 9 report: `reports/architecture/phase9_recommendation_report.md`
 
-**Definition of done:** At least one safe recommendation produced from findings.
+**Definition of done:** Recommendations and patch plan generated without modifying target repo. Met.
 
 ---
 
@@ -288,6 +292,7 @@
 | 6 | Complete |
 | 7 | Complete |
 | 8 | Complete |
-| 9–15 | Not started |
+| 9 | Complete |
+| 10–15 | Not started |
 
-**Next action after approval:** Phase 9 — recommendation generation.
+**Next action after approval:** Phase 10 — safe patch/refactor implementation.

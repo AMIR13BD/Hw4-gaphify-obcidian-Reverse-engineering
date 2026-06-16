@@ -23,6 +23,8 @@ class PipelineState(TypedDict, total=False):
     patch_plan_path: str
     patch_result_path: str
     patch_applied_count: int
+    regression_path: str
+    regression_failed_files: list[str]
     findings: list[dict[str, Any]]
     recommendations: list[dict[str, Any]]
     applied_patches: list[dict[str, Any]]
@@ -57,6 +59,8 @@ def initial_state(config: AppConfig, *, phase: str, dry_run: bool) -> PipelineSt
         patch_plan_path="",
         patch_result_path="",
         patch_applied_count=0,
+        regression_path="",
+        regression_failed_files=[],
         findings=[],
         recommendations=[],
         applied_patches=[],

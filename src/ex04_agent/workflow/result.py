@@ -28,6 +28,8 @@ class PipelineResult:
     patch_plan_path: str
     patch_result_path: str
     patch_applied_count: int
+    regression_path: str
+    regression_failed_files: tuple[str, ...]
     trace_run_id: str
     errors: tuple[str, ...]
 
@@ -56,6 +58,8 @@ class PipelineResult:
             patch_plan_path=str(state.get("patch_plan_path", "")),
             patch_result_path=str(state.get("patch_result_path", "")),
             patch_applied_count=int(state.get("patch_applied_count", 0)),
+            regression_path=str(state.get("regression_path", "")),
+            regression_failed_files=tuple(state.get("regression_failed_files", [])),
             trace_run_id=str(state.get("trace_run_id", "")),
             errors=errors,
         )

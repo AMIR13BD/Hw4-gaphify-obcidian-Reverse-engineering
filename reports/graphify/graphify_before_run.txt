@@ -1,17 +1,15 @@
 Graphify run — phase=before
-Timestamp: 2026-06-16T12:24:03.987008+00:00
+Timestamp: 2026-06-16T15:10:15.054963+00:00
 Command: graphify update .
 CWD: C:\Users\ameer\OneDrive\Desktop\Ai-wdefe3\data\target_repo\broken-python
-Return code: 0
+Return code: 1
 Graphify CLI: graphify (C:\Users\ameer\.local\bin\graphify.EXE)
-Success: True
+Success: False
 
 === STDOUT ===
 Re-extracting code files in . (no LLM needed)...
-[graphify watch] No code-graph topology changes detected; outputs left untouched.
-Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
-Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.
 
 
 === STDERR ===
-(empty)
+[graphify] WARNING: new graph has 25 nodes but existing graph.json has 26. Refusing to overwrite â€” you may be missing chunk files from a previous session. Pass --force to override.
+Nothing to update or rebuild failed â€” check output above.

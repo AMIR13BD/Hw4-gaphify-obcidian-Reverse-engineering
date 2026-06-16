@@ -14,6 +14,7 @@ from ex04_agent.cli.handlers import (
     run_patch,
     run_pipeline,
     run_recommend,
+    run_test,
 )
 
 
@@ -49,6 +50,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     _phase_only(sp.add_parser("detect", help="Detect architecture findings from graph and source"), run_detect)
     _phase_only(sp.add_parser("recommend", help="Generate recommendations from findings"), run_recommend)
+    _phase_only(sp.add_parser("test", help="Run regression validation on patched target files"), run_test)
     patch = sp.add_parser("patch", help="Apply safe patches from patch plan")
     _add_phase(patch)
     patch.add_argument("--allow-patches", action="store_true", default=False,

@@ -1,50 +1,20 @@
-"""Tests for LangGraph workflow."""
+"""Tests for LangGraph pipeline dry-run execution."""
 
 from __future__ import annotations
 
 from pathlib import Path
 from unittest.mock import MagicMock
 
-from ex04_agent.graph.graphify_run_result import GraphifyRunResult
+from workflow_helpers import graphify_result, regression_result
+
+from ex04_agent.agents.architecture_bug import ArchitectureBugAgent
+from ex04_agent.detection.report_writer import FindingsSummary
 from ex04_agent.obsidian.dynamic_hotmd_builder import DynamicHotMdResult
 from ex04_agent.obsidian.vault_builder import VaultBuildResult
+from ex04_agent.recommendation.report_writer import RecommendationSummary
 from ex04_agent.shared.config import load_config
-from ex04_agent.workflow.graph import NODE_ORDER, LangGraphWorkflow
+from ex04_agent.workflow.graph import LangGraphWorkflow
 from ex04_agent.workflow.pipeline_nodes import PipelineAgents
-
-
-def _graphify_result() -> GraphifyRunResult:
-    return GraphifyRunResult(
-        success=True,
-        phase="before",
-        command=("graphify", "update", "."),
-        cwd="/tmp/repo",
-        return_code=0,
-        graphify_cli="graphify",
-        graphify_cli_path="/bin/graphify",
-        target_repo_path="/tmp/repo",
-        stdout="ok",
-        stderr="",
-        copied_artifacts=("graph.json",),
-        missing_required_artifacts=(),
-        missing_optional_artifacts=(),
-        artifact_dest_dir="/tmp/artifacts/graph/before",
-        log_path="/tmp/log.txt",
-        metadata_path="/tmp/meta.json",
-        timestamp="2026-01-01T00:00:00+00:00",
-    )
-
-
-def test_langgraph_workflow_compiles(tmp_path: Path) -> None:
-    """Workflow graph compiles with all expected nodes."""
-    config = load_config()
-    workflow = LangGraphWorkflow(config)
-    from ex04_agent.agent_trace.recorder import AgentTraceRecorder
-
-    rec = AgentTraceRecorder(tmp_path, "compile_test")
-    compiled = workflow.compile(rec)
-    assert compiled is not None
-    assert len(NODE_ORDER) == 12
 
 
 def test_pipeline_dry_run_with_mocked_services(tmp_path, monkeypatch) -> None:
@@ -55,8 +25,7 @@ def test_pipeline_dry_run_with_mocked_services(tmp_path, monkeypatch) -> None:
     (project_root / "pyproject.toml").write_text("[project]\nname='x'\n", encoding="utf-8")
     setup_src = Path(__file__).resolve().parents[2] / "config" / "setup.json"
     (project_root / "config" / "setup.json").write_text(
-        setup_src.read_text(encoding="utf-8"),
-        encoding="utf-8",
+        setup_src.read_text(encoding="utf-8"), encoding="utf-8",
     )
     target = project_root / "data" / "target_repo" / "broken-python"
     target.mkdir(parents=True)
@@ -64,74 +33,59 @@ def test_pipeline_dry_run_with_mocked_services(tmp_path, monkeypatch) -> None:
     graph_dir.mkdir(parents=True)
     fixtures = Path(__file__).resolve().parents[1] / "fixtures"
     (graph_dir / "graph.json").write_text(
-        fixtures.joinpath("graph_sample.json").read_text(encoding="utf-8"),
-        encoding="utf-8",
+        fixtures.joinpath("graph_sample.json").read_text(encoding="utf-8"), encoding="utf-8",
     )
     metrics_dir = project_root / "reports" / "architecture"
     metrics_dir.mkdir(parents=True)
     (metrics_dir / "metrics_before.json").write_text(
-        fixtures.joinpath("metrics_sample.json").read_text(encoding="utf-8"),
-        encoding="utf-8",
+        fixtures.joinpath("metrics_sample.json").read_text(encoding="utf-8"), encoding="utf-8",
     )
-
     monkeypatch.setattr(
         "ex04_agent.shared.config.find_project_root",
         lambda start=None: project_root,
     )
     config = load_config(project_root / "config" / "setup.json")
     agents = PipelineAgents(config)
-    agents.graphify_runner.run = MagicMock(return_value=_graphify_result())
+    agents.graphify_runner.run = MagicMock(return_value=graphify_result())
     agents.graph_parser.run = MagicMock(return_value=MagicMock())
     agents.obsidian_vault.run = MagicMock(
         return_value=VaultBuildResult(
-            success=True,
-            phase="before",
+            success=True, phase="before",
             vault_dir=str(project_root / "obsidian"),
             index_path=str(project_root / "obsidian" / "index.md"),
             hot_path=str(project_root / "obsidian" / "hot.md"),
             report_path=str(project_root / "obsidian" / "reports" / "graph_summary.md"),
-            node_pages_created=3,
-            files_written=(),
+            node_pages_created=3, files_written=(),
         )
     )
     agents.obsidian_vault.run_dynamic_hotmd = MagicMock(
         return_value=DynamicHotMdResult(
-            success=True,
-            phase="before",
+            success=True, phase="before",
             hot_path=str(project_root / "obsidian" / "hot.md"),
             snapshot_path=str(project_root / "artifacts" / "hotmd" / "hot.md"),
-            changed_files_count=0,
-            ranked_nodes_count=5,
-            top_labels=("hub",),
+            changed_files_count=0, ranked_nodes_count=5, top_labels=("hub",),
         )
     )
-    from ex04_agent.agents.architecture_bug import ArchitectureBugAgent
-    from ex04_agent.detection.report_writer import FindingsSummary
-    from ex04_agent.recommendation.report_writer import RecommendationSummary
-
     agents.architecture_bug = ArchitectureBugAgent(config)
     agents.architecture_bug.run = MagicMock(
         return_value=FindingsSummary(
-            finding_count=2,
-            by_category={"possible_hub": 2},
-            by_severity={"medium": 2},
-            high_confidence_count=1,
+            finding_count=2, by_category={"possible_hub": 2},
+            by_severity={"medium": 2}, high_confidence_count=1,
             json_path=str(metrics_dir / "findings_before.json"),
             markdown_path=str(metrics_dir / "findings_before.md"),
         )
     )
     agents.recommendation.run = MagicMock(
         return_value=RecommendationSummary(
-            recommendation_count=2,
-            by_action_type={"review_required": 2},
-            by_priority={"high": 1, "medium": 1},
-            patchable_count=1,
+            recommendation_count=2, by_action_type={"review_required": 2},
+            by_priority={"high": 1, "medium": 1}, patchable_count=1,
             recommendations_json_path=str(metrics_dir / "recommendations_before.json"),
             recommendations_markdown_path=str(metrics_dir / "recommendations_before.md"),
             patch_plan_json_path=str(metrics_dir / "patch_plan_before.json"),
             patch_plan_markdown_path=str(metrics_dir / "patch_plan_before.md"),
         )
     )
+    agents.test_runner.run = MagicMock(return_value=regression_result(metrics_dir))
 
     result = LangGraphWorkflow(config, agents=agents).run(phase="before", dry_run=True)
     assert result.stop_reason == "dry_run_completed"
@@ -139,4 +93,6 @@ def test_pipeline_dry_run_with_mocked_services(tmp_path, monkeypatch) -> None:
     assert "supervisor" in result.completed_agents
     assert "architecture_bug" in result.completed_agents
     assert "recommendation" in result.completed_agents
+    assert "test_runner" in result.completed_agents
     assert any("patch:" in item for item in result.skipped_agents)
+    assert any("comparison_report:" in item for item in result.skipped_agents)

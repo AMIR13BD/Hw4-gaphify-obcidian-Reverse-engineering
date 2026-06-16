@@ -96,6 +96,30 @@ def run_recommend(args: argparse.Namespace) -> int:
         return 1
 
 
+def run_test(args: argparse.Namespace) -> int:
+    from ex04_agent.agents.test_runner import TestRunnerAgent
+
+    try:
+        result = TestRunnerAgent().run(phase=args.phase)
+        summary = {
+            "compile_status": result.compile_status,
+            "ast_status": result.ast_status,
+            "import_status": result.import_status,
+            "target_test_status": result.target_test_status,
+            "project_test_status": result.project_test_status,
+            "coverage_status": result.coverage_status,
+            "ruff_status": result.ruff_status,
+            "failed_files_count": len(result.failed_files),
+            "output_paths": result.output_paths,
+        }
+        print(json.dumps(summary, indent=2))
+        checks = (result.compile_status, result.ast_status, result.project_test_status, result.coverage_status, result.ruff_status)
+        return 1 if any(s == "failed" for s in checks) else 0
+    except (ValueError, FileNotFoundError, OSError) as exc:
+        print(json.dumps({"success": False, "error": str(exc)}, indent=2))
+        return 1
+
+
 def run_patch(args: argparse.Namespace) -> int:
     from ex04_agent.agents.patch import PatchAgent
 

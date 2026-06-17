@@ -6,49 +6,47 @@
       "name": "pytest",
       "command": "uv run pytest",
       "cwd": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3",
-      "return_code": 1,
+      "return_code": 0,
       "stdout_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\after\\pytest_stdout.txt",
       "stderr_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\after\\pytest_stderr.txt",
-      "status": "failed",
-      "duration_seconds": 3.89
+      "status": "passed",
+      "duration_seconds": 3.49
     },
     {
       "name": "coverage",
       "command": "uv run pytest --cov=src --cov-report=term-missing",
       "cwd": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3",
-      "return_code": 1,
+      "return_code": 0,
       "stdout_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\after\\coverage_stdout.txt",
       "stderr_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\after\\coverage_stderr.txt",
-      "status": "failed",
-      "duration_seconds": 5.76
+      "status": "passed",
+      "duration_seconds": 5.15
     },
     {
       "name": "ruff",
       "command": "uv run ruff check",
       "cwd": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3",
-      "return_code": 1,
+      "return_code": 0,
       "stdout_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\after\\ruff_stdout.txt",
       "stderr_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\test_runs\\after\\ruff_stderr.txt",
-      "status": "failed",
-      "duration_seconds": 0.1
+      "status": "passed",
+      "duration_seconds": 0.07
     }
   ],
   "compile_status": "passed",
   "ast_status": "passed",
   "import_status": "skipped",
   "target_test_status": "skipped",
-  "project_test_status": "failed",
+  "project_test_status": "passed",
   "coverage_status": "passed",
-  "ruff_status": "failed",
-  "failed_files": [
-    "tests/unit/test_phase_after_pipeline.py"
-  ],
+  "ruff_status": "passed",
+  "failed_files": [],
   "passed_files": [
-    "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\polygons\\polygons.py",
-    "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step2.py",
-    "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step3.py",
     "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step1.py",
-    "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz.py"
+    "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz.py",
+    "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step2.py",
+    "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\polygons\\polygons.py",
+    "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\data\\target_repo\\broken-python\\mathsquiz\\mathsquiz-step3.py"
   ],
   "skipped_checks": [
     "safe import skipped for 5 file(s) requiring GUI/input"

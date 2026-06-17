@@ -42,10 +42,136 @@ Assignment research questions mapped to method, evidence, and results:
 | **2.** Which components, modules, classes, or functions are most central in the system? | Degree/betweenness metrics, top hubs, Obsidian node pages | `reports/architecture/metrics_before.json`, `obsidian/hot.md`, `obsidian/nodes/` | **Possible hubs:** `polygons.py`, mathsquiz step files, Maths Quiz doc region — graph suggests centrality; source validation required |
 | **3.** Are there complexity centers, overloaded responsibility points, or possible “God Nodes”? | God-node detector + mixed-responsibility detector + metrics | `reports/architecture/findings_before.md` | **Candidate** mixed responsibility in `polygons.py`; **possible** code hub candidates in mathsquiz steps — not confirmed god-nodes without manual review |
 | **4.** How can we derive an architecture block diagram and OOP/class diagram from the source when documentation is incomplete? | Graphify extraction + our agent OOP design + Mermaid diagrams in this README | README §3 block diagram, README OOP class diagram, `artifacts/graph/before/graph.html` | Block diagram shows pipeline modules; class diagram shows **our solution’s** agent/engine separation (target repo is small — e.g. `Polygon` class only) |
-| **5.** How did the agent identify the bug/code-health problem, what was the root cause, and what steps led to it? | Deterministic detectors + recommendation loop + safe patch | `reports/architecture/findings_before.md`, `reports/architecture/recommendations_before.md`, `reports/architecture/patch_result_before.md` | Syntax blockers (Python 2 / invalid syntax), hidden globals, import-time side effects identified; **4 safe local fixes** applied; root causes documented per file in §Code repair proof |
+| **5.** How did the agent identify the bug/code-health problem, what was the root cause, and what steps led to it? | Deterministic detectors + recommendation loop + safe patch | `reports/architecture/findings_before.md`, `reports/architecture/recommendations_before.md`, `reports/architecture/patch_result_before.md` | We fixed safe code-health and architecture-facing issues: syntax blockers, hidden global state, and import/script mixing; **4 safe local repairs** applied; root causes documented in §Code repair proof |
 | **6.** What is the benefit of graph visualization and Obsidian navigation vs reading files linearly? | Obsidian vault + hot.md ranking + graph view | `obsidian/index.md`, `obsidian/hot.md`, `obsidian/nodes/` | Non-linear navigation to hub **candidates** and linked evidence; `hot.md` prioritizes investigation targets vs reading all 7 source files |
 | **7.** How did graph-guided context reduce AI context/token usage vs naive full-context workflow? | Token-efficiency engine: naive bundles vs graph-guided bundles | `reports/token_efficiency/token_efficiency.md`, `reports/comparison/before_after.md` | **211,532 → 42,568** estimated tokens (**79.88%** saved); graph-guided bundles use hot.md, metrics, affected files — see §Token-efficiency report |
 | **8.** What original extensions or extra agent mechanisms were added beyond the minimum? | Dynamic hot.md, deterministic detectors, safe patcher, comparison guard, token bundles, agent traces | `artifacts/hotmd/`, `reports/comparison/before_after.md`, `reports/token_efficiency/token_efficiency.md` | Git-diff-aware **dynamic hot.md**; read-only before/after comparison; token-efficiency analysis; one-responsibility agents — see §Original extensions |
+
+---
+
+## Graph story: what the architecture looked like before
+
+The selected repository, `martinpeck/broken-python`, is **not a layered application**. It is a small educational/debugging repository made of several semi-independent examples. At first glance it looks like a collection of simple Python exercises, but the graph revealed three important architecture facts:
+
+1. The repo is organized around two main teaching/example domains:
+   - **`polygons`**
+   - **`mathsquiz`**
+
+2. The main central nodes were:
+   - `polygons.py`
+   - `Maths Quiz`
+   - `Polygon`
+   - `mathsquiz-step2.py`
+   - `mathsquiz-step3.py`
+
+3. The graph showed that the architecture problem was **not only one broken line of code**. It was a mixture of:
+   - script-style execution mixed with reusable functions/classes
+   - hidden global state in quiz score handling
+   - weak separation between tutorial examples and importable modules
+   - documentation/tutorial nodes acting as central navigation hubs
+   - disconnected or semi-disconnected communities
+   - **possible** god-node/hub **candidates** that required source validation
+
+The graph **suggests** structure; each **candidate** was **validated in source** where possible. This is **manual-review architecture smell** work as much as syntax repair — and the architecture was **not fully fixed** by safe local repair alone.
+
+---
+
+## Before/after architecture story
+
+### Before architecture
+
+At first glance, `martinpeck/broken-python` looked like a small collection of broken Python exercises. The graph showed it is a tutorial/debugging repository with separate example communities, mainly **`mathsquiz`** and **`polygons`**. The important hubs/**candidates** were `polygons.py`, `Maths Quiz`, `Polygon`, `mathsquiz-step2.py`, and `mathsquiz-step3.py`. The before graph had **26 nodes and 20 links**. Before analysis found **19 architecture/code findings** and **19 recommendations**.
+
+### What was architecturally wrong
+
+The problem was **not only syntax bugs**. It was architecture-facing issues:
+
+- Some files mixed reusable code with script execution (import/script mixing **candidate**).
+- Quiz logic used hidden global state instead of explicit parameters (**validated in source**).
+- `polygons.py` mixed class/model code, helper functions, tutorial/TODO text, and script/demo behavior (mixed-responsibility **architecture smell**).
+- Documentation/tutorial nodes acted as central navigation hubs (**possible hub** — graph suggests centrality).
+- The repo had disconnected/semi-disconnected example communities.
+- Syntax/code-health blockers made import, testing, and static analysis unreliable.
+
+### What we fixed
+
+We applied **safe local repair** only:
+
+- Fixed Python syntax/code-health blockers.
+- Reduced import-time script behavior using main guards.
+- Replaced hidden global score-style behavior with explicit parameter use.
+- Kept changes small and reversible.
+- Saved patch evidence under `artifacts/patches/before/`.
+- Validation passed afterward: **patches applied: 4**, **failed: 0**, **rolled back: 0**.
+
+### After architecture
+
+- After graph: **25 nodes and 19 links**.
+- Findings reduced from **19 → 8**.
+- Recommendations reduced from **19 → 8**.
+- Code-health blockers: **2 → 0**.
+- Hidden global state: **7 → 0**.
+- Import/script mixing: **2 → 0**.
+- Remaining **possible hub**, mixed-responsibility, and documentation findings were **not ignored** — they were kept as architecture recommendations for **remaining manual review**.
+
+**Conclusion:** This project did not claim to fully redesign the target repository. The improvement was a **safe architecture-facing repair**: the code became more importable, hidden coupling was reduced, and the graph story became clearer. The remaining issues describe future refactoring work, mainly separating tutorial scripts, reusable modules, tests, and documentation.
+
+---
+
+## What we understood from the source code
+
+- The **`mathsquiz`** part is a teaching/example flow. It contains quiz functions such as `ask_question`, `welcome_message`, and `print_final_scores`.
+- The step files represent different versions/stages of the same quiz idea, which creates **overlapping responsibility**.
+- Some quiz files mixed function definitions with immediate execution, which makes them harder to import, test, and analyze (import/script mixing **candidate**).
+- Some functions relied on a global `score` instead of the parameter passed into the function, causing **hidden global-state coupling** (**validated in source**).
+- The **`polygons`** part tries to model geometry with a `Polygon` class and helper functions, but `polygons.py` mixed class definition, helper logic, TODO/tutorial text, and runnable script behavior.
+- The broken syntax in `polygons.py` and `mathsquiz.py` blocked reliable static/AST validation, so fixing it was necessary before deeper architectural analysis could be trusted.
+
+The main architecture understanding was that the repo is a **tutorial-style codebase** where scripts, examples, functions, classes, and documentation are mixed together. The safe repair focused on making the most broken parts importable and analyzable **without pretending to redesign the whole repository**.
+
+---
+
+## What the graph made the agents focus on
+
+| Graph signal | What it pointed to | Why it mattered | Action |
+| --- | --- | --- | --- |
+| High centrality / hub | `polygons.py` | Central geometry file connected to `Polygon`, helper functions, and TODO/tutorial nodes | Validate source and mark mixed responsibility |
+| Documentation hub | `Maths Quiz` | README/tutorial node connected to quiz steps and objectives | Use as navigation entry point, not as proof by itself |
+| Repeated quiz step nodes | `mathsquiz-step2.py`, `mathsquiz-step3.py` | Similar responsibilities repeated across versions | Inspect for hidden state and import/script mixing |
+| Class/function cluster | `Polygon`, `calc_polygon_details()`, `draw_polygon()` | Revealed object-oriented intent but script-style implementation | Keep OOP diagram and recommend further refactor |
+| Disconnected communities | separate maths/polygon/doc clusters | Repo is collection of examples, not one cohesive app | Explain architecture as educational clusters |
+| Syntax/code-health blockers | `mathsquiz.py`, `polygons.py` | Prevented reliable import/testing/static analysis | Apply safe local repair |
+
+This is why the agent did **not randomly read every file**. It used the graph to choose entry points, then **validated each candidate in the source code**.
+
+---
+
+## Architecture bugs and design smells found
+
+We found **architecture/design issues**, not only syntax bugs.
+
+| Category | Count before | Count after | Architecture meaning |
+| --- | ---: | ---: | --- |
+| Code-health blockers | 2 | 0 | Files could not be reliably parsed/imported before repair |
+| Hidden global state | 7 | 0 | Quiz logic depended on shared global score instead of explicit data flow |
+| Import/script mixing | 2 | 0 | Files executed behavior at import time instead of separating library code from script entry points |
+| Mixed responsibility | 1 | 1 | `polygons.py` still combines class/helper/tutorial/script concerns; kept for **manual review** |
+| Possible hubs / god-node candidates | 4 | 4 | Central nodes remain important architectural navigation points, not automatically bad |
+| Documentation/navigation/organization findings | 3 | 3 | Some documentation nodes remain central and some clusters remain disconnected |
+
+The safe repair fixed code-health blockers, hidden global-state patterns, and import/script mixing. The project **intentionally did not perform a large redesign** because that would be risky and beyond safe local repair. Remaining architecture findings are documented as recommendations/**manual review**, not ignored.
+
+---
+
+## Safe repair story: before → change → after
+
+**Before:** Some files were not reliable as importable Python modules. Script execution and globals made testing and graph analysis noisy. `polygons.py` mixed object model and executable/tutorial behavior. `mathsquiz-step2.py` and `mathsquiz-step3.py` reused global score-like behavior.
+
+**Fix:** Converted broken Python syntax to valid Python 3. Added/kept `if __name__ == "__main__"` guards where needed. Replaced hidden global score usage with explicit parameters. Kept changes small and reversible. Saved diffs/backups under `artifacts/patches/before/backups/` and `artifacts/patches/before/diffs/`.
+
+**After:** Code-health blockers went **2 → 0**. Hidden global state went **7 → 0**. Import/script mixing went **2 → 0**. Before/after graph became easier to explain: **26 nodes / 20 links → 25 nodes / 19 links**. Tests and validation passed (**144 passed**, **89.86%** coverage, Ruff **clean**).
+
+This is **not a claim that the whole architecture became perfect**. It is a **safe architectural cleanup** that improved importability, reduced hidden coupling, and made the graph story clearer.
 
 ---
 
@@ -230,23 +356,29 @@ Graphify produced a **graph-based view of the code** (nodes = functions/classes/
 4. **Architecture detection:** findings combine graph metrics with read-only source scans.
 5. **Graphify (after repair):** `--force` rerun → `artifacts/graph/after/` (**25 nodes, 19 links**).
 
-**Screenshots from Obsidian are still manual** and must be added under `assets/screenshots/` before final submission.
+**Screenshots were captured manually** and are embedded below for GitHub submission evidence.
 
-### Screenshot placeholders (manual capture required)
+### What the screenshots show
 
-Screenshots are **not auto-generated**. They must be captured manually for the lecturer (Obsidian → evidence in README).
+#### Obsidian index screenshot
 
-1. Open **Obsidian**.
-2. Open vault folder: `C:\Users\ameer\OneDrive\Desktop\Ai-wdefe3\obsidian`
-3. Capture and save under `assets/screenshots/`:
-   - `obsidian_index.png` — `index.md`
-   - `obsidian_hot.png` — `hot.md`
-   - `obsidian_graph_view.png` — Obsidian graph view (Ctrl+G)
-   - `graphify_before.png` — open `artifacts/graph/before/graph.html` in browser
-   - `graphify_after.png` — open `artifacts/graph/after/graph.html` in browser
-4. After PNGs exist, GitHub README will display the images below.
+The `index.md` screenshot shows the Obsidian vault acting as the main knowledge map. It summarizes the latest generated graph, lists node/link/community counts, and exposes top hubs such as `polygons.py`, `Maths Quiz`, and `mathsquiz-step2.py`. This is the entry point for reading the architecture.
 
-**After screenshots are added**, these links will render in GitHub:
+#### Obsidian hot screenshot
+
+The `hot.md` screenshot shows the dynamic investigation list. It ranks suspicious or important nodes instead of asking the agent to read every file. The page also warns not to patch directly from the graph alone, which shows that graph signals were treated as investigation **candidates** and then **validated in source/tests**.
+
+#### Obsidian graph view screenshot
+
+The Obsidian graph view shows the linked Markdown knowledge base. The visible hubs `index`, `hot`, and `graph_summary` connect to source-node pages, showing that the vault is a navigable knowledge system rather than a folder of disconnected Markdown files.
+
+#### Graphify before screenshot
+
+The Graphify before screenshot shows the original architecture clusters. It exposes the polygon cluster, quiz clusters, documentation nodes, and disconnected example communities. This view helped identify central files and architecture smells before repair.
+
+#### Graphify after screenshot
+
+The Graphify after screenshot shows the graph after safe repair and validation. The graph is still a small tutorial-style repository, but the code-health blockers and hidden state findings were reduced, while remaining structural issues were kept as **manual-review** recommendations.
 
 ![Obsidian index](assets/screenshots/obsidian_index.png)
 ![Obsidian hot](assets/screenshots/obsidian_hot.png)
@@ -423,7 +555,7 @@ Reports: `reports/tests/regression_before.json`, `regression_after.json`
 
 **What remains (remaining manual review):** mixed-responsibility **candidate** in `polygons.py`; hub **candidates**; documentation/navigation/organization findings; disconnected components; multiple mathsquiz tutorial versions.
 
-**Graph metric decrease:** the graph became slightly smaller (−1 node, −1 link). This is **supporting evidence** that invalid/obsolete structure may have been removed — **not automatic proof** of better architecture. Interpret together with findings and tests. Not all bugs were solved.
+**Graph metric decrease:** the graph became slightly smaller (−1 node, −1 link). This is **supporting evidence** that invalid/obsolete structure may have been removed — **not automatic proof** of better architecture. Interpret together with findings and tests. **Architecture understanding improved** and selected safe issues were repaired; remaining items need **manual review**.
 
 ### What was not fixed on purpose
 
@@ -625,6 +757,17 @@ uv run ex04-agent pipeline --dry-run --phase after   # comparison-only when arti
 
 ---
 
+## Architecture conclusion
+
+The reverse engineering result is that `broken-python` is **not a clean layered product**. It is a tutorial/debugging repository with several small example communities. The graph made this visible: central documentation nodes explain the educational intent, while central code nodes such as `polygons.py` and the quiz step files show where runnable scripts, functions, and object-like structures are mixed. The safe repair improved importability and explicit data flow, but the larger architecture recommendation is to separate tutorial scripts, reusable library code, tests, and documentation into clearer layers.
+
+- **`mathsquiz/`** should eventually become an importable quiz package plus CLI entry point.
+- **`polygons/`** should separate `Polygon` model, calculation helpers, drawing/CLI/demo code, and tests.
+- Documentation/tutorial files should link to tested examples, not act as hidden source of behavior.
+- Graph-guided navigation should remain because it explains which files are central and why.
+
+---
+
 ## Requirement coverage checklist
 
 | Requirement | Status | Evidence |
@@ -633,13 +776,13 @@ uv run ex04-agent pipeline --dry-run --phase after   # comparison-only when arti
 | LangGraph agent workflow | Done | `src/ex04_agent/workflow/`, `reports/agent_runs/` |
 | Graphify outputs | Done | `artifacts/graph/before/`, `artifacts/graph/after/` |
 | Obsidian vault with linked Markdown | Done | `obsidian/index.md`, `obsidian/hot.md`, `obsidian/nodes/` |
-| Bug analysis with root cause and fix | Done | `reports/architecture/findings_before.md`, `patch_result_before.md` |
+| Architecture/code-health analysis with root cause and safe repair | Done | `reports/architecture/findings_before.md`, `patch_result_before.md` |
 | Token comparison baseline vs graph-guided | Done | `reports/token_efficiency/token_efficiency.md` |
 | Architecture block diagram | Done | README §3 — Architecture block diagram |
 | OOP diagram | Done | README §3 — OOP/Class diagram |
 | Before/after proof | Done | `reports/comparison/before_after.md` |
 | Extensions/original ideas | Done | Dynamic `hot.md`, deterministic detectors, safe patcher, comparison guard, token bundles — see §Original extensions |
-| Screenshots/visuals | Pending manual capture | `assets/screenshots/README.md` |
+| Screenshots/visuals | Done | `assets/screenshots/` — captured manually and embedded in README |
 
 ---
 
@@ -662,10 +805,9 @@ uv run ex04-agent pipeline --dry-run --phase after   # comparison-only when arti
 - [x] No secrets — `.env-example` only
 - [x] `uv.lock` exists
 - [x] `.venv` not committed
-- [ ] Obsidian screenshots captured → `assets/screenshots/` (manual — see TODO above)
-- [ ] Final clean zip created (exclude `.venv/`, caches, `.coverage`, `*.zip`)
+- [x] Obsidian and Graphify screenshots captured → `assets/screenshots/` (embedded in README above)
 
-Zip instructions: `reports/final/final_submission_checklist.md`
+Submission is the **GitHub repository and README** — no zip file required.
 
 ---
 

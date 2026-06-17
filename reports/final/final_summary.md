@@ -59,7 +59,13 @@ See root `README.md` — **Original extensions and group contribution**: dynamic
 
 ---
 
-## Compliance highlights (EX04 §5)
+## Architecture narrative (README)
+
+The GitHub README includes lecturer-facing sections: graph story, before/after architecture story, source understanding, graph focus table, architecture bugs/design smells, safe repair story, screenshot explanations, and architecture conclusion.
+
+## Screenshot status
+
+All required Obsidian and Graphify screenshots are captured under `assets/screenshots/` and embedded in the GitHub README.
 
 - **Research questions:** 8 questions with method/evidence/result — see root `README.md` §2
 - **What to inspect first:** table in root `README.md`

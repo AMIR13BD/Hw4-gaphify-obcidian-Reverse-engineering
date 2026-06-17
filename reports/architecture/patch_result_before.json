@@ -1,8 +1,58 @@
 {
   "phase": "before",
-  "allow_patches": false,
-  "changed_files": [],
-  "applied_items": [],
+  "allow_patches": true,
+  "changed_files": [
+    "mathsquiz/mathsquiz.py",
+    "polygons/polygons.py",
+    "mathsquiz/mathsquiz-step2.py",
+    "mathsquiz/mathsquiz-step3.py"
+  ],
+  "applied_items": [
+    {
+      "recommendation_id": "rec_017_execution_blocker_mathsquiz_mathsquiz.py",
+      "finding_id": "execution_blocker_mathsquiz_mathsquiz.py",
+      "affected_file": "mathsquiz/mathsquiz.py",
+      "status": "applied",
+      "reason": "patch applied and validated",
+      "backup_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\patches\\before\\backups\\mathsquiz.py.bak",
+      "diff_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\patches\\before\\diffs\\mathsquiz_mathsquiz_py.diff",
+      "validation_command": "uv run pytest -q",
+      "validation_output": ""
+    },
+    {
+      "recommendation_id": "rec_018_execution_blocker_polygons_polygons.py",
+      "finding_id": "execution_blocker_polygons_polygons.py",
+      "affected_file": "polygons/polygons.py",
+      "status": "applied",
+      "reason": "patch applied and validated",
+      "backup_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\patches\\before\\backups\\polygons.py.bak",
+      "diff_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\patches\\before\\diffs\\polygons_polygons_py.diff",
+      "validation_command": "uv run pytest -q",
+      "validation_output": ""
+    },
+    {
+      "recommendation_id": "rec_009_top_level_mathsquiz_mathsquiz-step2_py",
+      "finding_id": "top_level_mathsquiz_mathsquiz-step2_py",
+      "affected_file": "mathsquiz/mathsquiz-step2.py",
+      "status": "applied",
+      "reason": "patch applied and validated",
+      "backup_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\patches\\before\\backups\\mathsquiz-step2.py.bak",
+      "diff_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\patches\\before\\diffs\\mathsquiz_mathsquiz-step2_py.diff",
+      "validation_command": "uv run pytest -q",
+      "validation_output": ""
+    },
+    {
+      "recommendation_id": "rec_015_hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+      "finding_id": "hidden_global_mathsquiz_mathsquiz-step3.py_print_final_scores",
+      "affected_file": "mathsquiz/mathsquiz-step3.py",
+      "status": "applied",
+      "reason": "patch applied and validated",
+      "backup_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\patches\\before\\backups\\mathsquiz-step3.py.bak",
+      "diff_path": "C:\\Users\\ameer\\OneDrive\\Desktop\\Ai-wdefe3\\artifacts\\patches\\before\\diffs\\mathsquiz_mathsquiz-step3_py.diff",
+      "validation_command": "uv run pytest -q",
+      "validation_output": ""
+    }
+  ],
   "skipped_items": [],
   "failed_items": [],
   "rolled_back_items": [],

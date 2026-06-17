@@ -1,52 +1,36 @@
-# Screenshot Placeholders — EX04 Submission
+# Screenshot Evidence — EX04 Submission
 
-The course requires screenshots showing Obsidian vault navigation and graph views as evidence of graph-guided reverse engineering.
+Screenshots were **captured manually** and are referenced by the GitHub README as evidence of graph-guided reverse engineering.
 
-## Required screenshots
-
-Save the following PNG files in this directory:
+## Captured screenshots
 
 | Filename | Content |
 | --- | --- |
 | `obsidian_index.png` | Obsidian showing `index.md` with vault navigation links |
 | `obsidian_hot.png` | Obsidian showing `hot.md` with ranked investigation candidates |
 | `obsidian_graph_view.png` | Obsidian graph view of node pages and links |
-| `graphify_before.png` | Graphify HTML/graph view before patches (optional but recommended) |
-| `graphify_after.png` | Graphify HTML/graph view after patches (optional but recommended) |
+| `graphify_before.png` | Graphify HTML/graph view before safe repair |
+| `graphify_after.png` | Graphify HTML/graph view after safe repair |
 
-## How to capture (manual step)
+## How they were captured
 
-1. Open **Obsidian**.
-2. Open vault folder:
+1. Open **Obsidian** with vault folder: `obsidian/`
+2. Capture `index.md`, `hot.md`, and Obsidian **Graph view** (Ctrl+G)
+3. Open `artifacts/graph/before/graph.html` and `artifacts/graph/after/graph.html` in a browser for Graphify captures
+4. Save PNG files in this directory
 
-   ```
-   C:\Users\ameer\OneDrive\Desktop\Ai-wdefe3\obsidian
-   ```
+## GitHub README links
 
-3. Take screenshots of:
-   - `index.md`
-   - `hot.md`
-   - Obsidian **Graph view** (Ctrl+G or left ribbon)
-4. Save PNG files here under `assets/screenshots/`.
-5. GitHub README already contains image links — they will display once PNGs exist:
+The root `README.md` embeds these images:
 
-   ```md
-   ![Obsidian index](assets/screenshots/obsidian_index.png)
-   ![Obsidian hot](assets/screenshots/obsidian_hot.png)
-   ![Obsidian graph view](assets/screenshots/obsidian_graph_view.png)
-   ![Graphify before](assets/screenshots/graphify_before.png)
-   ![Graphify after](assets/screenshots/graphify_after.png)
-   ```
-
-## Graphify screenshots (optional)
-
-Open in a browser:
-
-- `artifacts/graph/before/graph.html`
-- `artifacts/graph/after/graph.html`
-
-Capture the rendered graph and save as `graphify_before.png` / `graphify_after.png`.
+```md
+![Obsidian index](assets/screenshots/obsidian_index.png)
+![Obsidian hot](assets/screenshots/obsidian_hot.png)
+![Obsidian graph view](assets/screenshots/obsidian_graph_view.png)
+![Graphify before](assets/screenshots/graphify_before.png)
+![Graphify after](assets/screenshots/graphify_after.png)
+```
 
 ## Status
 
-Screenshots are **not auto-generated** by this project. Placeholder paths are referenced in `README.md` until manual capture is complete.
+All required screenshots are **captured** and linked from the GitHub README.

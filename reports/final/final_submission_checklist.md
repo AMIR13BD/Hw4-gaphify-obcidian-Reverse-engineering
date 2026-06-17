@@ -66,9 +66,8 @@
 - [x] No secrets in git — `.env-example` only
 - [x] `uv.lock` present
 - [x] `.venv/` not committed (in `.gitignore`)
-- [x] README includes research questions (8), code repair proof, token-efficiency report, block/OOP diagrams, “What to inspect first”, requirement checklist
-- [x] `assets/screenshots/README.md` with capture instructions and image filenames
-- [ ] **Final zip:** create manually before upload
+- [x] README includes research questions (8), architecture narrative, code repair proof, token-efficiency report, block/OOP diagrams, “What to inspect first”, requirement checklist, embedded screenshots
+- [x] GitHub README is the submission surface (no zip required)
 
 ---
 
@@ -76,35 +75,27 @@
 
 | File | Status |
 | --- | --- |
-| `assets/screenshots/obsidian_index.png` | Pending manual capture |
-| `assets/screenshots/obsidian_hot.png` | Pending manual capture |
-| `assets/screenshots/obsidian_graph_view.png` | Pending manual capture |
-| `assets/screenshots/graphify_before.png` | Optional — pending |
-| `assets/screenshots/graphify_after.png` | Optional — pending |
+| `assets/screenshots/obsidian_index.png` | Captured |
+| `assets/screenshots/obsidian_hot.png` | Captured |
+| `assets/screenshots/obsidian_graph_view.png` | Captured |
+| `assets/screenshots/graphify_before.png` | Captured |
+| `assets/screenshots/graphify_after.png` | Captured |
+
+---
+
+## GitHub submission
+
+Submission is the **GitHub repository and README** — no zip file required.
 
 ---
 
 ## GitHub commit status
 
 - Phases 0–14 approved and pushed.
-- Phase 15 (README, final reports) ready for commit after Obsidian screenshots (optional before push).
-
----
-
-## Creating a clean submission zip (manual)
-
-From the project root, exclude caches and virtualenv. Example (PowerShell):
-
-```powershell
-$exclude = @('.venv','.pytest_cache','.ruff_cache','__pycache__','.coverage','*.zip')
-# Use your preferred zip tool; ensure excluded paths are not included.
-# Verify zip opens and `uv sync && uv run pytest` works from extracted copy.
-```
-
-**Do not include:** `.venv/`, `.pytest_cache/`, `.ruff_cache/`, `__pycache__/`, `.coverage`, existing `*.zip` files.
+- Phase 15 (README, final reports, screenshots) ready for GitHub submission.
 
 ---
 
 ## Blockers
 
-None for code/reports. **Manual:** Obsidian screenshots and final zip creation.
+None.

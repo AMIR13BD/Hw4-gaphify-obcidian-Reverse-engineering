@@ -12,6 +12,7 @@ from ex04_agent.cli.handlers_graph import (
 from ex04_agent.cli.handlers_workflow import (
     run_compare,
     run_detect,
+    run_llm_review,
     run_patch,
     run_pipeline,
     run_recommend,
@@ -24,6 +25,7 @@ __all__ = (
     "run_detect",
     "run_graphify",
     "run_health",
+    "run_llm_review",
     "run_hotmd",
     "run_obsidian",
     "run_parse",

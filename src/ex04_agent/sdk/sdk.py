@@ -73,3 +73,12 @@ class Ex04Sdk:
         engine = TokenEfficiencyEngine(self._config)
         result = engine.run(phase=phase)
         return engine.summary(result)
+
+    def run_llm_review(self, *, phase: str = "before"):
+        """Run optional graph-guided LLM review (requires OPENAI_API_KEY)."""
+        if phase not in {"before", "after"}:
+            msg = f"Invalid phase {phase!r}; expected 'before' or 'after'"
+            raise ValueError(msg)
+        from ex04_agent.llm_review.engine import LlmReviewEngine
+
+        return LlmReviewEngine(self._config).run(phase=phase)

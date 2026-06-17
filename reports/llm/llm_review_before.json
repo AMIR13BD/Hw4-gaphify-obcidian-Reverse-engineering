@@ -1,0 +1,17 @@
+{
+  "model_name": "gpt-4o-mini",
+  "input_files_used": [
+    "obsidian/hot.md",
+    "obsidian/index.md",
+    "reports/architecture/findings_before.md",
+    "reports/architecture/recommendations_before.md"
+  ],
+  "character_count": 29248,
+  "estimated_input_tokens": 7312,
+  "provider_prompt_tokens": 6927,
+  "provider_completion_tokens": 252,
+  "provider_total_tokens": 7179,
+  "timestamp": "2026-06-17T10:53:20.434045+00:00",
+  "llm_calls": 1,
+  "phase": "before"
+}

@@ -10,6 +10,7 @@ from ex04_agent.cli.handlers import (
     run_graphify,
     run_health,
     run_hotmd,
+    run_llm_review,
     run_obsidian,
     run_parse,
     run_patch,
@@ -65,6 +66,9 @@ def build_parser() -> argparse.ArgumentParser:
     token = sp.add_parser("token-report", help="Generate token/context-efficiency analysis")
     _add_phase(token)
     token.set_defaults(func=run_token_report)
+    llm = sp.add_parser("llm-review", help="Optional graph-guided LLM review (single call)")
+    _add_phase(llm)
+    llm.set_defaults(func=run_llm_review)
     pipe = sp.add_parser("pipeline", help="Run LangGraph multi-agent pipeline")
     _add_phase(pipe)
     pipe.add_argument("--dry-run", action="store_true", default=True)

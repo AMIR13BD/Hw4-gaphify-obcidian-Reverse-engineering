@@ -107,3 +107,15 @@ def run_token_report(args: argparse.Namespace) -> int:
 
     result = run_guarded(_run)
     return result if isinstance(result, int) else 0
+
+
+def run_llm_review(args: argparse.Namespace) -> int:
+    def _run() -> int:
+        from ex04_agent.llm_review.engine import LlmReviewEngine
+
+        review = LlmReviewEngine(Ex04Sdk().config).run(phase=args.phase)
+        print(json.dumps(review.to_dict(), indent=2))
+        return 0
+
+    result = run_guarded(_run)
+    return result if isinstance(result, int) else 0

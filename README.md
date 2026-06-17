@@ -15,6 +15,23 @@ We chose this repo because it is a **small, unfamiliar Python teaching project**
 
 ---
 
+## What to inspect first
+
+| What to inspect | Path |
+| --- | --- |
+| Final README/report | `README.md` |
+| Obsidian navigation | `obsidian/index.md`, `obsidian/hot.md` |
+| Graphify before/after | `artifacts/graph/before/`, `artifacts/graph/after/` |
+| Agent workflow traces | `reports/agent_runs/` |
+| Architecture findings before/after | `reports/architecture/findings_before.md`, `reports/architecture/findings_after.md` |
+| Recommendations and patch plan | `reports/architecture/recommendations_before.md`, `reports/architecture/patch_plan_before.md` |
+| Safe patch result | `reports/architecture/patch_result_before.md` |
+| Validation report | `reports/tests/regression_before.md` |
+| Before/after comparison | `reports/comparison/before_after.md` |
+| Token-efficiency proof | `reports/token_efficiency/token_efficiency.md` |
+
+---
+
 ## 2. Research questions
 
 Assignment research questions mapped to method, evidence, and results:
@@ -27,8 +44,8 @@ Assignment research questions mapped to method, evidence, and results:
 | **4.** How can we derive an architecture block diagram and OOP/class diagram from the source when documentation is incomplete? | Graphify extraction + our agent OOP design + Mermaid diagrams in this README | README §3 block diagram, README OOP class diagram, `artifacts/graph/before/graph.html` | Block diagram shows pipeline modules; class diagram shows **our solution’s** agent/engine separation (target repo is small — e.g. `Polygon` class only) |
 | **5.** How did the agent identify the bug/code-health problem, what was the root cause, and what steps led to it? | Deterministic detectors + recommendation loop + safe patch | `reports/architecture/findings_before.md`, `reports/architecture/recommendations_before.md`, `reports/architecture/patch_result_before.md` | Syntax blockers (Python 2 / invalid syntax), hidden globals, import-time side effects identified; **4 safe local fixes** applied; root causes documented per file in §Code repair proof |
 | **6.** What is the benefit of graph visualization and Obsidian navigation vs reading files linearly? | Obsidian vault + hot.md ranking + graph view | `obsidian/index.md`, `obsidian/hot.md`, `obsidian/nodes/` | Non-linear navigation to hub **candidates** and linked evidence; `hot.md` prioritizes investigation targets vs reading all 7 source files |
-| **7.** How did graph-guided context reduce AI context/token usage vs naive full-context workflow? | Token-efficiency engine: naive bundles vs graph-guided bundles | `reports/token_efficiency/token_efficiency.md`, `reports/comparison/before_after.md` | **211,532 → 42,568** estimated tokens (**79.88%** saved); graph-guided bundles use hot.md, metrics, affected files — see §Token-saving proof |
-| **8.** What original extensions or extra agent mechanisms were added beyond the minimum? | Dynamic hot.md, phase guards, comparison-only pipeline, token report | `artifacts/hotmd/`, `reports/comparison/before_after.md`, `src/ex04_agent/shared/phase_paths.py` | Git-diff-aware **dynamic hot.md**; frozen before-artifact guards; deterministic comparison + token-efficiency modules |
+| **7.** How did graph-guided context reduce AI context/token usage vs naive full-context workflow? | Token-efficiency engine: naive bundles vs graph-guided bundles | `reports/token_efficiency/token_efficiency.md`, `reports/comparison/before_after.md` | **211,532 → 42,568** estimated tokens (**79.88%** saved); graph-guided bundles use hot.md, metrics, affected files — see §Token-efficiency report |
+| **8.** What original extensions or extra agent mechanisms were added beyond the minimum? | Dynamic hot.md, deterministic detectors, safe patcher, comparison guard, token bundles, agent traces | `artifacts/hotmd/`, `reports/comparison/before_after.md`, `reports/token_efficiency/token_efficiency.md` | Git-diff-aware **dynamic hot.md**; read-only before/after comparison; token-efficiency analysis; one-responsibility agents — see §Original extensions |
 
 ---
 
@@ -86,10 +103,10 @@ flowchart TB
 | `reports/` | Architecture, tests, comparison, token efficiency, agent traces, phase reports |
 | `artifacts/` | Graphify output, patch diffs/backups, hot.md snapshots |
 | `obsidian/` | Generated vault for human navigation (`index.md`, `hot.md`, node pages) |
-| `data/target_repo/broken-python/` | Cloned target (patched in Phase 10; not modified in Phases 12–15 tooling) |
+| `data/target_repo/broken-python/` | Cloned target (patched during the safe repair step; tooling runs are read-only on frozen before/after evidence) |
 | `config/setup.json` | Project configuration (no secrets) |
 
-### OOP / class diagram
+### OOP/Class diagram
 
 This is the **OOP/system-level class view of our solution** (`ex04-agent`), not the target repo. The target repo is small and contains classes/functions such as `Polygon` in `polygons.py`. The important OOP idea here is **separation of agent responsibilities** and **service engines** behind thin agents.
 
@@ -165,6 +182,10 @@ classDiagram
 
 ## 4. Multi-agent workflow
 
+End-to-end workflow (what the project actually does):
+
+**Graphify (before) → Obsidian knowledge base → findings → recommendations → patch plan → safe repair → validation → Graphify (after) → comparison → token-efficiency analysis**
+
 Linear **LangGraph** pipeline (`uv run ex04-agent pipeline --dry-run --phase before|after`). Traces: `reports/agent_runs/<timestamp>/`.
 
 | Agent | Responsibility |
@@ -182,17 +203,34 @@ Linear **LangGraph** pipeline (`uv run ex04-agent pipeline --dry-run --phase bef
 | **ComparisonReportAgent** | Before/after comparison (read-only on frozen artifacts) |
 | **SupervisorAgent** | Set pipeline stop reason |
 
-After-phase dry-run skips artifact regeneration when before/after files exist and runs comparison only (Phase 13 guard).
+After a repair run, a dry-run pipeline can run **comparison only** (skips regenerating graph/findings) when before and after artifacts already exist — preserving frozen evidence.
 
 ---
 
 ## 5. Graphify + Obsidian reverse engineering
 
-1. **Graphify (before):** `graphify update .` on broken-python → `artifacts/graph/before/` (26 nodes, 20 links).
-2. **Parser:** `metrics_before.json` — degree, hubs, communities, god-node candidates.
-3. **Obsidian vault:** `obsidian/index.md` (navigation), static + dynamic **`obsidian/hot.md`** (ranked candidates), `obsidian/nodes/*.md` for top hubs.
-4. **Detection:** findings combine graph metrics with read-only source scans.
-5. **Graphify (after):** `--force` rerun on patched repo → `artifacts/graph/after/` (25 nodes, 19 links).
+Graphify produced a **graph-based view of the code** (nodes = functions/classes/files, links = relationships) — not just a file list. The **Obsidian vault** is a structured **knowledge base** with cross-linked pages, not merely generated Markdown dumped in a folder.
+
+| Obsidian artifact | Purpose |
+| --- | --- |
+| `obsidian/index.md` | Main navigation page showing graph summary and key links |
+| `obsidian/hot.md` | Focused investigation page ranking important **candidates** |
+| `obsidian/nodes/` | Per-node pages for hubs, source files, and graph entities |
+| `obsidian/reports/graph_summary.md` | Human-readable graph summary |
+| `artifacts/graph/before/graph.html` | Graphify visual output before repair |
+| `artifacts/graph/after/graph.html` | Graphify visual output after repair |
+
+**Non-linear reading path:** hub page → source file node → finding → recommendation (instead of reading every `.py` file in order).
+
+### Workflow steps
+
+1. **Graphify (before):** `graphify update .` → `artifacts/graph/before/` (**26 nodes, 20 links**).
+2. **Metrics parser:** `metrics_before.json` — degree, hubs, communities, god-node **candidates**.
+3. **Obsidian vault:** `index.md` (navigation), dynamic **`hot.md`** (ranked **candidates**), `nodes/*.md` for top hubs.
+4. **Architecture detection:** findings combine graph metrics with read-only source scans.
+5. **Graphify (after repair):** `--force` rerun → `artifacts/graph/after/` (**25 nodes, 19 links**).
+
+**Screenshots from Obsidian are still manual** and must be added under `assets/screenshots/` before final submission.
 
 ### Screenshot placeholders (manual capture required)
 
@@ -251,10 +289,10 @@ After **19 findings**, `RecommendationAgent` produced **19 recommendations** bef
 | --- | ---: | --- |
 | `review_required` | **16** | Human or agent should validate before changing code — **not** “unsafe to fix,” but “do not patch blindly” |
 | `docs_only` | **3** | Documentation/navigation guidance; no code change expected |
-| `safe_auto` | **0** | No fully automated recipes for this repo in Phase 9 |
+| `safe_auto` | **0** | No fully automated recipes for this repo in the recommendation step |
 | `defer` | **0** | Nothing explicitly deferred |
 
-**Important:** `review_required` means the system should **not** apply changes without validation against graph + source evidence. Phase 10 selected only **small, safe, local code-health fixes** from the recommendation and patch plan — not every recommendation became a patch.
+**Important:** `review_required` means the system should **not** apply changes without validation against graph + source evidence. The safe repair step selected only **small, safe, local code-health fixes** from the recommendation and patch plan — not every recommendation became a patch.
 
 ### Top 5 recommendations (before patch)
 
@@ -264,7 +302,7 @@ After **19 findings**, `RecommendationAgent` produced **19 recommendations** bef
 4. **Possible top-level execution** in `polygons/polygons.py` (import/script mixing candidate).
 5. **Possible top-level execution / hidden-state issues** in mathsquiz step files (`mathsquiz-step2.py`, `mathsquiz-step3.py`).
 
-Structural refactors (e.g. splitting `polygons.py` into modules) and **docs-only** recommendations were **intentionally not patched** in Phase 10. The patch plan grouped safe items separately from manual-review architecture work.
+Structural refactors (e.g. splitting `polygons.py` into modules) and **docs-only** recommendations were **intentionally not patched** during safe repair. The patch plan grouped safe items separately from manual-review architecture work.
 
 **Evidence:**
 
@@ -273,9 +311,9 @@ Structural refactors (e.g. splitting `polygons.py` into modules) and **docs-only
 
 ---
 
-## 7. Safe patch story (Phase 10)
+## 7. Safe patch and repair process
 
-Phase 10 **did not apply all 19 recommendations**. It applied only **whitelisted, minimal, reversible code-health fixes** that had deterministic recipes. The patcher wrote **backups and diffs before changing any file** so each change could be audited or rolled back.
+The safe repair step **did not apply all 19 recommendations**. It applied only **whitelisted, minimal, reversible code-health fixes** that had deterministic recipes. The patcher wrote **backups and diffs before changing any file** so each change could be audited or rolled back.
 
 **Why this matters:** safe agentic repair should avoid aggressive architecture rewrites on an unfamiliar teaching repo. Patching every recommendation would mix syntax fixes with structural refactors the system is not authorized to perform automatically.
 
@@ -296,7 +334,15 @@ Evidence: `reports/architecture/patch_result_before.json`
 
 ---
 
-## Code repair and validation proof (§5.4)
+## Code repair and validation proof
+
+| Item | Detail |
+| --- | --- |
+| **Problem** | Broken target repo: syntax errors, invalid class definitions, hidden global state, tutorial duplication |
+| **Root cause (validated by source)** | `mathsquiz.py` had syntax/code-health blockers; `polygons.py` had invalid class/constructor/main-script issues; `mathsquiz-step2.py` and `mathsquiz-step3.py` had hidden global-state issues |
+| **Fix (safe local repair)** | 4 whitelisted patches applied; 0 failed; 0 rolled back |
+| **Validation** | `compile`, AST parse, project test suite (**144 passed**), coverage (**89.86%**), Ruff (**clean**). Target-repo tests were **skipped honestly** because `martinpeck/broken-python` has no test suite |
+| **Before/after effect** | Findings **19 → 8**; recommendations **19 → 8**; graph **26/20 → 25/19** nodes/links |
 
 This section answers: **what was the problem, why was it bad, root cause, exact fix, validation, and after-state.**
 
@@ -333,7 +379,7 @@ Remaining **8** findings are manual-review, hub **candidates**, and documentatio
 
 ---
 
-## 8. Regression validation (Phase 11)
+## 8. Regression and validation after repair
 
 | Check | Status |
 | --- | --- |
@@ -371,7 +417,7 @@ Reports: `reports/tests/regression_before.json`, `regression_after.json`
 | Possible hubs | 4 | 4 | Graph still points to central files (candidates) |
 | Docs / navigation / organization | 3 | 3 | Expected in a small teaching repo |
 
-**Recommendations after patching:** dropped from **19 → 8**. The remaining **8** are mainly manual-review, hub-candidate, or documentation/navigation items. This is **expected** because Phase 10 intentionally avoided aggressive architecture refactoring.
+**Recommendations after patching:** dropped from **19 → 8**. The remaining **8** are mainly manual-review, hub-candidate, or documentation/navigation items. This is **expected** because safe repair intentionally avoided aggressive architecture refactoring.
 
 **What improved:** syntax blockers cleared; hidden-global and top-level side-effect findings no longer detected on patched code.
 
@@ -440,7 +486,15 @@ Graph metric decrease is **supporting evidence**, not proof that all architectur
 
 ---
 
-## Token-saving proof (§5.5)
+## Token-efficiency and graph-guided context report
+
+Token counts are **deterministic estimates** using `ceil(character_count / 4)`, **not** provider billing.
+
+| Metric | Value |
+| --- | ---: |
+| Baseline (naive) | **211,532** estimated tokens |
+| Graph-guided | **42,568** estimated tokens |
+| **Saved** | **168,964 estimated tokens (79.88%)** |
 
 ### Scenario comparison
 
@@ -473,17 +527,42 @@ Report: `reports/token_efficiency/token_efficiency.md`
 
 ---
 
-## 11. Original extension — dynamic `hot.md`
+## Original extensions and group contribution
 
-Dynamic hot ranking combines:
+These extensions were added to make the project more than a simple script. They show how graph-guided agents can focus investigation, preserve evidence, and avoid unsafe automatic refactoring.
 
-- Graph metrics (degree, betweenness, hub/god-node flags)
-- Git diff proximity (changed files rank higher)
-- Configurable weights in `config/setup.json`
+### 1. Dynamic `hot.md`
 
-Snapshots: `artifacts/hotmd/hot_before_*.md`, `hot_after_*.md`
+- Ranks important nodes using graph metrics (degree, betweenness, hub/god-node flags).
+- Also supports **git-diff proximity** (changed files rank higher).
+- Saves snapshots under `artifacts/hotmd/` (`hot_before_*.md`, `hot_after_*.md`).
+- Command: `uv run ex04-agent hotmd --phase before`
 
-Command: `uv run ex04-agent hotmd --phase before`
+### 2. Deterministic architecture detectors
+
+- Detects possible hubs, mixed responsibility, top-level execution, hidden global state, syntax blockers, disconnected components, and tutorial duplication.
+- Does **not** use fake LLM claims — findings cite graph metrics and read-only source scans.
+
+### 3. Safe patcher with backups and diffs
+
+- Only **whitelisted** target files.
+- **Dry-run by default**; apply only with `--allow-patches`.
+- Rollback-aware design; diffs and backups saved under `artifacts/patches/before/`.
+
+### 4. Read-only before/after comparison guard
+
+- Prevents comparison from overwriting **before** artifacts when both before and after evidence exist.
+- Keeps before and after evidence frozen for the lecturer.
+
+### 5. Token-efficiency bundles
+
+- Compares naive full-repo context to graph-guided context bundles.
+- Reports estimated token savings and **limitations** (see §Token-efficiency report).
+
+### 6. Agent traceability
+
+- Agent run traces under `reports/agent_runs/<timestamp>/`.
+- Each agent has **one responsibility** in the LangGraph workflow.
 
 ---
 
@@ -494,7 +573,7 @@ Command: `uv run ex04-agent hotmd --phase before`
 uv sync
 uv run ex04-agent health
 
-# Before phase
+# Before graph/analysis run
 uv run ex04-agent graphify --phase before
 uv run ex04-agent parse --phase before
 uv run ex04-agent obsidian --phase before --dynamic-hot
@@ -504,7 +583,7 @@ uv run ex04-agent patch --phase before                    # dry-run
 uv run ex04-agent patch --phase before --allow-patches      # apply patches
 uv run ex04-agent test --phase before
 
-# After phase (post-patch Graphify)
+# After repair graph/analysis run
 uv run ex04-agent graphify --phase after
 uv run ex04-agent parse --phase after
 uv run ex04-agent detect --phase after
@@ -557,9 +636,9 @@ uv run ex04-agent pipeline --dry-run --phase after   # comparison-only when arti
 | Bug analysis with root cause and fix | Done | `reports/architecture/findings_before.md`, `patch_result_before.md` |
 | Token comparison baseline vs graph-guided | Done | `reports/token_efficiency/token_efficiency.md` |
 | Architecture block diagram | Done | README §3 — Architecture block diagram |
-| OOP diagram | Done | README §3 — OOP / class diagram |
+| OOP diagram | Done | README §3 — OOP/Class diagram |
 | Before/after proof | Done | `reports/comparison/before_after.md` |
-| Extensions/original ideas | Done | Dynamic `hot.md`, git-diff ranking, phase guards, comparison/token reports |
+| Extensions/original ideas | Done | Dynamic `hot.md`, deterministic detectors, safe patcher, comparison guard, token bundles — see §Original extensions |
 | Screenshots/visuals | Pending manual capture | `assets/screenshots/README.md` |
 
 ---

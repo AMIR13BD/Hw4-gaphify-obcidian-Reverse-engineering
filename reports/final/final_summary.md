@@ -14,7 +14,7 @@ A deterministic multi-agent pipeline (`ex04-agent`) that:
 2. Parses graphs into **architecture metrics** and builds an **Obsidian vault** (`index.md`, `hot.md`, node pages).
 3. Detects **architecture/code-health findings** from graph + source evidence (no LLM API for detection).
 4. Generates **recommendations** and a **safe patch plan** for whitelisted files only.
-5. Applies **Phase 10 patches** with backups/diffs and validates via **compile/AST/project pytest/Ruff**.
+5. Applies **safe repair patches** with backups/diffs and validates via **compile/AST/project pytest/Ruff**.
 6. Reruns Graphify **after** patches and produces a **before/after comparison** report.
 7. Measures **token/context efficiency** (naive full dump vs graph-guided bundles).
 
@@ -53,17 +53,18 @@ All agents run in a **LangGraph** linear workflow with traces under `reports/age
 
 ---
 
-## Original extension
+## Original extensions
 
-**Dynamic `hot.md`:** ranks nodes using graph centrality, git-diff proximity, and configurable weights; snapshots under `artifacts/hotmd/`.
+See root `README.md` — **Original extensions and group contribution**: dynamic `hot.md`, deterministic detectors, safe patcher, comparison guard, token bundles, agent traces.
 
 ---
 
 ## Compliance highlights (EX04 §5)
 
 - **Research questions:** 8 questions with method/evidence/result — see root `README.md` §2
-- **§5.4 Code repair proof:** per-file table + 4 applied / 0 failed / 0 rolled back
-- **§5.5 Token-saving proof:** scenario table + proof dimensions (tokens, files, iterations, quality)
+- **What to inspect first:** table in root `README.md`
+- **Code repair proof:** per-file table + 4 applied / 0 failed / 0 rolled back
+- **Token-efficiency report:** scenario table + proof dimensions (tokens, files, iterations, quality, limitations)
 - **Block + OOP diagrams:** in README §3
 - **Requirement coverage checklist:** in README
 - **Screenshots:** manual — `assets/screenshots/README.md`

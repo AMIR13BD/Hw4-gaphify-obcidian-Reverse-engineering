@@ -3,6 +3,23 @@
 **EX04 — AI Agents (Dr. Yoram Segal)**  
 **Package:** `ex04-agent` · **Target:** [martinpeck/broken-python](https://github.com/martinpeck/broken-python)
 
+## TL;DR — headline results
+
+| Requirement / KPI | Result | Evidence |
+| --- | --- | --- |
+| Target repository | `martinpeck/broken-python`, one of the official EX04 suggested debugging repositories | `data/target_repo/broken-python/` |
+| Graphify + Obsidian | Graphify before/after artifacts and Obsidian vault with `index.md`, `hot.md`, node pages, and screenshots | `artifacts/graph/`, `obsidian/`, `assets/screenshots/` |
+| Before/after graph | `26 nodes / 20 links` before → `25 nodes / 19 links` after | `reports/comparison/before_after.md` |
+| Architecture findings | `19` findings before → `8` findings after | `reports/architecture/findings_before.md`, `findings_after.md` |
+| Recommendations | `19` recommendations before → `8` recommendations after | `reports/architecture/recommendations_before.md`, `recommendations_after.md` |
+| Safe repair | `4` safe patches applied, `0` failed, `0` rolled back | `reports/architecture/patch_result_before.md`, `artifacts/patches/before/` |
+| Main improvements | code-health blockers `2→0`, hidden global state `7→0`, import/script mixing `2→0` | `reports/comparison/before_after.md` |
+| Validation | `144` tests passed, coverage `89.86%`, Ruff clean | `reports/tests/regression_before.md`, `reports/tests/regression_after.md` |
+| Token efficiency | baseline `211,532` estimated tokens → graph-guided `42,568`, saved `168,964 / 79.88%` | `reports/token_efficiency/token_efficiency.md` |
+| Original extension | **Dynamic hot.md investigation engine — our main original contribution.** Instead of using Graphify only as a static visualization, the project converts graph metrics and git-diff proximity into a ranked Obsidian investigation page. This tells the human and the agent what to inspect first, reducing random file reading and supporting graph-guided debugging. The README also includes an impact report for central nodes. | `docs/PRD_dynamic_hotmd.md`, `obsidian/hot.md`, README impact report |
+
+This project intentionally chose a small official base repository instead of a large production system. The goal was not to claim enterprise-scale refactoring, but to demonstrate a complete graph-guided reverse-engineering loop: Graphify → Obsidian → architecture findings → recommendations → safe repair → validation → Graphify after → comparison → token-efficiency proof.
+
 ---
 
 ## 1. Repository choice
@@ -662,6 +679,8 @@ Report: `reports/token_efficiency/token_efficiency.md`
 ## Original extensions and group contribution
 
 These extensions were added to make the project more than a simple script. They show how graph-guided agents can focus investigation, preserve evidence, and avoid unsafe automatic refactoring.
+
+**Main original idea:** the dynamic hot.md mechanism. Graphify produces the structure, but our extension turns that structure into an actionable investigation queue. Central nodes, changed files, and architecture findings are converted into a focused Obsidian page that guides both the human reviewer and the agent toward the most important files first.
 
 ### 1. Dynamic `hot.md`
 

@@ -698,6 +698,25 @@ These extensions were added to make the project more than a simple script. They 
 
 ---
 
+## Impact report: what might break if a central node changes
+
+The graph was also used as a lightweight **impact-analysis** tool. For each central node, the question was: if this file, class, or function changes, what parts of the small repository are **likely** to be affected?
+
+| Central node | Why it matters | Possible impact if changed | Evidence used |
+| --- | --- | --- | --- |
+| `polygons.py` | Main polygon example file and highest centrality code node | Changes can affect `Polygon`, `calc_polygon_details()`, `draw_polygon()`, TODO/rationale nodes, and the polygon example flow | Graph hub degree, Graphify before/after, Obsidian `index.md`, node pages |
+| `Polygon` | Main class-like abstraction in the polygon cluster | Constructor or field changes can affect helper functions and demo/script behavior | OOP diagram, Graphify node links, source validation |
+| `calc_polygon_details()` | Helper/calculation function connected to the polygon flow | Changing calculation behavior may affect any output or drawing/demo logic that expects polygon details | Graphify function node, source inspection |
+| `mathsquiz-step2.py` | Quiz tutorial step with ranked graph importance | Changes can affect `ask_question()`, `welcome_message()`, `print_final_scores()`, and score flow | `hot.md` ranked candidates, findings for hidden global state |
+| `mathsquiz-step3.py` | Later quiz tutorial step with similar responsibilities | Changes can affect final-score printing, percentage calculation, and question flow | Graphify cluster, source validation, hidden-global-state finding |
+| `Maths Quiz` documentation node | Documentation/navigation hub for the quiz example | Changes do not directly break code, but may break reader navigation and traceability from docs to code | Obsidian graph view, documentation hub finding |
+
+This is **not a runtime dependency guarantee**. It is a **graph-guided impact estimate**. The graph points to likely affected areas, and each conclusion must still be **validated in the source code and tests**. This matches the project rule that Graphify provides investigation **candidates**, not final proof.
+
+The impact report shows why `polygons.py`, `Polygon`, and the mathsquiz step files were treated as central review targets. They are small files, but they sit on paths that connect tutorial documentation, functions, classes, and example execution. Therefore, changing them has **higher review risk** than changing an isolated README or one disconnected rationale node.
+
+---
+
 ## 12. How to run
 
 ```bash

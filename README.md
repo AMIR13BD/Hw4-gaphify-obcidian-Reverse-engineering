@@ -16,7 +16,7 @@
 | Main improvements | code-health blockers `2→0`, hidden global state `7→0`, import/script mixing `2→0` | `reports/comparison/before_after.md` |
 | Validation | `144` tests passed, coverage `89.86%`, Ruff clean | `reports/tests/regression_before.md`, `reports/tests/regression_after.md` |
 | Token efficiency | baseline `211,532` estimated tokens → graph-guided `42,568`, saved `168,964 / 79.88%` | `reports/token_efficiency/token_efficiency.md` |
-| Optional real LLM-backed review | **1 real LLM call** after Graphify/Obsidian narrowed the context. The LLM received only `hot.md`, `index.md`, architecture findings, and recommendations — **not** the whole repository. Provider tokens: **6,927** prompt + **252** completion = **7,179** total. | `reports/llm/graph_guided_llm_review_before.md`, `reports/llm/llm_review_before.json` |
+| Recorded LLM-backed graph-guided review | **1 recorded LLM call** (`llm_calls: 1`) after Graphify/Obsidian narrowed the context. The LLM received only `hot.md`, `index.md`, architecture findings, and recommendations — **not** the whole repository. Provider tokens: **6,927** prompt + **252** completion = **7,179** total (`gpt-4o-mini`). | `reports/llm/graph_guided_llm_review_before.md`, `reports/llm/llm_review_before.json` |
 | Original extension | **Dynamic hot.md investigation engine — our main original contribution.** Instead of using Graphify only as a static visualization, the project converts graph metrics and git-diff proximity into a ranked Obsidian investigation page. This tells the human and the agent what to inspect first, reducing random file reading and supporting graph-guided debugging. The README also includes an impact report for central nodes. | `docs/PRD_dynamic_hotmd.md`, `obsidian/hot.md`, README impact report |
 
 This project intentionally chose a small official base repository instead of a large production system. The goal was not to claim enterprise-scale refactoring, but to demonstrate a complete graph-guided reverse-engineering loop: Graphify → Obsidian → architecture findings → recommendations → safe repair → validation → Graphify after → comparison → token-efficiency proof.
@@ -349,7 +349,7 @@ Linear **LangGraph** pipeline (`uv run ex04-agent pipeline --dry-run --phase bef
 
 After a repair run, a dry-run pipeline can run **comparison only** (skips regenerating graph/findings) when before and after artifacts already exist — preserving frozen evidence.
 
-In addition to the deterministic LangGraph-style workflow, the project includes an **optional real LLM-backed review** command. This command is intentionally run only **after** Graphify and Obsidian produce focused context. The LLM does **not** receive the whole repository; it receives the graph-guided evidence bundle from `hot.md`, `index.md`, findings, and recommendations. In the recorded run, this produced **one real LLM call** using `gpt-4o-mini` with **7,179** provider-reported tokens (`6,927` prompt + `252` completion). The main workflow does **not** require an API key.
+In addition to the deterministic LangGraph-style workflow, the project includes a **recorded LLM-backed graph-guided review** layer. The deterministic pipeline narrows context first; the LLM is then used as a review and explanation step over the focused evidence bundle from `hot.md`, `index.md`, findings, and recommendations — **not** the whole repository. The submitted report already contains the recorded run: **one** LLM call using `gpt-4o-mini` with **7,179** provider-reported tokens (`6,927` prompt + `252` completion, `llm_calls: 1`). Rerunning the command is optional and requires `OPENAI_API_KEY`; the main workflow does **not** depend on an API key.
 
 ---
 
@@ -675,7 +675,7 @@ Token counts are **deterministic estimates** using `ceil(character_count / 4)`, 
 - Small teaching repo — graph/report JSON can exceed raw source size
 - Primary benefit: **focus and traceability**, not only raw byte reduction
 
-The main **79.88%** token-efficiency result remains a **deterministic context-size estimate**. Separately, the optional LLM review records **one real provider-backed LLM call**: **6,927** prompt tokens, **252** completion tokens, **7,179** total tokens. This demonstrates the intended pattern from the assignment: **organize context first**, then activate the LLM on a small graph-guided bundle instead of the full repository.
+The main **79.88%** token-efficiency result remains a **deterministic context-size estimate** (not provider billing). Separately, the **recorded LLM-backed graph-guided review** documents **one** real provider-backed call: **6,927** prompt tokens, **252** completion tokens, **7,179** total tokens. This demonstrates the intended pattern from the assignment: **organize context first**, then activate the LLM on a small graph-guided bundle instead of the full repository.
 
 Report: `reports/token_efficiency/token_efficiency.md`
 
@@ -720,17 +720,16 @@ These extensions were added to make the project more than a simple script. They 
 - Agent run traces under `reports/agent_runs/<timestamp>/`.
 - Each agent has **one responsibility** in the LangGraph workflow.
 
-### Optional real LLM-backed graph-guided review
+### Recorded LLM-backed graph-guided review
 
-- The main pipeline is **deterministic-first**.
-- The optional LLM review activates an LLM only **after** Graphify and Obsidian narrow the context.
-- The LLM does **not** receive the whole repo.
-- It receives `hot.md`, `index.md`, findings, and recommendations only.
-- The report is saved in `reports/llm/` (for example `graph_guided_llm_review_before.md`).
-- This adds real LLM-call evidence **without changing** the existing deterministic reports or estimated token-efficiency numbers.
-- **Recorded run:** model `gpt-4o-mini`, `llm_calls: 1`, **29,248** characters of graph-guided context, provider total **7,179** tokens.
+The deterministic graph pipeline narrows the context first. The LLM is then used as a review and explanation layer over the focused evidence bundle, not as a replacement for Graphify, source inspection, patching, or tests. This is why the recorded run uses only `hot.md`, `index.md`, findings, and recommendations instead of the whole repository.
 
-Command: `uv run ex04-agent llm-review --phase before` (requires `OPENAI_API_KEY` in the environment; the project does not depend on it for the main workflow).
+- The main pipeline is **deterministic-first**; the LLM layer sits **after** graph-guided context is prepared.
+- The submitted report is already included: `reports/llm/graph_guided_llm_review_before.md` and `reports/llm/llm_review_before.json`.
+- **Recorded run:** model `gpt-4o-mini`, `llm_calls: 1`, **29,248** characters of graph-guided context, provider total **7,179** tokens (**6,927** prompt + **252** completion).
+- This adds real LLM-call evidence **without changing** the existing deterministic reports or the **79.88%** estimated token-efficiency numbers.
+
+Rerunning is optional: `uv run ex04-agent llm-review --phase before` (requires `OPENAI_API_KEY` in the environment; the project does not depend on it for the main workflow).
 
 ---
 
@@ -807,8 +806,8 @@ uv run ex04-agent pipeline --dry-run --phase after   # comparison-only when arti
 | Regression | `reports/tests/regression_before.json` |
 | Before/after comparison | `reports/comparison/before_after.json`, `.md` |
 | Token efficiency | `reports/token_efficiency/token_efficiency.json`, `.md` |
-| Optional LLM review (markdown) | `reports/llm/graph_guided_llm_review_before.md` — real LLM graph-guided review output |
-| Optional LLM review (metadata) | `reports/llm/llm_review_before.json` — metadata for the real LLM call, including `llm_calls` and provider token usage |
+| Recorded LLM review (markdown) | `reports/llm/graph_guided_llm_review_before.md` — recorded LLM graph-guided review output |
+| Recorded LLM review (metadata) | `reports/llm/llm_review_before.json` — metadata for the recorded LLM call, including `llm_calls` and provider token usage |
 | Phase reports | `reports/**/phase*_report.md` |
 | Final checklist | `reports/final/final_submission_checklist.md` |
 
@@ -863,7 +862,7 @@ The reverse engineering result is that `broken-python` is **not a clean layered 
 - [x] `uv.lock` exists
 - [x] `.venv` not committed
 - [x] Obsidian and Graphify screenshots captured → `assets/screenshots/` (embedded in README above)
-- [x] Optional graph-guided LLM review recorded → `reports/llm/graph_guided_llm_review_before.md`, `reports/llm/llm_review_before.json`
+- [x] Recorded graph-guided LLM review included → `reports/llm/graph_guided_llm_review_before.md`, `reports/llm/llm_review_before.json`
 
 Submission is the **GitHub repository and README** — no zip file required.
 
